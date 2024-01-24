@@ -1,0 +1,51 @@
+.modal {
+  /* width: 100vw;
+  height: 100vh; */
+  /* border: 1px dashed white; */
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  /* background-image: url(../../assets/backgrounds/chaso.png); */
+  /* background-image: url(../../assets/backgrounds/bg-19.gif); */
+  background-image: url(../../assets/backgrounds/back-1.jpeg);
+}
+
+.overlay {
+  background-color: black;
+  /* border: 1px dashed white; */
+  width: 310px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  /* background-image: url(../../assets/backgrounds/bg-22.gif); */
+}
+
+.overlay #modal-h2 {
+  color: var(--text-white);
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.overlay .yes-no {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay .yes-no button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: white;
+  background-image: url(../../assets/backgrounds/bg-15.gif);
+  color: black;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}

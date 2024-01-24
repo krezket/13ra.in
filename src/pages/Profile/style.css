@@ -1,0 +1,85 @@
+.pr-main {
+    border: 1px dashed white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 100px 77px 0 77px;
+    padding: 10px;
+}
+
+.h1-ar {
+    border: 1px solid red;
+    display: flex;
+    height: 60vh;
+    width: 100%;
+    flex-direction: column;
+    padding: 10px 77px 30px 77px;
+    align-items: flex-start;
+}
+
+.usr-fri {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+}
+
+.profile-username {
+    /* border: 1px dashed white; */
+    color: var(--text-white);
+}
+.profile-pages {
+    /* border: 1px dashed white; */
+    color: var(--text-white);
+}
+
+.profile-fullname {
+    color: var(--text-red);
+}
+
+.profile-bio {
+    /* border: 1px dashed white; */
+    color: var(--text-white);
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.profile-email {
+    color: var(--text-red);
+}
+
+.textarea-bio {
+    /* border: none; */
+    color: white;
+    background-color: black;
+    resize: none;
+}
+
+#edit-link,
+#create-link {
+    color: var(--text-red);
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+@media only screen
+and (min-width : 0px)
+and (max-width : 600px) {
+    .pr-main {
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+}
+@media only screen
+and (min-width : 0px)
+and (max-width : 1024px) {
+    .h1-ar {
+        padding: 10px 10px 10px 10px;
+    }
+
+    .usr-fri {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

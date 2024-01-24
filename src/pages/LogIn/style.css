@@ -1,0 +1,42 @@
+.main-form-li {
+    color: var(--text-white);
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    margin: 100px 0 0 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#si-pass {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#si-submit {
+    width: 20%;
+}
+
+#signin-pg {
+    color: var(--text-red);
+}
+
+/* @media only screen and (min-width : 1024px)  {
+    .main-form-li {
+        height: 70vh;
+    }
+}
+
+@media only screen
+and (min-width : 480px)
+and (max-width : 1024px) {
+  .main-form-li {
+    height: 77vh;
+}
+} */

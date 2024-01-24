@@ -1,0 +1,18 @@
+.main {
+    /* border: 1px solid red; */
+    display: flex;
+    margin: 0 77px 0 77px;
+    padding: 100px 0 0 0;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+}
+
+@media only screen
+and (min-width : 0px)
+and (max-width : 1024px) {
+  .main {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+}

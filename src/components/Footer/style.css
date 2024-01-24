@@ -1,0 +1,52 @@
+.footer {
+    /* border: 1px dashed black; */
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 0.1rem;
+    justify-content: center;
+    text-align: center;
+}
+.link-footer {
+    color: var(--text-white)
+}
+
+.footerbar {
+    display: flex;
+    justify-content: space-around;
+    padding:  20px 500px 20px 500px;
+}
+
+#footer-sc:hover {
+    background-image: url('../../assets/music/cd-3.gif');
+    text-shadow: 1px 1px 1px black;;
+}
+  
+#footer-ig:hover {
+    background-image: url('../../assets/fire/fire-3.gif');
+    text-shadow: 1px 1px 1px black;;
+}
+  
+#footer-yt:hover {
+    background-image: url('../../assets/wizbiz/plasmaball.gif');
+    text-shadow: 1px 1px 1px black;;
+}
+
+.outro {
+    /* border: 1px dashed white; */
+    font-size: medium;
+    color: darkred;
+}
+
+@media screen and (max-width: 1258px) {
+    .footerbar {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footerbar {
+        padding: 0;
+    }
+}

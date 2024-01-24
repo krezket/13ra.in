@@ -1,0 +1,38 @@
+.cp-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px 0 0 0;
+}
+
+.cp-title {
+    color: var(--text-white);
+}
+
+.title-input {
+    background: 0;
+    color: white;
+    outline: none;
+    width: 80vw;
+    max-width: 400px;
+    font-size: 1.5em;
+    transition: padding 0.3s 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.text-area {
+    background: 0;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.submit-btn {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}

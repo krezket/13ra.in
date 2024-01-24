@@ -1,0 +1,44 @@
+.main-form-su {
+    color: var(--text-white);
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    margin: 100px 0 0 0;
+}
+
+#su-fullName {
+    margin-top: 20px;   
+}
+
+#su-user {
+    margin-top: 20px;
+}
+
+#su-pass {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#su-submit {
+    width: 20%;
+}
+
+#login-pg {
+    color: var(--text-red);
+}
+
+/* @media only screen and (min-width : 1024px)  {
+    .main-form-su {
+        height: 70vh;
+    }
+}
+
+@media only screen
+and (min-width : 480px)
+and (max-width : 1024px) {
+  .main-form-su {
+    height: 77vh;
+}
+} */

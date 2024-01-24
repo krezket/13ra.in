@@ -1,0 +1,17 @@
+body {
+  background-color: black;
+  margin: 0;
+  position: relative;
+  min-height: 100vh;
+}
+
+main {
+  padding-top: 0.5rem; 
+  padding-bottom: 0.5rem; 
+}
+
+:root {
+  --text-red: red;
+  --text-darkred: darkred;
+  --text-white: white;
+}

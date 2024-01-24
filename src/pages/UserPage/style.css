@@ -1,0 +1,67 @@
+.page-main {
+    border: 1px dashed white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 100px 77px 0 77px;
+    padding-left: 77.7px;
+    padding-right: 77.7px;
+}
+
+@media only screen
+and (min-width : 0px)
+and (max-width : 1024px) {
+  .page-main {
+    margin-left: 7px;
+    margin-right: 7px;
+    padding: 0 7px 0 7px;
+}
+}
+
+.pr-main {
+    display: flex;
+}
+
+.dayjs {
+    color: var(--text-red);
+}
+
+#user-link {
+    color: var(--text-red);
+}
+
+.title-div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.page-title {
+    color: var(--text-white);
+    border-bottom: 1px dashed white;
+}
+
+.username-div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.page-username {
+    color: var(--text-white);
+    margin-top: 0%;
+    opacity: 1;
+}
+
+.page-text {
+    color: var(--text-white);
+    line-height: 1.5em;
+    /* text-indent: 3ch; */
+}
+
+.date-div {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.date-created {
+    color: var(--text-white);
+}

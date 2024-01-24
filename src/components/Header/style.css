@@ -1,0 +1,98 @@
+.header {
+  background-color: darkred;  
+  position: fixed;
+  width: 100%;
+  /* background-image: url("../../assets/lightning/storm.gif"); */
+  /* background-image: url("../../assets/backgrounds/bg-12.gif"); */
+  /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
+  background-image: url("../../assets/backgrounds/chaso.png");
+  /* background-image: url("../../assets/myown/S7A7IC.gif"); */
+  /* background-image: url("../../assets/backgrounds/back-3.jpeg"); */
+  /* background-image: url("../../assets/sparklebg.gif"); */
+}
+
+.header-div {
+  height: 100px;
+  margin: 10px 10px 10px 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;  
+}
+
+.blog-title {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0px;
+  text-shadow: 0px 0px 7px rgb(255, 255, 255);
+  color: white;
+  /* text-shadow: 0px 0px 7px rgb(0, 0, 0); */
+  /* border-radius: 10px; */
+  transition: 0.2s;
+}
+.blog-title:hover {
+  color: black;
+  text-shadow: 0px -1px 4px white;
+  /* box-shadow: 0px 5px 10px; */
+  /* background-image: url("../../assets/lightning/storm.gif"); */
+  /* background-image: url("../../assets/daftavatar.gif"); */
+  /* background-image: url("../../assets/neutron.gif"); */
+  /* background-image: url("../../assets/fire/fire-1.gif"); */
+  /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
+  /* background-image: url("../../assets/death/smokeskull.gif"); */
+}
+
+.empty-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 77px 0 77px;
+  /* background-image: linear-gradient(darkred, black); */
+  background-image: linear-gradient(rgb(77, 77, 77), black);
+  height: 80px;
+}
+
+.nav-p {
+  color: var(--text-red);
+}
+
+.home-link {
+  text-decoration: none;
+  color: var(--text-white);
+}
+
+#login-link {
+  color: var(--text-red);
+}
+#logout-link {
+  color: var(--text-red)
+}
+#profile-link {
+  color: var(--text-red);
+}
+
+#login-link:hover {
+  color: var(--text-white);
+  text-shadow: 1px 1px 1px black;;
+}
+
+#profile-link:hover {
+  color: var(--text-white);
+  text-shadow: 1px 1px 1px black;;
+}
+
+#logout-link:hover {
+  color: var(--text-white);
+  text-shadow: 1px 1px 1px black;;
+}
+
+@media only screen
+and (min-width : 0px)
+and (max-width : 684px) {
+  .dragon {
+    width: 100px;
+}
+}

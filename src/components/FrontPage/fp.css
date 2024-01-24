@@ -1,0 +1,66 @@
+.fp-section {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    width: 75%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid red;
+    padding: 2px;
+    height: 90px;
+    margin: 10px 5px 10px 5px;
+}
+
+.card:hover {
+    box-shadow: 0 0 7px 2px white;
+}
+
+#fp-link {
+    color: var(--text-white);
+    text-decoration: none;
+}
+
+/*  */
+
+.fp-table {
+    border: 1px dashed white;
+    padding: 20px;
+    text-align: start;
+    width: 100%;
+}
+.fp-title {
+    text-align: start;
+    border-bottom: 1px solid white;
+    width: 66.67%;
+    color: red;
+}
+#less {
+    width: 11.11%;
+}
+.fp-data {
+    padding-top: 5px;
+    border-bottom: 1px dashed red;
+    /* border: 1px solid darkred; */
+ }
+
+ /* @media only screen
+and (min-width : 0px)
+and (max-width : 684px) {
+  .dragon {
+    width: 100px;
+}
+} */
+@media only screen
+and (min-width : 0px)
+and (max-width : 684px) {
+  .fp-section {
+    width: 95%;
+}
+.pr-section {
+    width: 95%;
+}
+}
