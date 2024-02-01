@@ -59,22 +59,22 @@ function App() {
         console.log(err);
       });
   }, []);
-  useEffect(() => {
-    const { pathname } = window.location
-    const paths = pathname.split("/").filter(entry => entry !== "");
-    const lastPath = paths[paths.length - 1]
-    console.log(lastPath)
+  // useEffect(() => {
+  //   const { pathname } = window.location
+  //   const paths = pathname.split("/").filter(entry => entry !== "");
+  //   const lastPath = paths[paths.length - 1]
+  //   console.log(lastPath)
 
-    API.getPage(lastPath)
-      .then((data) => {
-        console.log("bruh:",data)
-        setPage(data)
-      })
-      .catch((err) => {
-        console.log("oh noes");
-        console.log(err);
-      });
-  }, []);
+  //   API.getPage(lastPath)
+  //     .then((data) => {
+  //       console.log("bruh:",data)
+  //       setPage(data)
+  //     })
+  //     .catch((err) => {
+  //       console.log("oh noes");
+  //       console.log(err);
+  //     });
+  // }, []);
 
 
   useEffect(() => {
@@ -103,12 +103,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Enter />}></Route>
+        {/* <Route path="/" element={<Enter />}></Route> */}
 
         {/* <Route path={window.location.pathname} element={<LoadingPage/>}></Route> */}
 
         {/* HOME HOME HOME HOME */}
-        <Route path="/home" element={
+        <Route path="/" element={
           <Home
             userId={userId}
             username={username}
