@@ -36,8 +36,8 @@ export default function Header(props) {
             {props.type === "profile" ?
                 <header className='header'>
                     <div className='header-div'>
-                        <Link className='home-link' to='/home'>
-                            <h1 className='blog-title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
+                        <Link className='home-link' to='/'>
+                            <h1 className='blog-title'>13ra.in</h1>
                         </Link>
                         <Link to='/'>Back to Main</Link>
                         <>
@@ -59,8 +59,8 @@ export default function Header(props) {
                 : props.type === "otherProfile" ?
                     <header className='header'>
                         <div className='header-div'>
-                            <Link className='home-link' to='/home'>
-                                <h1 className='blog-title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
+                            <Link className='home-link' to='/'>
+                                <h1 className='blog-title'>13ra.in</h1>
                             </Link>
                             <Link to='/'>Back to Main</Link>
                             <>
@@ -83,8 +83,8 @@ export default function Header(props) {
                     : props.type === "edit" ?
                         <header className='header'>
                             <div className='header-div'>
-                                <Link className='home-link' to='/home'>
-                                    <h1 className='blog-title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
+                                <Link className='home-link' to='/'>
+                                    <h1 className='blog-title'>13ra.in</h1>
                                 </Link>
                                 <Link to='/'>Back to Main</Link>
                                 <>
@@ -106,8 +106,8 @@ export default function Header(props) {
                         : props.type === "page" ?
                             <header className='header'>
                                 <div className='header-div'>
-                                    <Link className='home-link' to='/home'>
-                                        <h1 className='blog-title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
+                                    <Link className='home-link' to='/'>
+                                        <h1 className='blog-title'>13ra.in</h1>
                                     </Link>
                                     <Link to='/'>Back to Main</Link>
                                     <>
@@ -129,8 +129,8 @@ export default function Header(props) {
                             :
                             <header className='header'>
                                 <div className='header-div'>
-                                    <Link className='home-link' to='/home'>
-                                        <h1 className='blog-title'>𝐾𝑅𝐸𝑍𝐾𝐸𝑇</h1>
+                                    <Link className='home-link' to='/'>
+                                        <h1 className='blog-title'>13ra.in</h1>
                                     </Link>
                                     <Link to='/'>Back to Main</Link>
                                     <>
