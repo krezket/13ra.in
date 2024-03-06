@@ -1,5 +1,6 @@
 .fp-container {
     display: flex;
+    gap: 100px;
     width: 100%;
     flex-direction: column;
 }
