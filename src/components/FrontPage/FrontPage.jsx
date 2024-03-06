@@ -14,6 +14,8 @@ import './fp.css'
 export default function FrontPage() {
 
     const [pages, setPages] = useState("")
+    const [list, setList] = useState("")
+    const [grid, setGrid] = useState("")
     // console.log(pages)
 
     let loadingArray = [loading, loading1, loading2, loading3, loading4, loading5]
@@ -33,6 +35,24 @@ export default function FrontPage() {
             });
     }, []);
 
+    const handleList = () => {
+        setGrid('')
+        setList('list-view')
+    }
+    const handleGrid = () => {
+        setList('')
+        setGrid('grid-view')
+    }
+    // const setList = () => {
+    //     localStorage.setItem('1', 'list-view')
+    // }
+
+    // const setGrid = () => {
+    //     localStorage.setItem('1', 'grid-view')
+    // }
+
+    const pageValue = localStorage.getItem('1')
+
     return (
         <>
             {!pages ?
@@ -40,23 +60,51 @@ export default function FrontPage() {
                 <img src={random} alt='loading'></img>
                 :
 
-                <section className='fp-section'>
-                    {pages.map(({ id, title, users, createdAt }) => (
-                        <Link id='fp-link' key={title} to={"/" + users.username + "/" + id}>
-                            <div className='card' key={title}>
-                                <div>
-                                    {title}
+                <section className="fp-container">
+                    <div>
+                        <button onClick={handleList}>List</button>
+                        <button onClick={handleGrid}>Grid</button>
+                    </div>
+
+                    {pageValue === 'list-view' ?
+                    <table className='fp-table'>
+                        <tbody>
+                            <tr>
+                                <th className='fp-title' id='less'>Username</th>
+                                <th className='fp-title'>Title</th>
+                                <th className='fp-title' id='less'>Created</th>
+                            </tr>
+                            {pages.map(({ id, title, users, createdAt }) => (
+                                <tr key={title}>
+                                    <td className='fp-data'><Link id='fp-link' to={"/&/" + users.username}>{users.username}</Link></td>
+                                    <td className='fp-data'><Link id='fp-link' to={"/" + users.username + "/" + id}>{title}</Link></td>
+                                    <td className='fp-data'><DayJS id='fp-link' format="M/D/YYYY">{createdAt}</DayJS></td>
+                                </tr>
+                            ))
+                            }
+                        </tbody>
+                    </table>
+                    :
+                    <div className='fp-section'>
+                        {pages.map(({ id, title, users, createdAt }) => (
+                            <Link id='fp-link' key={title} to={"/" + users.username + "/" + id}>
+                                <div className='card' key={title}>
+                                    <div>
+                                        {title}
+                                    </div>
+                                    <div>
+                                        {users.username}
+                                    </div>
+                                    <div>
+                                        <DayJS className="dayjs" format="M/D/YYYY">{createdAt}</DayJS>
+                                    </div>
                                 </div>
-                                <div>
-                                    {users.username}
-                                </div>
-                                <div>
-                                    <DayJS className="dayjs" format="M/D/YYYY">{createdAt}</DayJS>
-                                </div>
-                            </div>
-                        </Link>
-                    ))
+                            </Link>
+                        ))
+                        }
+                    </div>
                     }
+                    
                 </section>
 
                 // window.innerWidth > 684 ?
