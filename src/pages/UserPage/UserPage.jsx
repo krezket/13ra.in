@@ -23,9 +23,6 @@ function UserPage(props) {
           setUsername={props.setUsername}
           setToken={props.setToken}
         />
-
-        <nav className='empty-nav'></nav>
-
       </>
       <main className='page-main'>
 
