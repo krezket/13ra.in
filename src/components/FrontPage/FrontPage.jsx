@@ -36,19 +36,19 @@ export default function FrontPage() {
     }, []);
 
     const handleList = () => {
+        localStorage.setItem('1', 'list-view')
         setGrid('')
         setList('list-view')
     }
     const handleGrid = () => {
+        localStorage.setItem('1', 'grid-view')
         setList('')
         setGrid('grid-view')
     }
     // const setList = () => {
-    //     localStorage.setItem('1', 'list-view')
     // }
 
     // const setGrid = () => {
-    //     localStorage.setItem('1', 'grid-view')
     // }
 
     const pageValue = localStorage.getItem('1')
@@ -66,7 +66,7 @@ export default function FrontPage() {
                         <button onClick={handleGrid}>Grid</button>
                     </div>
 
-                    {list === 'list-view' && grid === '' ?
+                    {list === 'list-view' || pageValue === 'list-view' ?
                     <table className='fp-table'>
                         <tbody>
                             <tr>
