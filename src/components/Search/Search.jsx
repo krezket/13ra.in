@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './search.css'
 import API from '../../utils/API';
 
 export default function Search() {
@@ -32,7 +33,7 @@ export default function Search() {
     }
 
     return (
-        <form onSubmit={submitHandler}>
+        <form className="form" onSubmit={submitHandler}>
             <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
             <button>Search</button>
         </form>
