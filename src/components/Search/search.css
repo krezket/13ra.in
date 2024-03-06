@@ -1,9 +1,0 @@
-.empty-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 130px 77px 0 77px;
-  /* background-image: linear-gradient(darkred, black); */
-  background-image: linear-gradient(rgb(77, 77, 77), black);
-  height: 80px;
-}

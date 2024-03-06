@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './search.css'
 import API from '../../utils/API';
 
 export default function Search() {
