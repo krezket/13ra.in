@@ -45,16 +45,6 @@
   /* background-image: url("../../assets/death/smokeskull.gif"); */
 }
 
-.empty-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 77px 0 77px;
-  /* background-image: linear-gradient(darkred, black); */
-  background-image: linear-gradient(rgb(77, 77, 77), black);
-  height: 80px;
-}
-
 .nav-p {
   color: var(--text-red);
 }

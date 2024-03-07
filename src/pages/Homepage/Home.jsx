@@ -23,7 +23,7 @@ export default function Home(props) {
                 setToken={props.setToken}
             />
 
-            <nav className='empty-nav'> <Search/></nav>
+            {/* <nav className='empty-nav'> <Search/></nav> */}
 
 
             <main className="main">

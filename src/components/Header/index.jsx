@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../LogOutModal';
+import Search from '../Search/Search';
 
 // import dragonLeft from '../../assets/dragons/reddragon1.gif'
 // import dragonRight from '../../assets/dragons/reddragon2.gif'
@@ -53,6 +54,7 @@ export default function Header(props) {
                             }
                         </>
                         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                        <Search/>
                     </div>
                 </header>
 
@@ -77,6 +79,7 @@ export default function Header(props) {
                                 }
                             </>
                             <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                                                    <Search/>
                         </div>
                     </header>
 
@@ -100,6 +103,7 @@ export default function Header(props) {
                                     }
                                 </>
                                 <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                                                        <Search/>
                             </div>
                         </header>
 
@@ -123,6 +127,7 @@ export default function Header(props) {
                                         }
                                     </>
                                     <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                                                            <Search/>
                                 </div>
                             </header>
 
@@ -146,6 +151,7 @@ export default function Header(props) {
                                         }
                                     </>
                                     <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                                                            <Search/>
                                 </div>
                             </header>
             }
