@@ -40,7 +40,7 @@ export default function Header(props) {
                         <Link className='home-link' to='/'>
                             <h1 className='blog-title'>13ra.in</h1>
                         </Link>
-                        <Link to='/'>Back to Main</Link>
+                        <Search />
                         <>
                             {ID ?
                                 <>
@@ -54,7 +54,6 @@ export default function Header(props) {
                             }
                         </>
                         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                        <Search/>
                     </div>
                 </header>
 
@@ -64,7 +63,7 @@ export default function Header(props) {
                             <Link className='home-link' to='/'>
                                 <h1 className='blog-title'>13ra.in</h1>
                             </Link>
-                            <Link to='/'>Back to Main</Link>
+                            <Search />
                             <>
                                 {ID ?
 
@@ -79,7 +78,6 @@ export default function Header(props) {
                                 }
                             </>
                             <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                                                    <Search/>
                         </div>
                     </header>
 
@@ -89,7 +87,7 @@ export default function Header(props) {
                                 <Link className='home-link' to='/'>
                                     <h1 className='blog-title'>13ra.in</h1>
                                 </Link>
-                                <Link to='/'>Back to Main</Link>
+                                <Search />
                                 <>
                                     {ID ?
                                         <>
@@ -103,7 +101,6 @@ export default function Header(props) {
                                     }
                                 </>
                                 <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                                                        <Search/>
                             </div>
                         </header>
 
@@ -113,7 +110,7 @@ export default function Header(props) {
                                     <Link className='home-link' to='/'>
                                         <h1 className='blog-title'>13ra.in</h1>
                                     </Link>
-                                    <Link to='/'>Back to Main</Link>
+                                    <Search />
                                     <>
                                         {ID ?
                                             <>
@@ -127,7 +124,6 @@ export default function Header(props) {
                                         }
                                     </>
                                     <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                                                            <Search/>
                                 </div>
                             </header>
 
@@ -137,7 +133,7 @@ export default function Header(props) {
                                     <Link className='home-link' to='/'>
                                         <h1 className='blog-title'>13ra.in</h1>
                                     </Link>
-                                    <Link to='/'>Back to Main</Link>
+                                    <Search />
                                     <>
                                         {ID ?
                                             <>
@@ -151,7 +147,6 @@ export default function Header(props) {
                                         }
                                     </>
                                     <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                                                            <Search/>
                                 </div>
                             </header>
             }

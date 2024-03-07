@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import Header from "../../components/Header";
 import Search from "../../components/Search/Search"
 import FrontPage from '../../components/FrontPage/FrontPage';
+import LogIn from '../../pages/LogIn';
+import SignUp from '../../pages/SignUp';
 import Footer from '../../components/Footer/';
 import './style.css';
 

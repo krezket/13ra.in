@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import { Link, useNavigate } from 'react-router-dom';
 import API from '../../utils/API';
 import './style.css';
@@ -46,7 +46,7 @@ function LogIn(props) {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <nav className='empty-nav'></nav>
       <main className='main-form-li'>
         <section>

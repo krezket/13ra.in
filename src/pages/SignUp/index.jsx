@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from '../../components/Header';
+import Header from '../../components/Header'
 import Footer from '../../components/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import { emailCheck, passwordCheck } from '../../utils/index';
@@ -64,7 +64,7 @@ function SignUp(props) {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <nav className='empty-nav'></nav>
       <main className='main-form-su'>
         {/* <aside className='aside-left'>
