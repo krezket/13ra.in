@@ -27,15 +27,37 @@ function App() {
 
   const [page, setPage] = useState("")
   // console.log("page:",  page)
-  // const [pages, setPages] = useState("")
-  // console.log("ALL PAGES", pages)
+  const [pages, setPages] = useState("")
+  console.log("ALL PAGES", pages)
   const [users, setUsers] = useState("")
   // console.log("All USERS", users)
 
   const [pageId, setPageId] = useState("");
-  // console.log("FROM pageId:", pageId)
-  
-// LOADING SCREEN
+  console.log("FROM pageId:", pageId)
+
+  const [newPage, setNewPage] = useState("");
+  console.log("YEET", newPage);
+
+  useEffect(() => {
+    setPagesLoading(true)
+
+    if (typeof pageId === "number") {
+      API.getPage(pageId)
+        .then((data) => {
+          //   console.log("REALPAGEDATA:",data)
+          setNewPage(data)
+          setPagesLoading(false)
+          location.pathname = "/" + data.users.username + "/" + pageId
+        })
+        .catch((err) => {
+          setPagesLoading(false)
+          console.log("oh noes");
+          console.log(err);
+        });
+    }
+  }, [pageId]);
+
+  // LOADING SCREEN
   useEffect(() => {
     setUsersLoading(true)
     API.getProfiles()
@@ -49,13 +71,13 @@ function App() {
         console.log(err);
       });
   }, []);
-// LOADING SCREEN
+  // LOADING SCREEN
   useEffect(() => {
     setPagesLoading(true)
     API.getPages()
       .then((data) => {
         // console.log("bruh:",data)
-        // setPages(data)
+        setPages(data)
         setPagesLoading(false)
       })
       .catch((err) => {
@@ -137,7 +159,7 @@ function App() {
         </Route>
 
         {/* PROFILE PROFILE PROFILE PROFILE */}
-        <Route path={"/" + username} element={
+        <Route path={"/&/" + username} element={
           <Profile
             type='profile'
             userId={userId}
@@ -179,7 +201,7 @@ function App() {
             </Route>
             :
             users.map(({ username }) => (
-              <Route key={username} path={'/&/' + username} element={
+              <Route key={username} path={'/' + username} element={
                 <OtherProfile type='otherProfile' />}
               >
               </Route>
@@ -204,7 +226,13 @@ function App() {
         } */}
 
         {/* PAGE PAGE PAGE PAGE */}
-            <Route path={"/" + users.username + "/" + pageId} element={
+
+        {!pages ?
+          <Route element={<Home></Home>}></Route>
+
+          :
+          pages.map(({ createdAt, text, title, users, id }) => (
+            <Route path={"/" + users.username + "/" + id} element={
               <UserPage
                 type='page'
                 userId={userId}
@@ -217,14 +245,7 @@ function App() {
               />}
             >
             </Route>
-        {/* {!pages ?
-          <Route path={"/" + page.username + "/" + page.id} element={
-            <UserPage />
-          }>
-          </Route>
-          :
-          pages.map(({ createdAt, text, title, users, id }) => (
-          ))} */}
+          ))}
 
         {/* CREATE PAGE CREATE PAGE CREATE PAGE */}
         <Route path='/create' element={

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+  import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -9,7 +9,7 @@ export default function OtherProfile(props) {
   console.log(props)
   const [user, setUser] = useState("")
 
-  const pathArr = window.location.pathname.split('&');
+  const pathArr = window.location.pathname.split('/');
   let path = pathArr[1].split('/').pop()
 
   useEffect(() => {

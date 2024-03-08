@@ -30,32 +30,30 @@ export default function Home(props) {
     let loadingArray = [loading, loading1, loading2, loading3, loading4, loading5]
     const random = loadingArray[Math.floor(Math.random() * loadingArray.length)]
     // console.log(random)
-    const [pagesLoading, setPagesLoading] = useState(false);
-    // console.log("Pages:", pagesLoading);
   
-    const [pageId, setPageID] = useState("");
-    console.log("YUH:",pageId);
+    // const [pageId, setPageID] = useState("");
+    // console.log("YUH:",pageId);
 
-    const [newPage, setNewPage] = useState("");
-    console.log("YEET", newPage);
+    // const [newPage, setNewPage] = useState("");
+    // console.log("YEET", newPage);
   
-    useEffect(() => {
-      setPagesLoading(true)
+    // useEffect(() => {
+    //   setPagesLoading(true)
 
-      if (typeof pageId === "number") {
-          API.getPage(pageId)
-            .then((data) => {
-            //   console.log("REALPAGEDATA:",data)
-              setNewPage(data)
-              setPagesLoading(false)
-            })
-            .catch((err) => {
-                setPagesLoading(false)
-                console.log("oh noes");
-                console.log(err);
-            });
-        }   
-    }, [pageId]);
+    //   if (typeof pageId === "number") {
+    //       API.getPage(pageId)
+    //         .then((data) => {
+    //         //   console.log("REALPAGEDATA:",data)
+    //           setNewPage(data)
+    //           setPagesLoading(false)
+    //         })
+    //         .catch((err) => {
+    //             setPagesLoading(false)
+    //             console.log("oh noes");
+    //             console.log(err);
+    //         });
+    //     }   
+    // }, [pageId]);
 
 // DISPLAY ALL PAGES
     useEffect(() => {
@@ -120,11 +118,11 @@ export default function Home(props) {
                                     </tr>
                                     {allPages.map(({ id, title, users, createdAt }) => (
                                         <tr key={title}>
-                                            <td className='fp-data'><Link id='fp-link' to={"/&/" + users.username}>{users.username}</Link></td>
+                                            <td className='fp-data'><Link id='fp-link' to={"/" + users.username}>{users.username}</Link></td>
                                             <td className='fp-data'>
                                                 <Link 
                                                 id='fp-link'
-                                                onClick={() => setPageID(id)}
+                                                onClick={() => props.setPageId(id)}
                                                 // to={"/" + users.username + "/" + id}
                                                 >
                                                 {title}
@@ -139,7 +137,11 @@ export default function Home(props) {
                             :
                             <div className='fp-section'>
                                 {allPages.map(({ id, title, users, createdAt }) => (
-                                    <Link id='fp-link' key={title} onClick={() => setPageID(id)} to={"/" + users.username + "/" + id}>
+                                    <Link id='fp-link' 
+                                    key={title} 
+                                    onClick={() => props.setPageId(id)}
+                                    // to={"/" + users.username + "/" + id}
+                                    >
                                         <div className='card' key={title}>
                                             <div>
                                                 {title}
