@@ -36,7 +36,7 @@ function LogIn(props) {
         props.setToken(data.token)
         window.sessionStorage.setItem("token", data.token)
         window.sessionStorage.setItem("userId", data.user.id);
-        navigate("/blog")
+        navigate("/")
         // window.location.reload(false);
       }).catch(err => {
         console.log(err)

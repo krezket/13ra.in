@@ -26,7 +26,7 @@ export default function Header(props) {
         window.sessionStorage.removeItem("token");
         window.sessionStorage.removeItem("userId");
         window.sessionStorage.removeItem("UserData");
-        navigate("/blog");
+        navigate("/");
         window.location.reload(false);
     };
 
@@ -148,7 +148,7 @@ export default function Header(props) {
                                     <>
                                         {ID ?
                                             <>
-                                                <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                                                <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
                                                 <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
                                             </>
                                             :
