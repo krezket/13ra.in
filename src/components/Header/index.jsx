@@ -36,10 +36,13 @@ export default function Header(props) {
         <>
             {props.type === "profile" ?
                 <header className='header'>
+
                     <div className='header-div'>
+
                         <Link className='home-link' to='/'>
                             <h1 className='blog-title'>13ra.in</h1>
                         </Link>
+
                         <Search />
                         <>
                             {ID ?
@@ -59,10 +62,13 @@ export default function Header(props) {
 
                 : props.type === "otherProfile" ?
                     <header className='header'>
+
                         <div className='header-div'>
+
                             <Link className='home-link' to='/'>
                                 <h1 className='blog-title'>13ra.in</h1>
                             </Link>
+                            
                             <Search />
                             <>
                                 {ID ?
