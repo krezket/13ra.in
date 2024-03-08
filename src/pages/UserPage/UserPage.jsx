@@ -10,27 +10,6 @@ export default function UserPage(props) {
   console.log("UserPage Props:", props);
   window.sessionStorage.setItem('path', window.location.pathname);
 
-  const [pagesLoading, setPagesLoading] = useState(false);
-  // console.log("Pages:", pagesLoading);
-
-  const [pages, setPages] = useState("");
-  console.log("YUH",pages);
-
-  useEffect(() => {
-    setPagesLoading(true)
-    API.getPage()
-      .then((data) => {
-        console.log("REALPAGEDATA:",data)
-        setPages(data)
-        setPagesLoading(false)
-      })
-      .catch((err) => {
-        setPagesLoading(false)
-        console.log("oh noes");
-        console.log(err);
-      });
-  }, []);
-
   return (
     <>
       <>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from "../../components/Header";
 import Search from "../../components/Search/Search"
-import FrontPage from '../../components/FrontPage/FrontPage';
 import LogIn from '../../pages/LogIn';
 import SignUp from '../../pages/SignUp';
 import Footer from '../../components/Footer/';
@@ -24,22 +23,47 @@ export default function Home(props) {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
-    const [pages, setPages] = useState("")
+    const [allPages, setAllPages] = useState("")
+    // console.log(allPages)
     const [list, setList] = useState("")
     const [grid, setGrid] = useState("")
-    // console.log(pages)
-
     let loadingArray = [loading, loading1, loading2, loading3, loading4, loading5]
-
     const random = loadingArray[Math.floor(Math.random() * loadingArray.length)]
     // console.log(random)
+    const [pagesLoading, setPagesLoading] = useState(false);
+    // console.log("Pages:", pagesLoading);
+  
+    const [pageId, setPageID] = useState("");
+    console.log("YUH:",pageId);
 
+    const [newPage, setNewPage] = useState("");
+    console.log("YEET", newPage);
+  
+    useEffect(() => {
+      setPagesLoading(true)
+      let pageInput = pageId
+
+      if (pageInput !== "") {
+          API.getPage(pageId)
+            .then((data) => {
+              console.log("REALPAGEDATA:",data)
+              setNewPage(data)
+              setPagesLoading(false)
+            })
+            .catch((err) => {
+                setPagesLoading(false)
+                console.log("oh noes");
+                console.log(err);
+            });
+        }
+    }, []);
+
+// DISPLAY ALL PAGES
     useEffect(() => {
         API.getPages()
             .then((data) => {
                 console.log('ALL PAGES:', data)
-                setPages(data)
+                setAllPages(data)
             })
             .catch((err) => {
                 console.log("oh noes");
@@ -47,6 +71,7 @@ export default function Home(props) {
             });
     }, []);
 
+// SWITCHING BETWEEN LIST AND GRID VIEW
     const handleList = () => {
         localStorage.setItem('1', 'list-view')
         setGrid('')
@@ -58,8 +83,7 @@ export default function Home(props) {
         setGrid('grid-view')
     }
 
-    const pageValue = localStorage.getItem('1')
-
+    const formatValue = localStorage.getItem('1')
     return (
         <>
             <Header
@@ -76,7 +100,7 @@ export default function Home(props) {
 
             <main className="main">
 
-                {!pages ?
+                {!allPages ?
 
                     <img src={random} alt='loading'></img>
                     :
@@ -87,7 +111,7 @@ export default function Home(props) {
                             <button onClick={handleGrid}>Grid</button>
                         </div>
 
-                        {list === 'list-view' || pageValue === 'list-view' ?
+                        {list === 'list-view' || formatValue === 'list-view' ?
                             <table className='fp-table'>
                                 <tbody>
                                     <tr>
@@ -95,10 +119,18 @@ export default function Home(props) {
                                         <th className='fp-title'>Title</th>
                                         <th className='fp-title' id='less'>Created</th>
                                     </tr>
-                                    {pages.map(({ id, title, users, createdAt }) => (
+                                    {allPages.map(({ id, title, users, createdAt }) => (
                                         <tr key={title}>
                                             <td className='fp-data'><Link id='fp-link' to={"/&/" + users.username}>{users.username}</Link></td>
-                                            <td className='fp-data'><Link id='fp-link' to={"/" + users.username + "/" + id}>{title}</Link></td>
+                                            <td className='fp-data'>
+                                                <Link 
+                                                id='fp-link'
+                                                onClick={() => setPageID(id)}
+                                                // to={"/" + users.username + "/" + id}
+                                                >
+                                                {title}
+                                                </Link>
+                                            </td>
                                             <td className='fp-data'><DayJS id='fp-link' format="M/D/YYYY">{createdAt}</DayJS></td>
                                         </tr>
                                     ))
@@ -107,8 +139,8 @@ export default function Home(props) {
                             </table>
                             :
                             <div className='fp-section'>
-                                {pages.map(({ id, title, users, createdAt }) => (
-                                    <Link id='fp-link' key={title} to={"/" + users.username + "/" + id}>
+                                {allPages.map(({ id, title, users, createdAt }) => (
+                                    <Link id='fp-link' key={title} onClick={() => setPageID(id)} to={"/" + users.username + "/" + id}>
                                         <div className='card' key={title}>
                                             <div>
                                                 {title}

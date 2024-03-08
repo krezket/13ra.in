@@ -26,11 +26,14 @@ function App() {
   const [email, setEmail] = useState("");
 
   const [page, setPage] = useState("")
-  console.log("page:",  page)
-  const [pages, setPages] = useState("")
-  console.log(pages)
+  // console.log("page:",  page)
+  // const [pages, setPages] = useState("")
+  // console.log("ALL PAGES", pages)
   const [users, setUsers] = useState("")
-  console.log(users)
+  // console.log("All USERS", users)
+
+  const [pageId, setPageId] = useState("");
+  // console.log("FROM pageId:", pageId)
   
 // LOADING SCREEN
   useEffect(() => {
@@ -51,8 +54,8 @@ function App() {
     setPagesLoading(true)
     API.getPages()
       .then((data) => {
-        console.log("bruh:",data)
-        setPages(data)
+        // console.log("bruh:",data)
+        // setPages(data)
         setPagesLoading(false)
       })
       .catch((err) => {
@@ -99,6 +102,7 @@ function App() {
             setEmail={setEmail}
             setUsername={setUsername}
             setToken={setToken}
+            setPageId={setPageId}
           />}
         >
         </Route>
@@ -200,20 +204,12 @@ function App() {
         } */}
 
         {/* PAGE PAGE PAGE PAGE */}
-        {!pages ?
-          <Route path={"/" + page.username + "/" + page.id} element={<UserPage />}>
-          </Route>
-          :
-          pages.map(({ createdAt, text, title, users, id }) => (
-            <Route key={title} path={"/" + users.username + "/" + id} element={
+            <Route path={"/" + users.username + "/" + pageId} element={
               <UserPage
                 type='page'
                 userId={userId}
                 username={username}
                 pageUsername={users.username}
-                title={title}
-                text={text}
-                createdAt={createdAt}
                 setUserId={setUserId}
                 setEmail={setEmail}
                 setUsername={setUsername}
@@ -221,7 +217,14 @@ function App() {
               />}
             >
             </Route>
-          ))}
+        {/* {!pages ?
+          <Route path={"/" + page.username + "/" + page.id} element={
+            <UserPage />
+          }>
+          </Route>
+          :
+          pages.map(({ createdAt, text, title, users, id }) => (
+          ))} */}
 
         {/* CREATE PAGE CREATE PAGE CREATE PAGE */}
         <Route path='/create' element={
