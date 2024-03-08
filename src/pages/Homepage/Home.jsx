@@ -41,12 +41,11 @@ export default function Home(props) {
   
     useEffect(() => {
       setPagesLoading(true)
-      let pageInput = pageId
 
-      if (pageInput !== "") {
+      if (typeof pageId === "number") {
           API.getPage(pageId)
             .then((data) => {
-              console.log("REALPAGEDATA:",data)
+            //   console.log("REALPAGEDATA:",data)
               setNewPage(data)
               setPagesLoading(false)
             })
@@ -55,8 +54,8 @@ export default function Home(props) {
                 console.log("oh noes");
                 console.log(err);
             });
-        }
-    }, []);
+        }   
+    }, [pageId]);
 
 // DISPLAY ALL PAGES
     useEffect(() => {
