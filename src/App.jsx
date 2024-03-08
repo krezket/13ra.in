@@ -15,8 +15,8 @@ import './App.css';
 
 function App() {
   const [usersLoading, setUsersLoading] = useState(false)
-  const [pagesLoading, setPagesLoading] = useState(false)
   console.log("Users:", usersLoading)
+  const [pagesLoading, setPagesLoading] = useState(false)
   console.log("Pages:", pagesLoading)
   const [userId, setUserId] = useState(null);
   const [fullName, setFullName] = useState("");
@@ -31,7 +31,8 @@ function App() {
   console.log(pages)
   const [users, setUsers] = useState("")
   console.log(users)
-
+  
+// LOADING SCREEN
   useEffect(() => {
     setUsersLoading(true)
     API.getProfiles()
@@ -45,6 +46,7 @@ function App() {
         console.log(err);
       });
   }, []);
+// LOADING SCREEN
   useEffect(() => {
     setPagesLoading(true)
     API.getPages()
@@ -209,9 +211,9 @@ function App() {
                 userId={userId}
                 username={username}
                 pageUsername={users.username}
-                createdAt={createdAt}
-                text={text}
                 title={title}
+                text={text}
+                createdAt={createdAt}
                 setUserId={setUserId}
                 setEmail={setEmail}
                 setUsername={setUsername}

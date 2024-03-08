@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import DayJS from 'react-dayjs';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import './style.css'
+import API from "../../utils/API";
 
+export default function UserPage(props) {
+  console.log("UserPage Props:", props);
+  window.sessionStorage.setItem('path', window.location.pathname);
 
-function UserPage(props) {
-  console.log("UserPage Props:", props)
-  window.sessionStorage.setItem('path', window.location.pathname)
+  const [pagesLoading, setPagesLoading] = useState(false);
+  // console.log("Pages:", pagesLoading);
+
+  const [pages, setPages] = useState("");
+  console.log("YUH",pages);
+
+  useEffect(() => {
+    setPagesLoading(true)
+    API.getPage()
+      .then((data) => {
+        console.log("REALPAGEDATA:",data)
+        setPages(data)
+        setPagesLoading(false)
+      })
+      .catch((err) => {
+        setPagesLoading(false)
+        console.log("oh noes");
+        console.log(err);
+      });
+  }, []);
 
   return (
     <>
-      {/* <Header /> */}
       <>
         <Header
           type={props.type}
@@ -47,5 +67,3 @@ function UserPage(props) {
     </>
   )
 }
-
-export default UserPage
