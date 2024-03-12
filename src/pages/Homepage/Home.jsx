@@ -19,7 +19,7 @@ import './fp.css'
 
 export default function Home(props) {
     // CONSOLE LOG //
-    // console.log("home props:", props)
+    console.log("home props:", props)
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -30,30 +30,6 @@ export default function Home(props) {
     let loadingArray = [loading, loading1, loading2, loading3, loading4, loading5]
     const random = loadingArray[Math.floor(Math.random() * loadingArray.length)]
     // console.log(random)
-  
-    // const [pageId, setPageID] = useState("");
-    // console.log("YUH:",pageId);
-
-    // const [newPage, setNewPage] = useState("");
-    // console.log("YEET", newPage);
-  
-    // useEffect(() => {
-    //   setPagesLoading(true)
-
-    //   if (typeof pageId === "number") {
-    //       API.getPage(pageId)
-    //         .then((data) => {
-    //         //   console.log("REALPAGEDATA:",data)
-    //           setNewPage(data)
-    //           setPagesLoading(false)
-    //         })
-    //         .catch((err) => {
-    //             setPagesLoading(false)
-    //             console.log("oh noes");
-    //             console.log(err);
-    //         });
-    //     }   
-    // }, [pageId]);
 
 // DISPLAY ALL PAGES
     useEffect(() => {
@@ -122,8 +98,8 @@ export default function Home(props) {
                                             <td className='fp-data'>
                                                 <Link 
                                                 id='fp-link'
-                                                onClick={() => props.setPageId(id)}
-                                                // to={"/" + users.username + "/" + id}
+                                                onClick={() => props.setPageId({postUsername: users.username, postId: id})}
+                                                to={"/" + users.username + "/" + id}
                                                 >
                                                 {title}
                                                 </Link>
@@ -139,7 +115,7 @@ export default function Home(props) {
                                 {allPages.map(({ id, title, users, createdAt }) => (
                                     <Link id='fp-link' 
                                     key={title} 
-                                    onClick={() => props.setPageId(id)}
+                                    onClick={() => props.setPageId(allPages)}
                                     // to={"/" + users.username + "/" + id}
                                     >
                                         <div className='card' key={title}>

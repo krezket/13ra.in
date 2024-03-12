@@ -8,7 +8,27 @@ import API from "../../utils/API";
 
 export default function UserPage(props) {
   console.log("UserPage Props:", props);
-  window.sessionStorage.setItem('path', window.location.pathname);
+
+  const pathArr = window.location.pathname.split('/');
+  let path = pathArr[2].split('/').pop()
+  console.log("PATH:", path)
+
+  const [newPage, setNewPage] = useState("")
+  console.log("NEWPAGE:", newPage)
+
+  // console.log(newPage.users.username)
+  
+    useEffect(() => {
+      API.getPage(path)
+        .then((data) => {
+          // console.log("REALPAGEDATA:",data)
+          setNewPage(data)
+        })
+        .catch((err) => {
+            console.log("oh noes");
+            console.log(err);
+        }); 
+    }, []);
 
   return (
     <>
@@ -26,16 +46,16 @@ export default function UserPage(props) {
       <main className='page-main'>
 
         <div className='title-div'>
-          <h1 className='page-title'>{props.title}</h1>
+          <h1 className='page-title'>{newPage.title}</h1>
         </div>
 
         <div className='username-div'>
           <h3 className='page-username'>
-            <Link to={"/&/" + props.pageUsername} id='user-link'>{props.pageUsername}</Link>
+            {/* <Link to={"/" + newPage.users.username} id='user-link'>{newPage.users.username}</Link> */}
           </h3>
         </div>
 
-        <p className='page-text'>{props.text}</p>
+        <p className='page-text'>{newPage.text}</p>
 
         <div className='date-div'>
           <p className='date-created'><DayJS className="dayjs" format="M/D/YYYY h:mm a">{props.createdAt}</DayJS></p>

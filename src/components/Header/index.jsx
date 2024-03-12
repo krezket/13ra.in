@@ -110,7 +110,7 @@ export default function Header(props) {
                             </div>
                         </header>
 
-                        : props.type === "page" ?
+                        : props.type === "post" ?
                             <header className='header'>
                                 <div className='header-div'>
 
