@@ -6,7 +6,7 @@ import loading from '../../assets/banana.gif'
 import API from '../../utils/API';
 
 export default function OtherProfile(props) {
-  console.log(props)
+  console.log("USERPOST", props)
   const [user, setUser] = useState("")
 
   const pathArr = window.location.pathname.split('/');

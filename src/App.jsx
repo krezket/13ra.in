@@ -6,7 +6,7 @@ import Home from './pages/Homepage/Home.jsx';
 import LogIn from './pages/LogIn/index.jsx';
 import SignUp from './pages/SignUp/index.jsx';
 import Profile from './pages/Profile/Profile.jsx';
-import UserPage from './pages/UserPage/UserPage.jsx';
+import UserPage from './pages/UserPage/UserPost.jsx';
 import CreatePage from './pages/CreatePage/CreatePage.jsx';
 import About from './pages/About/About.jsx';
 import OtherProfile from './pages/OtherProfile/OtherProfile.jsx';
@@ -14,74 +14,28 @@ import OtherProfile from './pages/OtherProfile/OtherProfile.jsx';
 import './App.css';
 
 function App() {
-  const [usersLoading, setUsersLoading] = useState(false)
-  console.log("Users:", usersLoading)
-  const [pagesLoading, setPagesLoading] = useState(false)
-  console.log("Pages:", pagesLoading)
   const [userId, setUserId] = useState(null);
   const [fullName, setFullName] = useState("");
   const [bio, setBio] = useState("");
   const [username, setUsername] = useState("");
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
-
-  const [page, setPage] = useState("")
-  // console.log("page:",  page)
-  const [pages, setPages] = useState("")
-  console.log("ALL PAGES", pages)
+  
   const [users, setUsers] = useState("")
   // console.log("All USERS", users)
-
+  
   const [pageId, setPageId] = useState("");
   console.log("FROM pageId:", pageId)
-
-  const [newPage, setNewPage] = useState("");
-  console.log("YEET", newPage);
-
-  useEffect(() => {
-    setPagesLoading(true)
-
-    if (typeof pageId === "number") {
-      API.getPage(pageId)
-        .then((data) => {
-          //   console.log("REALPAGEDATA:",data)
-          setNewPage(data)
-          setPagesLoading(false)
-          location.pathname = "/" + data.users.username + "/" + pageId
-        })
-        .catch((err) => {
-          setPagesLoading(false)
-          console.log("oh noes");
-          console.log(err);
-        });
-    }
-  }, [pageId]);
+  // location.pathname = pageId
+  console.log(location.pathname)
 
   // LOADING SCREEN
   useEffect(() => {
-    setUsersLoading(true)
     API.getProfiles()
       .then((data) => {
         setUsers(data)
-        setUsersLoading(false)
       })
       .catch((err) => {
-        setUsersLoading(false)
-        console.log("oh noes");
-        console.log(err);
-      });
-  }, []);
-  // LOADING SCREEN
-  useEffect(() => {
-    setPagesLoading(true)
-    API.getPages()
-      .then((data) => {
-        // console.log("bruh:",data)
-        setPages(data)
-        setPagesLoading(false)
-      })
-      .catch((err) => {
-        setPagesLoading(false)
         console.log("oh noes");
         console.log(err);
       });
@@ -226,26 +180,20 @@ function App() {
         } */}
 
         {/* PAGE PAGE PAGE PAGE */}
-
-        {!pages ?
-          <Route element={<Home></Home>}></Route>
-
-          :
-          pages.map(({ createdAt, text, title, users, id }) => (
-            <Route path={"/" + users.username + "/" + id} element={
-              <UserPage
-                type='page'
-                userId={userId}
-                username={username}
-                pageUsername={users.username}
-                setUserId={setUserId}
-                setEmail={setEmail}
-                setUsername={setUsername}
-                setToken={setToken}
-              />}
-            >
-            </Route>
-          ))}
+        <Route path={"/:username/:pageId"} element={
+          <UserPage
+            type='post'
+            userId={userId}
+            username={username}
+            // pageUsername={users.username}
+            setUserId={setUserId}
+            setEmail={setEmail}
+            setUsername={setUsername}
+            setToken={setToken}
+            pageId={pageId}
+          />}
+        >
+        </Route>
 
         {/* CREATE PAGE CREATE PAGE CREATE PAGE */}
         <Route path='/create' element={
