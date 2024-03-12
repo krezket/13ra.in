@@ -1,10 +1,17 @@
+.main-con-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+
+}
 .pr-main {
     border: 1px dashed white;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 100px 77px 0 77px;
-    padding: 10px;
+    margin: 0 77px 0 77px;
+    padding: 5px;
 }
 
 .h1-ar {

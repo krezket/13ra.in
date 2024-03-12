@@ -15,6 +15,7 @@ export default function UserPage(props) {
 
   const [newPage, setNewPage] = useState("")
   console.log("NEWPAGE:", newPage)
+  const [username, setUsername] = useState("")
 
   // console.log(newPage.users.username)
 
@@ -23,6 +24,7 @@ export default function UserPage(props) {
       .then((data) => {
         // console.log("REALPAGEDATA:",data)
         setNewPage(data)
+        setUsername(data.users.username)
       })
       .catch((err) => {
         console.log("oh noes");
@@ -52,7 +54,7 @@ export default function UserPage(props) {
 
           <div className='username-div'>
             <h3 className='page-username'>
-              {/* <Link to={"/" + newPage.users.username} id='user-link'>{newPage.users.username}</Link> */}
+              <Link to={"/" + username} id='user-link'>{username}</Link>
             </h3>
           </div>
 
