@@ -94,7 +94,7 @@ export default function Home(props) {
                                     </tr>
                                     {allPages.map(({ id, title, users, createdAt }) => (
                                         <tr key={title}>
-                                            <td className='fp-data'><Link id='fp-link' to={"/   " + users.username}>{users.username}</Link></td>
+                                            <td className='fp-data'><Link id='fp-link' to={"/" + users.username}>{users.username}</Link></td>
                                             <td className='fp-data'>
                                                 <Link 
                                                 id='fp-link'

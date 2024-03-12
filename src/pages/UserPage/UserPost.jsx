@@ -13,9 +13,10 @@ export default function UserPage(props) {
   let path = pathArr[2].split('/').pop()
   console.log("PATH:", path)
 
-  const [newPage, setNewPage] = useState("")
+  const [newPage, setNewPage] = useState({})
   console.log("NEWPAGE:", newPage)
   const [username, setUsername] = useState("")
+  const [date, setDate] = useState("")
 
   // console.log(newPage.users.username)
 
@@ -25,12 +26,14 @@ export default function UserPage(props) {
         // console.log("REALPAGEDATA:",data)
         setNewPage(data)
         setUsername(data.users.username)
+        setDate(data.createdAt)
+        console.log("DATE:", date)
       })
       .catch((err) => {
         console.log("oh noes");
         console.log(err);
       });
-  }, []);
+  }, [path]);
 
   return (
     <>
@@ -62,9 +65,11 @@ export default function UserPage(props) {
 
           <div className='date-div'>
             <p className='date-created'>
-              <DayJS className="dayjs" format="M/D/YYYY h:mm a">
-                {newPage.createdAt}
-              </DayJS>
+              {newPage.createdAt && (
+                <DayJS className="dayjs" format="M/D/YYYY h:mm a">
+                  {newPage.createdAt}
+                </DayJS>
+              )}
             </p>
           </div>
 
