@@ -20,26 +20,9 @@ function App() {
   const [username, setUsername] = useState("");
   const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
-  
-  const [users, setUsers] = useState("")
-  // console.log("All USERS", users)
-  
+    
   const [pageId, setPageId] = useState("");
   console.log("FROM pageId:", pageId)
-  // location.pathname = pageId
-  console.log(location.pathname)
-
-  // LOADING SCREEN
-  useEffect(() => {
-    API.getProfiles()
-      .then((data) => {
-        setUsers(data)
-      })
-      .catch((err) => {
-        console.log("oh noes");
-        console.log(err);
-      });
-  }, []);
 
   useEffect(() => {
     const storedToken = window.sessionStorage.getItem("token");
@@ -149,35 +132,10 @@ function App() {
         </Route>
 
         {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
-        {
-          !users ?
-            <Route path={"bruh"} element={<OtherProfile />}>
-            </Route>
-            :
-            users.map(({ username }) => (
-              <Route key={username} path={'/' + username} element={
-                <OtherProfile type='otherProfile' />}
-              >
-              </Route>
-            ))
-        }
-
-        {/* {usersLoading === true ?
-          <Route path={window.location.pathname} element={<LoadingPage />}></Route>
-          :
-
-          !users ?
-            <Route path={"bruh"} element={<OtherProfile />}>
-            </Route>
-            :
-            users.map(({ username }) => (
-              <Route key={username} path={'/&/' + username} element={
-                <OtherProfile type='otherProfile' />}
-              >
-              </Route>
-            ))
-
-        } */}
+        <Route key={username} path={"/:username"} element={
+          <OtherProfile type='otherProfile' />}
+        >
+        </Route>
 
         {/* PAGE PAGE PAGE PAGE */}
         <Route path={"/:username/:pageId"} element={
