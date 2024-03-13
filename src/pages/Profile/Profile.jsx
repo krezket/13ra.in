@@ -89,56 +89,60 @@ function Profile(props) {
 
           <nav className='empty-nav'></nav>
 
-          <main className='pr-main'>
-            <div className='h1-ar'>
+          <div className="main-con-profile">
+            <main className='pr-main'>
+              <div className='h1-ar'>
 
-              <div className='usr-fri'>
+                <div className='usr-fri'>
 
-                <h1 className='profile-username'>{user.username}</h1>
-                <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
+                  <h1 className='profile-username'>{user.username}</h1>
+                  <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
 
-                {!props.friends ?
-                  <h3 className='profile-pages'>Friends: 0</h3>
+                  {!props.friends ?
+                    <h3 className='profile-pages'>Friends: 0</h3>
+                    :
+                    <h3 className='profile-pages'>Friends: {props.friends.length}</h3>
+                  }
+                  {!user.pages ?
+                    <h3 className='profile-pages'>No Pages Yet</h3>
+                    :
+                    <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
+                  }
+
+                </div>
+
+                <article className='profile-bio'>
+                  {user.bio === "" ?
+                    <p>no bio yet</p>
+                    :
+                    <p>{user.bio}</p>
+                  }
+                </article>
+
+                {!user ?
+
+                  <img src={loading} alt='loading'></img>
                   :
-                  <h3 className='profile-pages'>Friends: {props.friends.length}</h3>
-                }
-                {!user.pages ?
-                  <h3 className='profile-pages'>No Pages Yet</h3>
-                  :
-                  <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
+
+                  <section className='fp-section'>
+                    {user.pages.map(({ id, title }) => (
+                      <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>
+                        <div className='card' key={title}>
+                          {title}
+                        </div>
+                      </Link>
+                    ))
+                    }
+                  </section>
                 }
 
+                <Link id='create-link' to={"/create"}>Create a Page</Link>
               </div>
 
-              <article className='profile-bio'>
-                {user.bio === "" ?
-                  <p>no bio yet</p>
-                  :
-                  <p>{user.bio}</p>
-                }
-              </article>
+            </main>
 
-              {!user ?
+          </div>
 
-                <img src={loading} alt='loading'></img>
-                :
-
-                <section className='fp-section'>
-                  {user.pages.map(({ id, title }) => (
-                    <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>
-                      <div className='card' key={title}>
-                        {title}
-                      </div>
-                    </Link>
-                  ))
-                  }
-                </section>
-              }
-
-              <Link id='create-link' to={"/create"}>Create a Page</Link>
-            </div>
-
-          </main>
 
           <Footer />
 
