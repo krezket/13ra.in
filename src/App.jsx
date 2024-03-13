@@ -22,7 +22,6 @@ function App() {
   const [email, setEmail] = useState("");
     
   const [pageId, setPageId] = useState("");
-  console.log("FROM pageId:", pageId)
 
   useEffect(() => {
     const storedToken = window.sessionStorage.getItem("token");
@@ -133,8 +132,7 @@ function App() {
 
         {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
         <Route key={username} path={"/:username"} element={
-          <OtherProfile type='otherProfile' />}
-        >
+          <OtherProfile type='otherProfile' />}>
         </Route>
 
         {/* PAGE PAGE PAGE PAGE */}

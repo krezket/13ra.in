@@ -9,9 +9,12 @@ import API from "../../utils/API";
 export default function UserPage(props) {
   console.log("UserPage Props:", props);
 
+  const pathArr1 = window.location.pathname.split('/');
+  let path1 = pathArr1[1].split('/').pop()
+  // console.log("PATH1:", path1)
   const pathArr = window.location.pathname.split('/');
   let path = pathArr[2].split('/').pop()
-  console.log("PATH:", path)
+  // console.log("PATH:", path)
 
   const [newPage, setNewPage] = useState({})
   console.log("NEWPAGE:", newPage)

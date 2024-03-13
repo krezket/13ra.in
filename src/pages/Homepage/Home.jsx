@@ -98,7 +98,6 @@ export default function Home(props) {
                                             <td className='fp-data'>
                                                 <Link 
                                                 id='fp-link'
-                                                onClick={() => props.setPageId({postUsername: users.username, postId: id})}
                                                 to={"/" + users.username + "/" + id}
                                                 >
                                                 {title}
