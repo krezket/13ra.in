@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -r https://github.com/krezket/13ra.in.git",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "start": "npm run dev",
     "build": "vite build",
