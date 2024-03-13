@@ -17,6 +17,15 @@ export default function UserPage(props) {
   console.log("NEWPAGE:", newPage)
   const [username, setUsername] = useState("")
   const [date, setDate] = useState("")
+  const [comments, setComments] = useState("")
+
+  const [text, setText] = useState("")
+
+  const handleChange = e => {
+    if (e.target.name === "text") {
+      setText(e.target.value)
+    }
+  }
 
   // console.log(newPage.users.username)
 
@@ -34,6 +43,34 @@ export default function UserPage(props) {
         console.log(err);
       });
   }, [path]);
+
+  useEffect(() => {
+    API.getAllComments()
+      .then((data) => {
+        setComments(data)
+        console.log("ALL COMMENTS:", data)
+      })
+      .catch((err) => {
+        console.log("oh noes");
+        console.log(err);
+      });
+  }, []);
+
+  const submitHandler = e => {
+    e.preventDefault()
+    API.postComment({
+      text: text,
+      userId: props.userId,
+      pageId: path
+    })
+      .then((data) => {
+        console.log("Comment:", data)
+      })
+      .catch((err) => {
+        console.log("oh noes");
+        console.log(err);
+      });
+  }
 
   return (
     <>
@@ -75,6 +112,28 @@ export default function UserPage(props) {
 
         </main>
 
+        <div className='comment-div'>
+          <h3>Comments</h3>
+          {comments == '' ? 
+          <p>No Comments Yet</p> 
+          : 
+          comments.map(({ text, users, createdAt }) => (
+            <div key={text}>
+              <h2>placeholder</h2>
+              <p>{text}</p>
+              <p>
+                <DayJS format="M/D/YYYY h:mm a">
+                  {createdAt}
+                </DayJS>
+              </p>
+            </div>
+          ))
+          }
+          <form onSubmit={submitHandler}>
+            <textarea cols="100" name='text' placeholder='Write a comment' value={text} onChange={handleChange}></textarea>
+            <button>Comment</button>
+          </form>
+        </div>
       </div>
       <Footer />
     </>

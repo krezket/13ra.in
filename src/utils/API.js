@@ -185,6 +185,43 @@ const API = {
             console.log(error);
         }
     },
+
+    // Get All Comments
+    getAllComments: async () => {
+        try {
+            const response = await fetch(`${URL_PREFIX}/comments`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            if (response.ok) {
+                return response.json();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    },
+
+    // Post a Comment
+    postComment: async (x) => {
+        try {
+            const response = await fetch(`${URL_PREFIX}/comments`, {
+                method: 'POST',
+                body: JSON.stringify(x),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            if (response.ok) {
+                return response.json();
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    },
     //Create 
     // createProfile: async (x) => {
     //     try {
