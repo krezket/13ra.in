@@ -36,8 +36,6 @@ export default function OtherProfile(props) {
         setToken={props.setToken}
       />
 
-      <nav className='empty-nav'></nav>
-
       <div className="main-con-profile">
         <main className='pr-main'>
           <div className='h1-ar'>

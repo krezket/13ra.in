@@ -63,7 +63,6 @@ export default function UserPage(props) {
 
   return (
     <>
-
       <Header
         type={props.type}
         username={props.username}
