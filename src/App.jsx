@@ -129,12 +129,6 @@ function App() {
           />}
         >
         </Route>
-
-        {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
-        <Route key={username} path={"/:username"} element={
-          <OtherProfile type='otherProfile' />}>
-        </Route>
-
         {/* PAGE PAGE PAGE PAGE */}
         <Route path={"/:username/:pageId"} element={
           <UserPage
@@ -150,6 +144,12 @@ function App() {
           />}
         >
         </Route>
+
+        {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
+        <Route key={username} path={"/:username"} element={
+          <OtherProfile type='otherProfile' />}>
+        </Route>
+
 
         {/* CREATE PAGE CREATE PAGE CREATE PAGE */}
         <Route path='/create' element={

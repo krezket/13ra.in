@@ -71,3 +71,7 @@ and (max-width : 1024px) {
 .date-created {
     color: var(--text-white);
 }
+
+.comment-div {
+    color: white;
+}

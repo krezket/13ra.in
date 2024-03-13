@@ -45,6 +45,16 @@
   /* background-image: url("../../assets/death/smokeskull.gif"); */
 }
 
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin: 0px;
+  padding: 0px;
+
+}
+
 .nav-p {
   color: var(--text-red);
 }

@@ -9,21 +9,18 @@ import API from "../../utils/API";
 export default function UserPage(props) {
   console.log("UserPage Props:", props);
 
-  const pathArr1 = window.location.pathname.split('/');
-  let path1 = pathArr1[1].split('/').pop()
-  // console.log("PATH1:", path1)
+  const [newPage, setNewPage] = useState({})
+  console.log("NEWPAGE:", newPage)
+  const [username, setUsername] = useState("")
+  const [comments , setComments] = useState([{}])
+  console.log("COMMENTS:", comments)
+  const [date, setDate] = useState("")
+
   const pathArr = window.location.pathname.split('/');
   let path = pathArr[2].split('/').pop()
   // console.log("PATH:", path)
 
-  const [newPage, setNewPage] = useState({})
-  console.log("NEWPAGE:", newPage)
-  const [username, setUsername] = useState("")
-  const [date, setDate] = useState("")
-  const [comments, setComments] = useState("")
-
   const [text, setText] = useState("")
-
   const handleChange = e => {
     if (e.target.name === "text") {
       setText(e.target.value)
@@ -38,6 +35,7 @@ export default function UserPage(props) {
         // console.log("REALPAGEDATA:",data)
         setNewPage(data)
         setUsername(data.users.username)
+        setComments(data.comments)
         setDate(data.createdAt)
         console.log("DATE:", date)
       })
@@ -46,18 +44,6 @@ export default function UserPage(props) {
         console.log(err);
       });
   }, [path]);
-
-  useEffect(() => {
-    API.getAllComments()
-      .then((data) => {
-        setComments(data)
-        console.log("ALL COMMENTS:", data)
-      })
-      .catch((err) => {
-        console.log("oh noes");
-        console.log(err);
-      });
-  }, []);
 
   const submitHandler = e => {
     e.preventDefault()
@@ -120,9 +106,9 @@ export default function UserPage(props) {
           {comments == '' ? 
           <p>No Comments Yet</p> 
           : 
-          comments.map(({ text, users, createdAt }) => (
+          comments.map(({text, users, createdAt}) => (
             <div key={text}>
-              <h3>{users.username}</h3>
+              <h3>{users && users.username}</h3> 
               <p>{text}</p>
               <p>
                 <DayJS format="M/D/YYYY h:mm a">

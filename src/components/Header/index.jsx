@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../LogOutModal';
-import Search from '../Search/Search';
+import API from '../../utils/API';
 
 // import dragonLeft from '../../assets/dragons/reddragon1.gif'
 // import dragonRight from '../../assets/dragons/reddragon2.gif'
@@ -12,6 +12,31 @@ export default function Header(props) {
     // console.log(props)
     const navigate = useNavigate()
     const [modal, setModal] = useState(false)
+
+    const [input, setInput] = useState("")
+
+    const handleChange = e => {
+        if (e.target.name === "input") {
+            setInput(e.target.value)
+        }
+    }
+
+    const submitHandler = e => {
+        e.preventDefault()
+
+        API.getProfileByName(input)
+            .then((data) => {
+                // CONSOLE LOG //
+                // console.log("Get User:", data)
+                navigate("/" + data.username)
+                // const CrntPgData = JSON.stringify(data)
+                // window.sessionStorage.setItem("CrntPgDt", CrntPgData)
+            })
+            .catch((err) => {
+                console.log("oh noes");
+                console.log(err);
+            });
+    }
 
     const toggleModal = () => {
         setModal(!modal)
@@ -43,8 +68,10 @@ export default function Header(props) {
                             <h1 className='blog-title'>13ra.in</h1>
                         </Link>
 
-                        <Search />
-                        <>
+                        <form className="form" onSubmit={submitHandler}>
+                            <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
+                            <button>Search</button>
+                        </form>                        <>
                             {ID ?
                                 <>
                                     <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
@@ -69,8 +96,10 @@ export default function Header(props) {
                                 <h1 className='blog-title'>13ra.in</h1>
                             </Link>
 
-                            <Search />
-                            <>
+                            <form className="form" onSubmit={submitHandler}>
+                                <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
+                                <button>Search</button>
+                            </form>                            <>
                                 {ID ?
 
                                     <>
@@ -93,8 +122,10 @@ export default function Header(props) {
                                 <Link className='home-link' to='/'>
                                     <h1 className='blog-title'>13ra.in</h1>
                                 </Link>
-                                <Search />
-                                <>
+                                <form className="form" onSubmit={submitHandler}>
+                                    <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
+                                    <button>Search</button>
+                                </form>                                <>
                                     {ID ?
                                         <>
                                             <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
@@ -118,8 +149,10 @@ export default function Header(props) {
                                         <h1 className='blog-title'>13ra.in</h1>
                                     </Link>
 
-                                    <Search />
-                                    
+                                    <form className="form" onSubmit={submitHandler}>
+                                        <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
+                                        <button>Search</button>
+                                    </form>
                                     <>
                                         {ID ?
                                             <>
@@ -144,8 +177,10 @@ export default function Header(props) {
                                     <Link className='home-link' to='/'>
                                         <h1 className='blog-title'>13ra.in</h1>
                                     </Link>
-                                    <Search />
-                                    <>
+                                    <form className="form" onSubmit={submitHandler}>
+                                        <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
+                                        <button>Search</button>
+                                    </form>                                    <>
                                         {ID ?
                                             <>
                                                 <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>

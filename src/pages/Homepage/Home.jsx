@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Header from "../../components/Header";
-import Search from "../../components/Search/Search"
 import LogIn from '../../pages/LogIn';
 import SignUp from '../../pages/SignUp';
 import Footer from '../../components/Footer/';
@@ -19,7 +18,7 @@ import './fp.css'
 
 export default function Home(props) {
     // CONSOLE LOG //
-    console.log("home props:", props)
+    // console.log("home props:", props)
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
