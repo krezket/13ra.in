@@ -1,0 +1,5 @@
+{
+    "redirects": [
+      { "source": "/:username/:pageId", "destination": "/index.html", "permanent": false }
+    ]
+  }
