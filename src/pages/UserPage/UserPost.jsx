@@ -60,8 +60,8 @@ export default function UserPage(props) {
     e.preventDefault()
     API.postComment({
       text: text,
-      userId: props.userId,
-      pageId: path
+      owner_id: props.userId,
+      page_id: path
     })
       .then((data) => {
         console.log("Comment:", data)
@@ -113,13 +113,13 @@ export default function UserPage(props) {
         </main>
 
         <div className='comment-div'>
-          <h3>Comments</h3>
+          <h2>Comments</h2>
           {comments == '' ? 
           <p>No Comments Yet</p> 
           : 
           comments.map(({ text, users, createdAt }) => (
             <div key={text}>
-              <h2>placeholder</h2>
+              <h3>{users.username}</h3>
               <p>{text}</p>
               <p>
                 <DayJS format="M/D/YYYY h:mm a">
