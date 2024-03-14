@@ -6,7 +6,7 @@ import Home from './pages/Homepage/Home.jsx';
 import LogIn from './pages/LogIn/index.jsx';
 import SignUp from './pages/SignUp/index.jsx';
 import Profile from './pages/Profile/Profile.jsx';
-import UserPage from './pages/UserPage/UserPost.jsx';
+import UserPage from './pages/UserPage/UserPost1.jsx';
 import CreatePage from './pages/CreatePage/CreatePage.jsx';
 import About from './pages/About/About.jsx';
 import OtherProfile from './pages/OtherProfile/OtherProfile.jsx';
@@ -130,8 +130,9 @@ function App() {
         >
         </Route>
         {/* PAGE PAGE PAGE PAGE */}
-        <Route path={"/:username/:pageId"} element={
-          <UserPage
+        <Route
+          element={
+            <UserPage
             type='post'
             userId={userId}
             username={username}
@@ -141,7 +142,12 @@ function App() {
             setUsername={setUsername}
             setToken={setToken}
             pageId={pageId}
-          />}
+            />}
+            path={"/:username/:pageId"}
+            loader={async ({ params }) => {
+              console.log("QUEESESTOO",params.pageId);
+              return await API.getPage(params.username, params.pageId);
+            }}
         >
         </Route>
 
