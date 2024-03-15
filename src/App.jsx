@@ -25,10 +25,12 @@ function App() {
   console.log("PAGEID:", pageId)
 
   useEffect(() => { 
-    location.pathname === "/:username/:pageId" ? 
+    console.log("LOCATION:", window.location.pathname)
+    location.pathname === "/:users/:pageId" ? 
     setPageId(location.pathname.split("/").pop()) : setPageId("");
   }
   , []);
+  
   useEffect(() => {
     const storedToken = window.sessionStorage.getItem("token");
 
