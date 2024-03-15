@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import API from "./utils/API.js";
 import Enter from './pages/Enter/theGate.jsx';
 import Home from './pages/Homepage/Home.jsx';
@@ -22,7 +22,13 @@ function App() {
   const [email, setEmail] = useState("");
     
   const [pageId, setPageId] = useState("");
+  console.log("PAGEID:", pageId)
 
+  useEffect(() => { 
+    location.pathname === "/:username/:pageId" ? 
+    setPageId(location.pathname.split("/").pop()) : setPageId("");
+  }
+  , []);
   useEffect(() => {
     const storedToken = window.sessionStorage.getItem("token");
 
@@ -131,23 +137,17 @@ function App() {
         </Route>
         {/* PAGE PAGE PAGE PAGE */}
         <Route
-          element={
-            <UserPage
-            type='post'
-            userId={userId}
-            username={username}
-            // pageUsername={users.username}
-            setUserId={setUserId}
-            setEmail={setEmail}
-            setUsername={setUsername}
-            setToken={setToken}
-            pageId={pageId}
-            />}
-            path={"/:username/:pageId"}
-            loader={async ({ params }) => {
-              console.log("QUEESESTOO",params.pageId);
-              return await API.getPage(params.username, params.pageId);
-            }}
+          element={<UserPage type='post' />}
+          path={"/:username/:pageId"}
+          loader={async ({ params }) => {
+            const pageId = params.pageId;
+            const response = await API.getPage(pageId);
+            if (!response.ok) {
+              throw new Error("Page not found");
+            }
+            const page = await response.json();
+            return { page };
+          }}
         >
         </Route>
 
