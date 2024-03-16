@@ -76,9 +76,10 @@ function SignUp(props) {
             <button id='su-submit'>Sign Up</button>
           </form>
           <h2>Already have an account? <Link id='login-pg' to='/login'>Log In</Link></h2>
+          <Link to={'/'}>Back to Main</Link>
         </section>
-      </main>
       <Footer />
+      </main>
     </>
   )
 }

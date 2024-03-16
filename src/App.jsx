@@ -138,7 +138,7 @@ function App() {
         </Route>
         {/* PAGE PAGE PAGE PAGE */}
         <Route
-          element={<UserPage type='post' token={token} />}
+          element={<UserPage type='post' userId={userId} token={token} />}
           path={"/:username/:pageId"}
 
         >
