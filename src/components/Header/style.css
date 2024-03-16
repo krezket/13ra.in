@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+
 .header {
   background-color: darkred;  
   position: fixed;
@@ -5,7 +8,7 @@
   /* background-image: url("../../assets/lightning/storm.gif"); */
   /* background-image: url("../../assets/backgrounds/bg-12.gif"); */
   /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
-  background-image: url("../../assets/backgrounds/chaso.png");
+  /* background-image: url("../../assets/backgrounds/chaso.png"); */
   /* background-image: url("../../assets/myown/S7A7IC.gif"); */
   /* background-image: url("../../assets/backgrounds/back-3.jpeg"); */
   /* background-image: url("../../assets/sparklebg.gif"); */
@@ -20,7 +23,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: black;  
+  background-color: rgb(23, 23, 23);  
 }
 
 .blog-title {
@@ -29,20 +32,17 @@
   margin: 0px;
   text-shadow: 0px 0px 7px rgb(255, 255, 255);
   color: white;
-  /* text-shadow: 0px 0px 7px rgb(0, 0, 0); */
-  /* border-radius: 10px; */
+  font-family: "Creepster", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: 0px 0px 7px rgb(0, 0, 0);
+  border-radius: 10px;
   transition: 0.2s;
 }
 .blog-title:hover {
   color: black;
   text-shadow: 0px -1px 4px white;
-  /* box-shadow: 0px 5px 10px; */
-  /* background-image: url("../../assets/lightning/storm.gif"); */
-  /* background-image: url("../../assets/daftavatar.gif"); */
-  /* background-image: url("../../assets/neutron.gif"); */
-  /* background-image: url("../../assets/fire/fire-1.gif"); */
-  /* background-image: url("../../assets/backgrounds/bg-27.gif"); */
-  /* background-image: url("../../assets/death/smokeskull.gif"); */
+  background-image: url("../../assets/lightning/storm.gif");
 }
 
 .form {

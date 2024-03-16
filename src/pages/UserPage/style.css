@@ -1,4 +1,9 @@
-.main-con {
+.empty {
+    height: 10vh;
+}
+
+
+.post-con {
     display: flex;
     flex-direction: column;
     justify-content: center ;
@@ -74,4 +79,5 @@ and (max-width : 1024px) {
 
 .comment-div {
     color: white;
+    padding: 0 77.7px 0 77.7px;
 }
