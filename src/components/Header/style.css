@@ -65,6 +65,7 @@
 }
 
 #login-link {
+  padding: 0 10px 0 10px;
   color: var(--text-red);
 }
 #logout-link {
@@ -92,7 +93,10 @@
 @media only screen
 and (min-width : 0px)
 and (max-width : 684px) {
-  .dragon {
-    width: 100px;
-}
+  .header-div {
+    padding: 0px;
+  }
+  .form {
+    display: none;
+  }
 }

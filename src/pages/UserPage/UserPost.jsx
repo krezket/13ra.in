@@ -124,7 +124,7 @@ export default function UserPage(props) {
                         ))
                     }
                     <form onSubmit={submitHandler}>
-                        <textarea cols="100" name='text' placeholder='Write a comment' value={text} onChange={handleChange}></textarea>
+                        <textarea cols="50" name='text' placeholder='Write a comment' value={text} onChange={handleChange}></textarea>
                         <button>Comment</button>
                     </form>
                 </div>
