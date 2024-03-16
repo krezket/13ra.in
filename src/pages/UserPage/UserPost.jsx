@@ -15,7 +15,7 @@ export default function UserPage(props) {
   const [comments , setComments] = useState([{}])
   console.log("COMMENTS:", comments)
   const [createdAt, setCreatedAt] = useState("")
-  const date = dayjs(createdAt).format('M/D/YYYY')
+  const date = dayjs(createdAt).format('M/D/YYYY h:mm a')
 
   const pathArr = window.location.pathname.split('/');
   let path = pathArr[2].split('/').pop()
@@ -92,9 +92,7 @@ export default function UserPage(props) {
           <div className='date-div'>
             <p className='date-created'>
               {newPage.createdAt && (
-                <p className="dayjs" format="M/D/YYYY h:mm a">
-                  {newPage.createdAt}
-                </p>
+                <p className="dayjs">{date}</p>
               )}
             </p>
           </div>

@@ -94,17 +94,10 @@ export default function Home(props) {
                                         <th className='fp-title'>Title</th>
                                         <th className='fp-title' id='less'>Created</th>
                                     </tr>
-                                    {allPages.map(({ id, title, users, createdAt }) => (
+                                    {allPages.map(({ id, title, users }) => (
                                         <tr key={title}>
                                             <td className='fp-data'><Link id='fp-link' to={"/" + users.username}>{users.username}</Link></td>
-                                            <td className='fp-data'>
-                                                <Link 
-                                                id='fp-link'
-                                                to={"/" + users.username + "/" + id}
-                                                >
-                                                {title}
-                                                </Link>
-                                            </td>
+                                            <td className='fp-data'><Link id='fp-link'to={"/" + users.username + "/" + id}>{title}</Link></td>
                                             <td className='fp-data' id='fp-link'>{date}</td>
                                         </tr>
                                     ))
@@ -113,16 +106,12 @@ export default function Home(props) {
                             </table>
                             :
                             <div className='fp-section'>
-                                {allPages.map(({ id, title, users, createdAt }) => (
-                                    <Link id='fp-link' 
-                                    key={title} 
-                                    onClick={() => props.setPageId(allPages)}
-                                    // to={"/" + users.username + "/" + id}
-                                    >
+                                {allPages.map(({ id, title, users }) => (
+                                    <Link id='fp-link' key={title} onClick={() => props.setPageId(allPages)} to={"/" + users.username + "/" + id}>
                                         <div className='card' key={title}>
-                                            <div>
+                                            <h1>
                                                 {title}
-                                            </div>
+                                            </h1>
                                             <div>
                                                 {users.username}
                                             </div>
