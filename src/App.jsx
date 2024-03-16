@@ -6,7 +6,6 @@ import Home from './pages/Homepage/Home.jsx';
 import LogIn from './pages/LogIn/index.jsx';
 import SignUp from './pages/SignUp/index.jsx';
 import Profile from './pages/Profile/Profile.jsx';
-import UserPage from './pages/UserPage/UserPost1.jsx';
 import CreatePage from './pages/CreatePage/CreatePage.jsx';
 import About from './pages/About/About.jsx';
 import OtherProfile from './pages/OtherProfile/OtherProfile.jsx';

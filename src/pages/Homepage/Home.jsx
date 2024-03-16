@@ -6,7 +6,6 @@ import Footer from '../../components/Footer/';
 import './style.css';
 
 import { Link } from 'react-router-dom'
-import DayJS from 'dayjs'
 import API from "../../utils/API";
 import loading from '../../assets/wizbiz/reaplf.gif'
 import loading1 from '../../assets/wizbiz/baraduur.gif'
