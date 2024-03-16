@@ -50,6 +50,9 @@ export default function UserPage(props) {
 
     const submitHandler = e => {
         e.preventDefault()
+        props.token === '' ?
+        alert('Must be signed in to comment!')
+        :
         API.postComment({
             text: text,
             owner_id: props.userId,
@@ -94,11 +97,9 @@ export default function UserPage(props) {
                     <p className='page-text'>{newPage.text}</p>
 
                     <div className='date-div'>
-                        <p className='date-created'>
-                            {newPage.createdAt && (
-                                <p className="dayjs">{date}</p>
-                            )}
-                        </p>
+                        {newPage.createdAt && (
+                            <p className="dayjs">{date}</p>
+                        )}
                     </div>
 
                 </main>
@@ -129,7 +130,7 @@ export default function UserPage(props) {
                     </form>
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }

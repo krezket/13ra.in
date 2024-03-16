@@ -47,7 +47,6 @@ function LogIn(props) {
   return (
     <>
       {/* <Header /> */}
-      <nav className='empty-nav'></nav>
       <main className='main-form-li'>
         <section>
           <h1>Log In</h1>
@@ -57,6 +56,7 @@ function LogIn(props) {
             <button id='si-submit'>Log In</button>
           </form>
           <h2>Don't have an account? <Link id='signin-pg' to='/signup'>Sign Up</Link></h2>
+          <Link to={'/'}>Back to Main</Link>
         </section>
       </main>
       <Footer />

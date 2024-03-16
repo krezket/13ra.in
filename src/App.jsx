@@ -138,17 +138,9 @@ function App() {
         </Route>
         {/* PAGE PAGE PAGE PAGE */}
         <Route
-          element={<UserPage type='post' />}
+          element={<UserPage type='post' token={token} />}
           path={"/:username/:pageId"}
-          loader={async ({ params }) => {
-            const pageId = params.pageId;
-            const response = await API.getPage(pageId);
-            if (!response.ok) {
-              throw new Error("Page not found");
-            }
-            const page = await response.json();
-            return { page };
-          }}
+
         >
         </Route>
 

@@ -65,11 +65,7 @@ function SignUp(props) {
   return (
     <>
       {/* <Header /> */}
-      <nav className='empty-nav'></nav>
       <main className='main-form-su'>
-        {/* <aside className='aside-left'>
-            yo
-          </aside> */}
         <section>
           <h1>Create an account</h1>
           <form onSubmit={submitHandler}>
@@ -81,9 +77,6 @@ function SignUp(props) {
           </form>
           <h2>Already have an account? <Link id='login-pg' to='/login'>Log In</Link></h2>
         </section>
-        {/* <aside className='aside-right'>
-            yo
-          </aside> */}
       </main>
       <Footer />
     </>
