@@ -21,8 +21,12 @@ const router = createBrowserRouter([
   },
   {
     path: '/:username',
-    ekement: <OtherProfile/>
-  }
+    element: <OtherProfile/>,
+  },
+  {
+    path: '/:username/:pageId',
+    element: <UserPage/>, 
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
