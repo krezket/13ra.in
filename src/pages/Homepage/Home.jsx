@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/';
 import './style.css';
 
 import { Link } from 'react-router-dom'
-import DayJS from 'react-dayjs';
+import DayJS from 'dayjs'
 import API from "../../utils/API";
 import loading from '../../assets/wizbiz/reaplf.gif'
 import loading1 from '../../assets/wizbiz/baraduur.gif'
@@ -15,6 +15,7 @@ import loading3 from '../../assets/wizbiz/plasmaball.gif'
 import loading4 from '../../assets/red/redlightbar.gif'
 import loading5 from '../../assets/red/fly-red.gif'
 import './fp.css'
+import dayjs from 'dayjs';
 
 export default function Home(props) {
     // CONSOLE LOG //
@@ -24,6 +25,8 @@ export default function Home(props) {
     }, []);
     const [allPages, setAllPages] = useState("")
     // console.log(allPages)
+    const [createdAt, setCreatedAt] = useState("")
+    const date = dayjs(createdAt).format('M/D/YYYY')
     const [list, setList] = useState("")
     const [grid, setGrid] = useState("")
     let loadingArray = [loading, loading1, loading2, loading3, loading4, loading5]
@@ -35,6 +38,7 @@ export default function Home(props) {
         API.getPages()
             .then((data) => {
                 console.log('ALL PAGES:', data)
+                setCreatedAt(data.createdAt)
                 setAllPages(data)
             })
             .catch((err) => {
@@ -102,7 +106,7 @@ export default function Home(props) {
                                                 {title}
                                                 </Link>
                                             </td>
-                                            <td className='fp-data'><DayJS id='fp-link' format="M/D/YYYY">{createdAt}</DayJS></td>
+                                            <td className='fp-data' id='fp-link'>{date}</td>
                                         </tr>
                                     ))
                                     }
@@ -124,7 +128,7 @@ export default function Home(props) {
                                                 {users.username}
                                             </div>
                                             <div>
-                                                <DayJS className="dayjs" format="M/D/YYYY">{createdAt}</DayJS>
+                                                <p>{date}</p>
                                             </div>
                                         </div>
                                     </Link>
