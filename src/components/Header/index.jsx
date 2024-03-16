@@ -79,7 +79,7 @@ export default function Header(props) {
 
                                 :
                                 <>
-                                    <Link className='nav-p' to='/login'>Log In</Link>
+                                    <Link id='login-link' to='/login'>Log In</Link>
                                 </>
                             }
                         </>
@@ -99,7 +99,8 @@ export default function Header(props) {
                             <form className="form" onSubmit={submitHandler}>
                                 <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
                                 <button>Search</button>
-                            </form>                            <>
+                            </form>                            
+                            <>
                                 {ID ?
 
                                     <>
@@ -108,7 +109,7 @@ export default function Header(props) {
 
                                     :
                                     <>
-                                        <Link className='nav-p' id='nav-p-log' to='/login'>Log In</Link>
+                                        <Link id='login-link' to='/login'>Log In</Link>
                                     </>
                                 }
                             </>
