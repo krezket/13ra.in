@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import DayJS from 'react-dayjs';
 import './style.css';
 
 
 export default function Header() {
   return (
     <footer className='footer'>
-      <h1 className='outro'>&copy;<DayJS format="YYYY"></DayJS></h1>
+      <h1 className='outro'>&copy;2024</h1>
 
       <div className='footerbar'>
         <p className='footer-p'>
