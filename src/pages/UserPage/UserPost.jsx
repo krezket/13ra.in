@@ -92,9 +92,9 @@ export default function UserPage(props) {
           <div className='date-div'>
             <p className='date-created'>
               {newPage.createdAt && (
-                <DayJS className="dayjs" format="M/D/YYYY h:mm a">
+                <p className="dayjs" format="M/D/YYYY h:mm a">
                   {newPage.createdAt}
-                </DayJS>
+                </p>
               )}
             </p>
           </div>
@@ -110,11 +110,11 @@ export default function UserPage(props) {
             <div key={text}>
               <h3>{users && users.username}</h3> 
               <p>{text}</p>
-              <p>
-                <DayJS format="M/D/YYYY h:mm a">
-                  {createdAt}
-                </DayJS>
-              </p>
+              <>
+                <p format="M/D/YYYY h:mm a">
+                  {date}
+                </p>
+              </>
             </div>
           ))
           }
