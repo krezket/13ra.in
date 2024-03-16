@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import dayjs from 'dayjs';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import thumbup from '../../assets/wizbiz/thumbup.gif'
+import thumbdown from '../../assets/wizbiz/thumbdown.gif'
 import './style.css'
 import API from "../../utils/API";
 
@@ -102,8 +104,10 @@ export default function UserPage(props) {
                 </main>
 
                 <div className="like-con">
-                    <button>Like</button>
-                    <button>Dislike</button>
+                    <h3>{newPage.likes}</h3>
+                    <button><img src={thumbup} alt="Like" /></button>
+                    <h3>{newPage.dislikes}</h3>
+                    <button><img src={thumbdown} alt="Dislike" /></button>
                 </div>
 
                 <div className='comment-div'>
@@ -113,7 +117,7 @@ export default function UserPage(props) {
                         :
                         comments.map(({ text, users }) => (
                             <div key={text}>
-                                <Link to={users && '/' + users.username}><h2 className='page-username'>{users && users.username}</h2></Link>
+                                <Link to={users && '/' + users.username}><h3 className='page-username'>{users && users.username}</h3></Link>
                                 <p>{text}</p>
                                 <p>{date}</p>
                             </div>
