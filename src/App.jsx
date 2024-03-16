@@ -6,6 +6,7 @@ import Home from './pages/Homepage/Home.jsx';
 import LogIn from './pages/LogIn/index.jsx';
 import SignUp from './pages/SignUp/index.jsx';
 import Profile from './pages/Profile/Profile.jsx';
+import UserPage from './pages/UserPage/UserPost.jsx';
 import CreatePage from './pages/CreatePage/CreatePage.jsx';
 import About from './pages/About/About.jsx';
 import OtherProfile from './pages/OtherProfile/OtherProfile.jsx';
@@ -13,18 +14,17 @@ import OtherProfile from './pages/OtherProfile/OtherProfile.jsx';
 import './App.css';
 
 function App() {
+  const [token, setToken] = useState("");
   const [userId, setUserId] = useState(null);
+  const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
   const [bio, setBio] = useState("");
-  const [username, setUsername] = useState("");
-  const [token, setToken] = useState("");
   const [email, setEmail] = useState("");
     
   const [pageId, setPageId] = useState("");
   console.log("PAGEID:", pageId)
 
   useEffect(() => { 
-    console.log("LOCATION:", window.location.pathname)
     location.pathname === "/:users/:pageId" ? 
     setPageId(location.pathname.split("/").pop()) : setPageId("");
   }

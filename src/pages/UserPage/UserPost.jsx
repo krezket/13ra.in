@@ -90,11 +90,9 @@ export default function UserPage(props) {
           <p className='page-text'>{newPage.text}</p>
 
           <div className='date-div'>
-            <p className='date-created'>
               {newPage.createdAt && (
-                <p className="dayjs">{date}</p>
+                <p className="date-created">{date}</p>
               )}
-            </p>
           </div>
 
         </main>
