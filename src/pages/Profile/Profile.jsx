@@ -9,7 +9,6 @@ import trash4 from '../../assets/trash/trash-4-_dragged_.svg'
 import './style.css'
 
 function Profile(props) {
-  // console.log('profile props:', props);
   // const [username, setUsername] = useState("");
   const ID = sessionStorage.getItem("userId");
   const [ownerId, setOwnerId] = useState("")
@@ -20,7 +19,6 @@ function Profile(props) {
   useEffect(() => {
     API.getProfile(ID)
       .then((data) => {
-        // console.log('user:', data)
         setUser(data)
       })
       .catch((err) => {

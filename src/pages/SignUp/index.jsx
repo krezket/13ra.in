@@ -8,7 +8,6 @@ import './style.css'
 
 
 function SignUp(props) {
-  // console.log(props)
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
   const [fullName, setFullName] = useState("")
@@ -64,7 +63,6 @@ function SignUp(props) {
 
   return (
     <>
-      {/* <Header /> */}
       <main className='main-form-su'>
         <section>
           <h1>Create an account</h1>

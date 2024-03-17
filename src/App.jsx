@@ -10,7 +10,6 @@ import UserPage from './pages/UserPage/UserPost.jsx';
 import CreatePage from './pages/CreatePage/CreatePage.jsx';
 import About from './pages/About/About.jsx';
 import OtherProfile from './pages/OtherProfile/OtherProfile.jsx';
-// import LoadingPage from './pages/LoadingPage/LoadingPage.jsx';
 import './App.css';
 
 function App() {

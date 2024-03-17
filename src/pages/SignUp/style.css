@@ -27,17 +27,3 @@
 #login-pg {
     color: var(--text-red);
 }
-
-/* @media only screen and (min-width : 1024px)  {
-    .main-form-su {
-        height: 70vh;
-    }
-}
-
-@media only screen
-and (min-width : 480px)
-and (max-width : 1024px) {
-  .main-form-su {
-    height: 77vh;
-}
-} */
