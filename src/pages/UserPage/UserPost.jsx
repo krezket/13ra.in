@@ -16,7 +16,8 @@ export default function UserPage(props) {
     const [username, setUsername] = useState("")
     const [comments, setComments] = useState([{}])
     console.log("COMMENTS:", comments)
-    const [createdAt, setCreatedAt] = useState("")
+    const [createdAt, setCreatedAt] = useState([{}])
+    console.log("CREATEDAT:", createdAt)
     const date = dayjs(createdAt).format('M/D/YYYY h:mm a')
 
     const pathArr = window.location.pathname.split('/');
