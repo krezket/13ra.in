@@ -94,11 +94,11 @@ export default function Home(props) {
                                         <th className='fp-title'>Title</th>
                                         <th className='fp-title' id='less'>Created</th>
                                     </tr>
-                                    {allPages.map(({ id, title, users }) => (
+                                    {allPages.map(({ id, title, users, createdAt }) => (
                                         <tr key={title}>
                                             <td className='fp-data'><Link id='fp-link' to={"/" + users.username}>{users.username}</Link></td>
                                             <td className='fp-data'><Link id='fp-link'to={"/" + users.username + "/" + id}>{title}</Link></td>
-                                            <td className='fp-data' id='fp-link'>{date}</td>
+                                            <td className='fp-data' id='fp-link'>{dayjs(createdAt).format('M/D/YYYY')}</td>
                                         </tr>
                                     ))
                                     }

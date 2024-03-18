@@ -9,6 +9,7 @@ import trash4 from '../../assets/trash/trash-4-_dragged_.svg'
 import './style.css'
 
 function Profile(props) {
+  console.log("PROFILE PROPS:", props)
   // const [username, setUsername] = useState("");
   const ID = sessionStorage.getItem("userId");
   const [ownerId, setOwnerId] = useState("")
