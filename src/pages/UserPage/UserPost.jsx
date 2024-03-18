@@ -22,7 +22,6 @@ export default function UserPage(props) {
 
     const pathArr = window.location.pathname.split('/');
     let path = pathArr[2].split('/').pop()
-    // console.log("PATH:", path)
 
     const [text, setText] = useState("")
     const handleChange = e => {
@@ -31,12 +30,9 @@ export default function UserPage(props) {
         }
     }
 
-    // console.log(newPage.users.username)
-
     useEffect(() => {
         API.getPage(path)
             .then((data) => {
-                // console.log("REALPAGEDATA:",data)
                 setNewPage(data)
                 setUsername(data.users.username)
                 setComments(data.comments)
@@ -79,8 +75,6 @@ export default function UserPage(props) {
                 setUsername={props.setUsername}
                 setToken={props.setToken}
             />
-
-            {/* <div className="empty"></div> */}
 
             <div className="post-con">
                 <main className='page-main'>
@@ -131,7 +125,6 @@ export default function UserPage(props) {
                     </form>
                 </div>
             </div>
-            {/* <Footer /> */}
         </>
     )
 }

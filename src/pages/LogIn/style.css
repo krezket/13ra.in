@@ -26,17 +26,3 @@ form {
 #signin-pg {
     color: var(--text-red);
 }
-
-/* @media only screen and (min-width : 1024px)  {
-    .main-form-li {
-        height: 70vh;
-    }
-}
-
-@media only screen
-and (min-width : 480px)
-and (max-width : 1024px) {
-  .main-form-li {
-    height: 77vh;
-}
-} */

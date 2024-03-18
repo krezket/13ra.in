@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../LogOutModal';
 import API from '../../utils/API';
-
-// import dragonLeft from '../../assets/dragons/reddragon1.gif'
-// import dragonRight from '../../assets/dragons/reddragon2.gif'
 import './style.css';
 
 
 export default function Header(props) {
-    // console.log(props)
     const navigate = useNavigate()
     const [modal, setModal] = useState(false)
 
@@ -26,11 +22,7 @@ export default function Header(props) {
 
         API.getProfileByName(input)
             .then((data) => {
-                // CONSOLE LOG //
-                // console.log("Get User:", data)
                 navigate("/" + data.username)
-                // const CrntPgData = JSON.stringify(data)
-                // window.sessionStorage.setItem("CrntPgDt", CrntPgData)
             })
             .catch((err) => {
                 console.log("oh noes");
