@@ -12,13 +12,10 @@ export default function UserPage(props) {
     console.log("UserPage Props:", props);
 
     const [newPage, setNewPage] = useState({})
-    console.log("NEWPAGE:", newPage)
     const [username, setUsername] = useState("")
-    const [comments, setComments] = useState([{}])
-    console.log("COMMENTS:", comments)
-    const [createdAt, setCreatedAt] = useState([{}])
-    console.log("CREATEDAT:", createdAt)
-    const date = dayjs(createdAt).format('M/D/YYYY h:mm a')
+    const [postDate, setPostDate] = useState([{}])
+    const date = dayjs(postDate).format('M/D/YYYY h:mm a')
+    const [commentData, setCommentData] = useState([{}])
 
     const pathArr = window.location.pathname.split('/');
     let path = pathArr[2].split('/').pop()
@@ -35,9 +32,8 @@ export default function UserPage(props) {
             .then((data) => {
                 setNewPage(data)
                 setUsername(data.users.username)
-                setComments(data.comments)
-                setCreatedAt(data.createdAt)
-                console.log("DATE:", date)
+                setPostDate(data.createdAt)
+                setCommentData(data.comments)
             })
             .catch((err) => {
                 console.log("oh noes");
@@ -77,26 +73,20 @@ export default function UserPage(props) {
             />
 
             <div className="post-con">
-                <main className='page-main'>
 
+                <main className='page-main'>
                     <div className='title-div'>
                         <h1 className='page-title'>{newPage.title}</h1>
                     </div>
-
                     <div className='username-div'>
                         <h3 className='page-username'>
                             <Link to={"/" + username} id='user-link'>{username}</Link>
                         </h3>
                     </div>
-
                     <p className='page-text'>{newPage.text}</p>
-
                     <div className='date-div'>
-                        {newPage.createdAt && (
-                            <p className="dayjs">{date}</p>
-                        )}
+                        <p className='dayjs'>{date}</p>
                     </div>
-
                 </main>
 
                 <div className="like-con">
@@ -108,14 +98,14 @@ export default function UserPage(props) {
 
                 <div className='comment-div'>
                     <h2>Comments</h2>
-                    {comments == '' ?
+                    {commentData == '' ?
                         <p>No Comments Yet</p>
                         :
-                        comments.map(({ text, users }) => (
+                        commentData.map(({ text, users, createdAt }) => (
                             <div key={text}>
                                 <Link to={users && '/' + users.username}><h3 className='page-username'>{users && users.username}</h3></Link>
                                 <p>{text}</p>
-                                <p>{date}</p>
+                                <p>{dayjs(createdAt).format('M/D/YYYY h:mm a')}</p>
                             </div>
                         ))
                     }
