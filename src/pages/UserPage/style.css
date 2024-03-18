@@ -79,11 +79,11 @@ and (max-width : 1024px) {
 .like-con {
     display: flex;
     justify-content: flex-end;
-    color: white;
+    color: var(--text-white);
     padding: 0 77.7px 0 77.7px;
 }
 
 .comment-div {
-    color: white;
+    color: var(--text-white);
     padding: 0 77.7px 0 77.7px;
 }

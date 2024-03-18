@@ -60,6 +60,10 @@ export default function UserPage(props) {
             });
     }
 
+    const bruh = 0
+    const bru2 = bruh + 1
+    console.log(bru2)
+
     return (
         <>
             <Header

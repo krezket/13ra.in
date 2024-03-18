@@ -1,5 +1,5 @@
 body {
-  background-color:   rgb(12, 12, 12);
+  background-color: white;
   margin: 0;
   position: relative;
   min-height: 100vh;
@@ -13,5 +13,5 @@ main {
 :root {
   --text-red: red;
   --text-darkred: darkred;
-  --text-white: white;
+  --text-white: black;
 }

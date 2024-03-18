@@ -39,7 +39,7 @@ function Profile(props) {
 
   const submitHandlerUsername = e => {
     e.preventDefault()
-
+    
     API.updateProfile({
       id: ownerId,
       // username:username,
@@ -55,6 +55,7 @@ function Profile(props) {
       alert(err)
     })
   }
+
   const handleDelete = e => {
     e.preventDefault()
     console.log(e.target.name)
@@ -84,8 +85,6 @@ function Profile(props) {
             setUsername={props.setUsername}
             setToken={props.setToken}
           />
-
-          <nav className='empty-nav'></nav>
 
           <div className="main-con-profile">
             <main className='pr-main'>
@@ -138,10 +137,7 @@ function Profile(props) {
               </div>
 
             </main>
-
           </div>
-
-
           <Footer />
 
         </>
@@ -163,10 +159,6 @@ function Profile(props) {
 
             <div className='h1-ar'>
               <form onSubmit={submitHandlerUsername}>
-                {/* <input name='username' value={username} placeholder="New Username" onChange={handleChange}></input> */}
-                {/* <input className='profile-fullname' placeholder="First and Last Name"></input> */}
-                {/* <input className='profile-email' placeholder="example@email.com"></input> */}
-
                 {props.bio === "" ?
                   <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}>Write a bio</textarea>
                   :
