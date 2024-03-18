@@ -139,7 +139,6 @@ function App() {
         <Route
           element={<UserPage type='post' userId={userId} username={username} token={token} />}
           path={"/:username/:pageId"}
-
         >
         </Route>
 

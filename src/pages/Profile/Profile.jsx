@@ -154,37 +154,40 @@ function Profile(props) {
             setUsername={props.setUsername}
             setToken={props.setToken}
           />
-          <nav className='empty-nav'></nav>
-
-          <main className='pr-main'>
-
-            <div className='h1-ar'>
-              <form onSubmit={submitHandlerUsername}>
-                {props.bio === "" ?
-                  <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}>Write a bio</textarea>
-                  :
-                  <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
-                }
-                <button>Submit</button>
-              </form>
-
-              {!user ?
-
-                <img src={loading} alt='loading'></img>
-                :
-
-                <section className='pr-section'>
-                  {user.pages.map(({ id, title }) => (
-                    <div className='card' key={title}>
-                      <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>{title}</Link>
-                      <img src={trash1} alt='trash-can' name={id} onClick={handleDelete}></img>
-                    </div>
-                  ))
+          <div className='edit-main-con'>
+            <main className='pr-main'>
+              <div className='h1-ar'>
+                <form onSubmit={submitHandlerUsername}>
+                  {props.bio === "" ?
+                    <>
+                    <h2>Write a bio</h2>
+                    <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
+                    </>
+                    :
+                    <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
                   }
-                </section>
-              }
-            </div>
-          </main>
+                  <button>Submit</button>
+                </form>
+
+                {!user ?
+
+                  <img src={loading} alt='loading'></img>
+                  :
+
+                  <section className='pr-section'>
+                    {user.pages.map(({ id, title }) => (
+                      <div className='card' key={title}>
+                        <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>{title}</Link>
+                        <img src={trash1} alt='trash-can' name={id} onClick={handleDelete}></img>
+                      </div>
+                    ))
+                    }
+                  </section>
+                }
+              </div>
+            </main>
+          </div>
+
           <Footer />
         </>
       }

@@ -5,6 +5,13 @@
     height: 100vh;
 
 }
+.edit-main-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+
+}
 .pr-main {
     border: 1px dashed white;
     display: flex;
@@ -12,6 +19,10 @@
     align-items: center;
     margin: 0 77px 0 77px;
     padding: 5px;
+}
+
+.card {
+    width: 150px;
 }
 
 .h1-ar {
@@ -58,8 +69,8 @@
 
 .textarea-bio {
     /* border: none; */
-    color: white;
-    background-color: black;
+    color: var(--text-white);
+    background-color: white;
     resize: none;
 }
 
