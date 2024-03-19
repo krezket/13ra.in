@@ -1,5 +1,5 @@
-// const URL_PREFIX = "http://localhost:3001"
-const URL_PREFIX = "https://a-13rain-backend-f1bf2467fb35.herokuapp.com"
+const URL_PREFIX = "http://localhost:3001"
+// const URL_PREFIX = "https://a-13rain-backend-f1bf2467fb35.herokuapp.com"
 
 const API = {
     // Login User 
@@ -127,19 +127,18 @@ const API = {
     },
 
     // Verify User Token
-    verifyToken: (token) => {
-        return fetch(`${URL_PREFIX}/users/auth/verifytoken`, {
+    verifyToken: async (token) => {
+        const res = await fetch(`${URL_PREFIX}/users/auth/verifytoken`, {
             headers: {
                 "authorization": `Bearer ${token}`
             }
-        }).then((res) => {
-            if (res.ok) {
-                // console.log(res)
-                return res.json();
-            } else {
-                throw new Error("falied signup");
-            }
-        });
+        })
+        if (res.ok) {
+            // console.log(res)
+            return res.json()
+        } else {
+            throw new Error("falied signup")
+        }
     },
 
     // Update User Profile by ID
@@ -163,6 +162,24 @@ const API = {
         }
     },
 
+    addFriend: async (x) => {
+        try {
+            const response = await fetch(`${URL_PREFIX}/users/addfriend/${x.id}`, {
+                method: 'PUT',
+                body: JSON.stringify(x),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (response.ok) {
+                return response.json();
+            } else {
+                alert('Unable to fetch');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    },
     // Create A Page
     createPage: async (userObj) => {
         try {

@@ -45,7 +45,6 @@ function Profile(props) {
       id: ownerId,
       // username:username,
       bio: bio
-
     }).then(data => {
       console.log(data)
       navigate("/" + props.username);

@@ -8,6 +8,7 @@ import API from '../../utils/API';
 export default function OtherProfile(props) {
   console.log("other", props)
   const [user, setUser] = useState("")
+  console.log("user",user)
 
   const pathArr = window.location.pathname.split('/');
   let path = pathArr[1].split('/').pop()
@@ -24,6 +25,24 @@ export default function OtherProfile(props) {
       });
   }, [path])
 
+  const handleFriendAdd = e => {
+    e.preventDefault()
+
+    API.addFriend({
+      id: props.userId,
+      friend_id: user.id,
+
+    }).then((data) => {
+      console.log(data)
+      // window.location.reload(false);
+
+    }).catch(err => {
+      console.log(err)
+      alert(err)
+    })
+  }
+
+      
   return (
     <>
       <Header 
@@ -43,6 +62,8 @@ export default function OtherProfile(props) {
             <div className='usr-fri'>
 
               <h1 className='profile-username'>{user.username}</h1>
+
+              <button onClick={handleFriendAdd}>Add Friend</button>
 
               {!props.friends ?
                 <h3 className='profile-pages'>Friends: 0</h3>
