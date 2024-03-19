@@ -6,7 +6,7 @@ import loading from '../../assets/banana.gif'
 import API from '../../utils/API';
 
 export default function OtherProfile(props) {
-  console.log("other", props)
+  console.log("MINELOGGEDIN", props)
   const [user, setUser] = useState("")
   console.log("user",user)
 
@@ -16,7 +16,7 @@ export default function OtherProfile(props) {
   useEffect(() => {
     API.getProfileByName(path)
       .then((data) => {
-        // console.log("Get User:", data)
+        console.log("Get User:", data)
         setUser(data)
       })
       .catch((err) => {
@@ -65,10 +65,10 @@ export default function OtherProfile(props) {
 
               <button onClick={handleFriendAdd}>Add Friend</button>
 
-              {!props.friends ?
+              {!user.friends ?
                 <h3 className='profile-pages'>Friends: 0</h3>
                 :
-                <h3 className='profile-pages'>Friends: {props.friends.length}</h3>
+                <h3 className='profile-pages'>Friends: {user.friends.length}</h3>
               }
               {!user.pages ?
                 <h3 className='profile-pages'>No Pages Yet</h3>
