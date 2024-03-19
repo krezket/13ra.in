@@ -95,10 +95,10 @@ function Profile(props) {
                   <h1 className='profile-username'>{user.username}</h1>
                   <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
 
-                  {!props.friends ?
+                  {!user.friends ?
                     <h3 className='profile-pages'>Friends: 0</h3>
                     :
-                    <h3 className='profile-pages'>Friends: {props.friends.length}</h3>
+                    <h3 className='profile-pages'>Friends: {user.friends.length}</h3>
                   }
                   {!user.pages ?
                     <h3 className='profile-pages'>No Pages Yet</h3>
