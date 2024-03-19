@@ -63,7 +63,8 @@ export default function Header(props) {
                         <form className="form" onSubmit={submitHandler}>
                             <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
                             <button>Search</button>
-                        </form>                        <>
+                        </form>                        
+                        <>
                             {ID ?
                                 <>
                                     <Link id='logout-link' onClick={toggleModal}>Log Out</Link>

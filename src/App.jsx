@@ -111,10 +111,10 @@ function App() {
             bio={bio}
             email={email}
             setUserId={setUserId}
-            setEmail={setEmail}
             setUsername={setUsername}
-            setBio={setBio}
             setToken={setToken}
+            setEmail={setEmail}
+            setBio={setBio}
           />}
         >
         </Route>
@@ -148,6 +148,11 @@ function App() {
           type='otherProfile'
           userId={userId}
           username={username}
+          token={token}
+          setUserId={setUserId}
+          setUsername={setUsername}
+          setToken={setToken}
+          setEmail={setEmail}
            />}>
         </Route>
 
