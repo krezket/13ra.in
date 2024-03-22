@@ -49,7 +49,7 @@ export default function Header(props) {
         window.location.reload(false);
     };
 
-    let ID = window.sessionStorage.getItem("userId")
+    let ID = window.sessionStorage.getItem("userId");
 
     return (
         <>
