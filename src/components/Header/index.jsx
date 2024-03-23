@@ -254,10 +254,7 @@ export default function Header(props) {
                                 </div>
                                 <nav>
                                     {ID ?
-                                    <>
-                                        <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
                                         <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                                    </>
                                         :
                                         <>
                                             <Link to='/signup'>Sign Up</Link>
