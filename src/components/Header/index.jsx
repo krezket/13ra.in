@@ -62,10 +62,10 @@ export default function Header(props) {
                     </div>
                     <nav>
                         {ID ?
-                        <>
-                            <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
-                            <Link>Log Out</Link>
-                        </>
+                            <>
+                                <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
+                                <Link>Log Out</Link>
+                            </>
                             :
                             <>
                                 <Link>Sign Up</Link>
@@ -75,33 +75,6 @@ export default function Header(props) {
                     </nav>
                     <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                 </header>
-                // <header className='header'>
-
-                //     <div className='header-div'>
-
-                //         <Link className='home-link' to='/'>
-                //             <h1 className='blog-title'>13ra.in</h1>
-                //         </Link>
-
-                //         <form className="form" onSubmit={submitHandler}>
-                //             <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
-                //             <button>Search</button>
-                //         </form>                        
-                //         <>
-                //             {ID ?
-                //                 <>
-                //                     <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                //                 </>
-
-                //                 :
-                //                 <>
-                //                     <Link id='login-link' to='/login'>Log In</Link>
-                //                 </>
-                //             }
-                //         </>
-                //         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                //     </div>
-                // </header>
 
                 : props.type === "otherProfile" ?
                     <header>
@@ -123,35 +96,6 @@ export default function Header(props) {
                         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                     </header>
 
-                    // <header className='header'>
-
-                    //     <div className='header-div'>
-
-                    //         <Link className='home-link' to='/'>
-                    //             <h1 className='blog-title'>13ra.in</h1>
-                    //         </Link>
-
-                    //         <form className="form" onSubmit={submitHandler}>
-                    //             <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
-                    //             <button>Search</button>
-                    //         </form>
-                    //         <>
-                    //             {ID ?
-
-                    //                 <>
-                    //                     <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                    //                 </>
-
-                    //                 :
-                    //                 <>
-                    //                     <Link id='login-link' to='/login'>Log In</Link>
-                    //                 </>
-                    //             }
-                    //         </>
-                    //         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                    //     </div>
-                    // </header>
-
                     : props.type === "edit" ?
                         <header>
                             <div className='logo-con'>
@@ -171,30 +115,6 @@ export default function Header(props) {
                             </nav>
                             <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                         </header>
-
-                        // <header className='header'>
-                        //     <div className='header-div'>
-                        //         <Link className='home-link' to='/'>
-                        //             <h1 className='blog-title'>13ra.in</h1>
-                        //         </Link>
-                        //         <form className="form" onSubmit={submitHandler}>
-                        //             <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
-                        //             <button>Search</button>
-                        //         </form>                                <>
-                        //             {ID ?
-                        //                 <>
-                        //                     <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
-                        //                     <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                        //                 </>
-                        //                 :
-                        //                 <>
-                        //                     <Link id='login-link' to='/login'>Log In</Link>
-                        //                 </>
-                        //             }
-                        //         </>
-                        //         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                        //     </div>
-                        // </header>
 
                         : props.type === "post" ?
                             <header>
@@ -216,35 +136,6 @@ export default function Header(props) {
                                 <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                             </header>
 
-                            // <header className='header'>
-                            //     <div className='header-div'>
-
-                            //         <Link className='home-link' to='/'>
-                            //             <h1 className='blog-title'>13ra.in</h1>
-                            //         </Link>
-
-                            //         <form className="form" onSubmit={submitHandler}>
-                            //             <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
-                            //             <button>Search</button>
-                            //         </form>
-                            //         <>
-                            //             {ID ?
-                            //                 <>
-                            //                     <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
-                            //                     <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                            //                 </>
-                            //                 :
-                            //                 <>
-                            //                     <Link id='login-link' to='/login'>Log In</Link>
-                            //                 </>
-                            //             }
-                            //         </>
-
-                            //         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-
-                            //     </div>
-                            // </header>
-
                             :
                             <header>
                                 <div className='logo-con'>
@@ -265,29 +156,6 @@ export default function Header(props) {
                                 <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                             </header>
 
-                // <header className='header'>
-                //     <div className='header-div'>
-                //         <Link className='home-link' to='/'>
-                //             <h1 className='blog-title'>13ra.in</h1>
-                //         </Link>
-                //         <form className="form" onSubmit={submitHandler}>
-                //             <input name='input' value={input} onChange={handleChange} placeholder='search'></input>
-                //             <button>Search</button>
-                //         </form>                                    <>
-                //             {ID ?
-                //                 <>
-                //                     <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
-                //                     <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                //                 </>
-                //                 :
-                //                 <>
-                //                     <Link id='login-link' to='/login'>Log In</Link>
-                //                 </>
-                //             }
-                //         </>
-                //         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                //     </div>
-                // </header>
             }
         </>
     );
