@@ -53,14 +53,19 @@ export default function Header(props) {
 
     return (
         <>
-            {props.type === "profile" ?
+            {props.type === "otherProfile" ?
                 <header>
-                    <Link className='logo-con'>
-                        <BlueLogo />
-                    </Link>
+                    <div className='logo-con'>
+                        <Link to='/'>
+                            <BlueLogo />
+                        </Link>
+                    </div>
                     <nav>
                         {ID ?
+                        <>
+                            <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
                             <Link>Log Out</Link>
+                        </>
                             :
                             <>
                                 <Link>Sign Up</Link>
@@ -68,6 +73,7 @@ export default function Header(props) {
                             </>
                         }
                     </nav>
+                    <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                 </header>
                 // <header className='header'>
 
@@ -99,9 +105,11 @@ export default function Header(props) {
 
                 : props.type === "otherProfile" ?
                     <header>
-                        <Link className='logo-con'>
-                            <BlueLogo />
-                        </Link>
+                        <div className='logo-con'>
+                            <Link to='/'>
+                                <BlueLogo />
+                            </Link>
+                        </div>
                         <nav>
                             {ID ?
                                 <Link onClick={toggleModal}>Log Out</Link>
@@ -112,6 +120,7 @@ export default function Header(props) {
                                 </>
                             }
                         </nav>
+                        <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                     </header>
 
                     // <header className='header'>
@@ -145,9 +154,11 @@ export default function Header(props) {
 
                     : props.type === "edit" ?
                         <header>
-                            <Link className='logo-con'>
-                                <BlueLogo />
-                            </Link>
+                            <div className='logo-con'>
+                                <Link to='/'>
+                                    <BlueLogo />
+                                </Link>
+                            </div>
                             <nav>
                                 {ID ?
                                     <Link onClick={toggleModal}>Log Out</Link>
@@ -158,6 +169,7 @@ export default function Header(props) {
                                     </>
                                 }
                             </nav>
+                            <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                         </header>
 
                         // <header className='header'>
@@ -186,9 +198,11 @@ export default function Header(props) {
 
                         : props.type === "post" ?
                             <header>
-                                <Link className='logo-con'>
-                                    <BlueLogo />
-                                </Link>
+                                <div className='logo-con'>
+                                    <Link to='/'>
+                                        <BlueLogo />
+                                    </Link>
+                                </div>
                                 <nav>
                                     {ID ?
                                         <Link onClick={toggleModal}>Log Out</Link>
@@ -199,6 +213,7 @@ export default function Header(props) {
                                         </>
                                     }
                                 </nav>
+                                <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                             </header>
 
                             // <header className='header'>
@@ -232,12 +247,17 @@ export default function Header(props) {
 
                             :
                             <header>
-                                <Link className='logo-con'>
-                                    <BlueLogo />
-                                </Link>
+                                <div className='logo-con'>
+                                    <Link to='/'>
+                                        <BlueLogo />
+                                    </Link>
+                                </div>
                                 <nav>
                                     {ID ?
+                                    <>
                                         <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
+                                        <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                                    </>
                                         :
                                         <>
                                             <Link to='/signup'>Sign Up</Link>
@@ -245,6 +265,7 @@ export default function Header(props) {
                                         </>
                                     }
                                 </nav>
+                                <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                             </header>
 
                 // <header className='header'>
