@@ -4,3 +4,8 @@ svg {
 svg g path {
     fill: rgb(0, 0, 0);
 }
+svg g:hover {
+    /* fill: white; */
+    /* text-shadow: 0px -1px 4px black; */
+    background-image: url("../../assets/lightning/storm.gif");
+} 
