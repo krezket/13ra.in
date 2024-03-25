@@ -59,7 +59,7 @@ function App() {
         <Route path='/' element={<Enter />}/>
 
         {/* HOME HOME HOME HOME */}
-        <Route path="/storm13" element={
+        <Route path="/st0rm" element={
           <Home
             userId={userId}
             username={username}

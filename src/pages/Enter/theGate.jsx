@@ -9,7 +9,7 @@ function Enter() {
   return (
     <div className='enter'>
       <Logo></Logo>
-      <Link to='/storm13'>
+      <Link to='/st0rm'>
         <img className='btn' src={enter} alt='enter-here'></img>
       </Link>
     </div>

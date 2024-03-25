@@ -36,7 +36,7 @@ function LogIn(props) {
         props.setToken(data.token)
         window.sessionStorage.setItem("token", data.token)
         window.sessionStorage.setItem("userId", data.user.id);
-        navigate("/")
+        navigate("/st0rm")
         // window.location.reload(false);
       }).catch(err => {
         console.log(err)
@@ -56,7 +56,7 @@ function LogIn(props) {
             <button id='si-submit'>Log In</button>
           </form>
           <h2>Don't have an account? <Link id='signin-pg' to='/signup'>Sign Up</Link></h2>
-          <Link to={'/'}>Back to Main</Link>
+          <Link to={'/st0rm'}>Back to Main</Link>
         </section>
       </main>
       <Footer />
