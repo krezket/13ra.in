@@ -93,7 +93,6 @@ function Profile(props) {
                 <div className='usr-fri'>
 
                   <h1 className='profile-username'>{user.username}</h1>
-                  <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
 
                   {!user.friends ?
                     <h3 className='profile-pages'>Friends: 0</h3>
@@ -106,6 +105,7 @@ function Profile(props) {
                     <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
                   }
 
+                  <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
                 </div>
 
                 <article className='profile-bio'>

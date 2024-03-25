@@ -63,19 +63,19 @@ export default function OtherProfile(props) {
 
               <h1 className='profile-username'>{user.username}</h1>
 
-              <button onClick={handleFriendAdd}>Add Friend</button>
-
               {!user.friends ?
                 <h3 className='profile-pages'>Friends: 0</h3>
                 :
                 <h3 className='profile-pages'>Friends: {user.friends.length}</h3>
               }
+
               {!user.pages ?
                 <h3 className='profile-pages'>No Pages Yet</h3>
                 :
                 <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
               }
 
+              <button onClick={handleFriendAdd}>Add Friend</button>
             </div>
 
             <article className='profile-bio'>

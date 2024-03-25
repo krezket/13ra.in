@@ -64,19 +64,19 @@ export default function Header(props) {
                         {ID ?
                             <>
                                 <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
-                                <Link>Log Out</Link>
+                                <Link onClick={toggleModal}>Log Out</Link>
                             </>
                             :
                             <>
-                                <Link>Sign Up</Link>
-                                <Link>Log In</Link>
+                                <Link to='/signup'>Sign Up</Link>
+                                <Link to='/login'>Log In</Link>
                             </>
                         }
                     </nav>
                     <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                 </header>
 
-                : props.type === "otherProfile" ?
+                : props.type === "profile" ?
                     <header>
                         <div className='logo-con'>
                             <Link to='/'>
@@ -125,7 +125,10 @@ export default function Header(props) {
                                 </div>
                                 <nav>
                                     {ID ?
-                                        <Link onClick={toggleModal}>Log Out</Link>
+                                        <>
+                                            <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
+                                            <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                                        </> 
                                         :
                                         <>
                                             <Link to='/signup'>Sign Up</Link>
@@ -145,7 +148,10 @@ export default function Header(props) {
                                 </div>
                                 <nav>
                                     {ID ?
-                                        <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                                        <>
+                                            <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
+                                            <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                                        </>
                                         :
                                         <>
                                             <Link to='/signup'>Sign Up</Link>
