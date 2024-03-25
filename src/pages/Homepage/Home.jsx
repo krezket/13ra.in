@@ -23,20 +23,20 @@ export default function Home(props) {
         window.scrollTo(0, 0);
     }, []);
     const [allPages, setAllPages] = useState("")
-    // console.log(allPages)
+    console.log(allPages)
     const [createdAt, setCreatedAt] = useState("")
     const date = dayjs(createdAt).format('M/D/YYYY')
     const [list, setList] = useState("")
     const [grid, setGrid] = useState("")
+
     let loadingArray = [loading, loading1, loading2, loading3, loading4, loading5]
     const random = loadingArray[Math.floor(Math.random() * loadingArray.length)]
-    // console.log(random)
 
 // DISPLAY ALL PAGES
     useEffect(() => {
         API.getPages()
             .then((data) => {
-                console.log('ALL PAGES:', data)
+                // console.log('ALL PAGES:', data)
                 setCreatedAt(data.createdAt)
                 setAllPages(data)
             })
@@ -58,7 +58,7 @@ export default function Home(props) {
         setGrid('grid-view')
     }
 
-    const formatValue = localStorage.getItem('1')
+    const formatValueLs = localStorage.getItem('1')
     return (
         <>
             <Header
@@ -83,18 +83,24 @@ export default function Home(props) {
                             <button onClick={handleGrid}>Grid</button>
                         </div>
 
-                        {list === 'list-view' || formatValue === 'list-view' ?
+                        {list === 'list-view' || formatValueLs === 'list-view' ?
                             <table className='fp-table'>
                                 <tbody>
                                     <tr>
                                         <th className='fp-title' id='less'>Username</th>
                                         <th className='fp-title'>Title</th>
+                                        <th className='fp-title'>Comments</th>
                                         <th className='fp-title' id='less'>Created</th>
                                     </tr>
-                                    {allPages.map(({ id, title, users, createdAt }) => (
+                                    {allPages.map(({ id, title, users, comments, createdAt }) => (
                                         <tr key={title}>
-                                            <td className='fp-data'><Link id='fp-link' to={"/" + users.username}>{users.username}</Link></td>
-                                            <td className='fp-data'><Link id='fp-link'to={"/" + users.username + "/" + id}>{title}</Link></td>
+                                            <td className='fp-data'>
+                                                <Link id='fp-link' to={"/" + users.username}>{users.username}</Link>
+                                            </td>
+                                            <td className='fp-data'>
+                                                <Link id='fp-link'to={"/" + users.username + "/" + id}>{title}</Link>
+                                            </td>
+                                            <td className='fp-data' id='fp-link'>{comments.length}</td>
                                             <td className='fp-data' id='fp-link'>{dayjs(createdAt).format('M/D/YYYY')}</td>
                                         </tr>
                                     ))

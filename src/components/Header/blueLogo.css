@@ -4,8 +4,11 @@ svg {
 svg g path {
     fill: rgb(0, 0, 0);
 }
-svg g:hover {
-    /* fill: white; */
+ svg g path:hover {
+    fill: white
+}
+.yo:hover {
+    fill: black;
     /* text-shadow: 0px -1px 4px black; */
-    background-image: url("../../assets/lightning/storm.gif");
+    /* background-image: url("../../assets/lightning/storm.gif"); */
 } 

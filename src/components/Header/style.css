@@ -7,13 +7,20 @@ header {
   flex-direction: row;
   height: 100px;
 }
+/* @media only screen
+and (min-width : 0px)
+and (max-width : 1024px) {
+  header {
+    gap: 20px;
+  }
+} */
 
 .logo-con {
   display: flex;
   width: 75%;
   border-radius: 0 0 20px 0;
   border-bottom: solid 1px black;
-  border-right: solid 1px black;
+  /* border-right: solid 1px black; */
 }
 .header-logo {
   width: 300px;
@@ -21,9 +28,14 @@ header {
 
 nav {
   width: 25%;
+  height: 50px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-radius: 20px 0 0 0;
+  border-top: solid 1px black;
+  border-left: solid 1px black;
 }
 nav a {
   text-decoration: none;

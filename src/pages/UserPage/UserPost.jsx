@@ -105,9 +105,11 @@ export default function UserPage(props) {
                     {commentData == '' ?
                         <p>No Comments Yet</p>
                         :
-                        commentData.map(({ text, users, createdAt }) => (
-                            <div key={text}>
-                                <Link to={users && '/' + users.username}><h3 className='page-username'>{users && users.username}</h3></Link>
+                        commentData.map(({ id, text, users, createdAt }) => (
+                            <div key={id}>
+                                <Link to={users && '/' + users.username}>
+                                    <h3 className='page-username'>{users && users.username}</h3>
+                                </Link>
                                 <p>{text}</p>
                                 <p>{dayjs(createdAt).format('M/D/YYYY h:mm a')}</p>
                             </div>

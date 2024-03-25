@@ -40,7 +40,7 @@ function Profile(props) {
 
   const submitHandlerUsername = e => {
     e.preventDefault()
-    
+
     API.updateProfile({
       id: ownerId,
       // username:username,
@@ -159,8 +159,8 @@ function Profile(props) {
                 <form onSubmit={submitHandlerUsername}>
                   {props.bio === "" ?
                     <>
-                    <h2>Write a bio</h2>
-                    <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
+                      <h2>Write a bio</h2>
+                      <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
                     </>
                     :
                     <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
