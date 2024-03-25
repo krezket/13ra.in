@@ -1,0 +1,33 @@
+.fp-container {
+    display: flex;
+    width: 100%;
+    margin-top: 160px;
+    flex-direction: column;
+}
+
+.fp-section {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    width: 70%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid red;
+    padding: 2px;
+    height: 110px;
+    margin: 10px 5px 10px 5px;
+}
+
+.card:hover {
+    box-shadow: 0 0 7px 2px rgb(75, 1, 1);
+}
+
+#fp-link {
+    color: var(--text-white);
+    text-decoration: none;
+}

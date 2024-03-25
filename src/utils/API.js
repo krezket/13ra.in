@@ -1,5 +1,5 @@
-// const URL_PREFIX = "http://localhost:3001"
-const URL_PREFIX = "https://a-13rain-backend-f1bf2467fb35.herokuapp.com"
+const URL_PREFIX = "http://localhost:3001"
+// const URL_PREFIX = "https://a-13rain-backend-f1bf2467fb35.herokuapp.com"
 
 const API = {
     // Login User 
@@ -162,7 +162,7 @@ const API = {
         }
     },
 
-    addFriend: async (x) => {
+    addFollow: async (x) => {
         try {
             const response = await fetch(`${URL_PREFIX}/users/addfriend/${x.id}`, {
                 method: 'PUT',

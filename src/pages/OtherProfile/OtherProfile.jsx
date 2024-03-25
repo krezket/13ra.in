@@ -1,4 +1,4 @@
-  import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -8,7 +8,7 @@ import API from '../../utils/API';
 export default function OtherProfile(props) {
   console.log("MINELOGGEDIN", props)
   const [user, setUser] = useState("")
-  console.log("user",user)
+  console.log("user", user)
 
   const pathArr = window.location.pathname.split('/');
   let path = pathArr[1].split('/').pop()
@@ -25,12 +25,12 @@ export default function OtherProfile(props) {
       });
   }, [path])
 
-  const handleFriendAdd = e => {
+  const handleFollow = e => {
     e.preventDefault()
 
-    API.addFriend({
+    API.addFollow({
       id: props.userId,
-      friend_id: user.id,
+      follow_id: user.id,
 
     }).then((data) => {
       console.log(data)
@@ -42,10 +42,10 @@ export default function OtherProfile(props) {
     })
   }
 
-      
+
   return (
     <>
-      <Header 
+      <Header
         type={props.type}
         username={props.username}
         userId={props.userId}
@@ -63,10 +63,16 @@ export default function OtherProfile(props) {
 
               <h1 className='profile-username'>{user.username}</h1>
 
-              {!user.friends ?
-                <h3 className='profile-pages'>Friends: 0</h3>
+              {!user.followers && !user.following ?
+                <>
+                  <h3 className='profile-pages'>Followers: 0</h3>
+                  <h3 className='profile-pages'>Following: 0</h3>
+                </>
                 :
-                <h3 className='profile-pages'><Link>Friends:</Link> {user.friends.length}</h3>
+                <>
+                  <h3 className='profile-pages'>Followers: {user.followers.length}</h3>
+                  <h3 className='profile-pages'>Following: {user.following.length}</h3>
+                </>
               }
 
               {!user.pages ?
@@ -75,7 +81,7 @@ export default function OtherProfile(props) {
                 <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
               }
 
-              <button onClick={handleFriendAdd}>Add Friend</button>
+              <button onClick={handleFollow}>Follow</button>
             </div>
 
             <article className='profile-bio'>

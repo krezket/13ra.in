@@ -56,7 +56,7 @@ export default function Header(props) {
             {props.type === "otherProfile" ?
                 <header>
                     <div className='logo-con'>
-                        <Link to='/'>
+                        <Link to='/st0rm'>
                             <BlueLogo />
                         </Link>
                     </div>
@@ -79,7 +79,7 @@ export default function Header(props) {
                 : props.type === "profile" ?
                     <header>
                         <div className='logo-con'>
-                            <Link to='/'>
+                            <Link to='/st0rm'>
                                 <BlueLogo />
                             </Link>
                         </div>
@@ -99,7 +99,7 @@ export default function Header(props) {
                     : props.type === "edit" ?
                         <header>
                             <div className='logo-con'>
-                                <Link to='/'>
+                                <Link to='/st0rm'>
                                     <BlueLogo />
                                 </Link>
                             </div>
@@ -119,7 +119,7 @@ export default function Header(props) {
                         : props.type === "post" ?
                             <header>
                                 <div className='logo-con'>
-                                    <Link to='/'>
+                                    <Link to='/st0rm'>
                                         <BlueLogo />
                                     </Link>
                                 </div>
@@ -142,7 +142,7 @@ export default function Header(props) {
                             :
                             <header>
                                 <div className='logo-con'>
-                                    <Link to='/'>
+                                    <Link to='/st0rm'>
                                         <BlueLogo />
                                     </Link>
                                 </div>
