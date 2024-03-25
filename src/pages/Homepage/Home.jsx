@@ -70,9 +70,6 @@ export default function Home(props) {
                 setToken={props.setToken}
             />
 
-            {/* <nav className='empty-nav'> <Search/></nav> */}
-
-
             <main className="main">
 
                 {!allPages ?
