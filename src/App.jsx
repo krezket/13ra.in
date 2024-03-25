@@ -56,8 +56,10 @@ function App() {
     <Router>
       <Routes>
 
+        <Route path='/' element={<Enter />}/>
+
         {/* HOME HOME HOME HOME */}
-        <Route path="/" element={
+        <Route path="/storm13" element={
           <Home
             userId={userId}
             username={username}
@@ -68,8 +70,8 @@ function App() {
             setToken={setToken}
             setPageId={setPageId}
           />}
-        >
-        </Route>
+        
+        />
 
         {/* LOGIN LOGIN LOGIN LOGIN */}
         <Route path="/login" element={
@@ -83,8 +85,8 @@ function App() {
             setUsername={setUsername}
             setToken={setToken}
           />}
-        >
-        </Route>
+        
+        />
 
         {/* SIGNUP SIGNUP SIGNUP SIGNUP */}
         <Route path="/signup" element={
@@ -97,8 +99,7 @@ function App() {
             setUsername={setUsername}
             setToken={setToken}
           />}
-        >
-        </Route>
+        />
 
         {/* PROFILE PROFILE PROFILE PROFILE */}
         <Route path={"/&/" + username} element={
@@ -116,8 +117,7 @@ function App() {
             setEmail={setEmail}
             setBio={setBio}
           />}
-        >
-        </Route>
+        />
 
         {/* PROFILE EDIT PROFILE EDIT PROFILE EDIT */}
         <Route path={"/edit"} element={
@@ -133,14 +133,13 @@ function App() {
             setFullName={setFullName}
             setBio={setBio}
           />}
-        >
-        </Route>
+        />
+
         {/* PAGE PAGE PAGE PAGE */}
         <Route
           element={<UserPage type='post' userId={userId} username={username} token={token} />}
           path={"/:username/:pageId"}
-        >
-        </Route>
+        />
 
         {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
         <Route key={username} path={"/:username"} element={
@@ -153,8 +152,8 @@ function App() {
           setUsername={setUsername}
           setToken={setToken}
           setEmail={setEmail}
-           />}>
-        </Route>
+           />}
+        />
 
 
         {/* CREATE PAGE CREATE PAGE CREATE PAGE */}
@@ -163,14 +162,14 @@ function App() {
             userId={userId}
             username={username}
           />}
-        >
-        </Route>
+        
+        />
 
         {/* ABOUT ABOUT ABOUT ABOUT */}
         <Route path='/about' element={
           <About />
-        }>
-        </Route>
+        }
+        />
 
       </Routes>
     </Router>
