@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from "../../components/Header";
 import Footer from '../../components/Footer/';
-import HomeListView from '../../components/homeListView/homeListView';
+import HomeListView from '../../components/HomeListView/HomeListView';
 import HomeGridView from '../../components/HomeGridView/HomeGridView';
 import './style.css';
 
