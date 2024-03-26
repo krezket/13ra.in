@@ -20,6 +20,7 @@ function Profile(props) {
   useEffect(() => {
     API.getProfile(ID)
       .then((data) => {
+        console.log("Get User:", data)
         setUser(data)
       })
       .catch((err) => {

@@ -8,7 +8,10 @@ import API from '../../utils/API';
 export default function OtherProfile(props) {
   console.log("MINELOGGEDIN", props)
   const [user, setUser] = useState("")
-  console.log("user", user)
+  // console.log("foundUser", user)
+
+  const [currentUserFollowing, setCurrentUserFollowing] = useState([])
+  console.log("currentUserFollowing", currentUserFollowing)
 
   const pathArr = window.location.pathname.split('/');
   let path = pathArr[1].split('/').pop()
@@ -16,7 +19,7 @@ export default function OtherProfile(props) {
   useEffect(() => {
     API.getProfileByName(path)
       .then((data) => {
-        console.log("Get User:", data)
+        // console.log("Get User:", data)
         setUser(data)
       })
       .catch((err) => {
@@ -41,6 +44,18 @@ export default function OtherProfile(props) {
       alert(err)
     })
   }
+
+  useEffect(() => {
+    if (!props.userFollowing) {
+      console.log("no following")
+    }
+    else {
+      console.log("following")
+        setCurrentUserFollowing(props.userFollowing)
+      // props.userFollowing.map((follow) => {
+      // })
+    }
+  })
 
 
   return (
@@ -80,8 +95,10 @@ export default function OtherProfile(props) {
                 :
                 <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
               }
+              {/* {user.username === 
 
               <button onClick={handleFollow}>Follow</button>
+              } */}
             </div>
 
             <article className='profile-bio'>

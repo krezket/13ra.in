@@ -19,6 +19,8 @@ function App() {
   const [fullName, setFullName] = useState("");
   const [bio, setBio] = useState("");
   const [email, setEmail] = useState("");
+  const [userFollowers, setUserFollowers] = useState([]);
+  const [userFollowing, setUserFollowing] = useState([]);
     
   const [pageId, setPageId] = useState("");
   console.log("PAGEID:", pageId)
@@ -43,6 +45,8 @@ function App() {
         setUsername(data.username);
         setFullName(data.fullName);
         setEmail(data.email);
+        setUserFollowers(data.followers);
+        setUserFollowing(data.following);
       })
       .catch((err) => {
         console.log("oh noes");
@@ -111,6 +115,8 @@ function App() {
             fullName={fullName}
             bio={bio}
             email={email}
+            userFollowers={userFollowers}
+            userFollowing={userFollowing}
             setUserId={setUserId}
             setUsername={setUsername}
             setToken={setToken}
@@ -148,6 +154,8 @@ function App() {
           userId={userId}
           username={username}
           token={token}
+          userFollowers={userFollowers}
+          userFollowing={userFollowing}
           setUserId={setUserId}
           setUsername={setUsername}
           setToken={setToken}

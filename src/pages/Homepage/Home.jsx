@@ -20,7 +20,7 @@ export default function Home(props) {
         window.scrollTo(0, 0);
     }, []);
     const [allPages, setAllPages] = useState("")
-    console.log(allPages)
+    // console.log(allPages)
     const [list, setList] = useState("")
     const [grid, setGrid] = useState("")
 

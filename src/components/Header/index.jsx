@@ -7,7 +7,7 @@ import './style.css';
 
 
 export default function Header(props) {
-    console.log("header props:", props)
+    // console.log("header props:", props)
     const navigate = useNavigate()
     const [modal, setModal] = useState(false)
 
