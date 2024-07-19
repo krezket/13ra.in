@@ -50,8 +50,6 @@ function CreatePage(props) {
         setUsername={props.setUsername}
         setToken={props.setToken} 
       />
-      <nav className='empty-nav'></nav>
-
       <main className='main-herald'>
         <section className='cp-section'>
 

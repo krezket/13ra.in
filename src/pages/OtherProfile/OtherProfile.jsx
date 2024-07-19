@@ -6,27 +6,49 @@ import loading from '../../assets/banana.gif'
 import API from '../../utils/API';
 
 export default function OtherProfile(props) {
-  console.log("MINELOGGEDIN", props)
-  const [user, setUser] = useState("")
-  // console.log("foundUser", user)
+  // console.log("Other Profile:", props)
+  const currentUserID = sessionStorage.getItem("userId");
 
-  const [currentUserFollowing, setCurrentUserFollowing] = useState([])
-  console.log("currentUserFollowing", currentUserFollowing)
+  const [currentUserFollowing, setCurrentUserFollowing] = useState([]);
+  // console.log(Array.isArray(currentUserFollowing));
+
+  console.log("Current User is Following:", currentUserFollowing);
+  const [user, setUser] = useState("");
+  console.log("foundUser", user)
+
 
   const pathArr = window.location.pathname.split('/');
-  let path = pathArr[1].split('/').pop()
+  let path = pathArr[1].split('/').pop();
+
+  useEffect(() => {
+    API.getProfile(currentUserID)
+    .then((data) => {
+      setCurrentUserFollowing(data.following)
+    })
+    .catch((err) => {
+      console.log("oh noes");
+      console.log(err);
+    });
+  }, [currentUserID]);
 
   useEffect(() => {
     API.getProfileByName(path)
       .then((data) => {
-        // console.log("Get User:", data)
         setUser(data)
       })
       .catch((err) => {
-        console.log("oh noes");
+        console.log("oh noes"); 
         console.log(err);
       });
   }, [path])
+
+  const foundUser = currentUserFollowing.find(obj => obj.id === user.id)
+
+  if (foundUser) {
+    console.log('Found object:', foundUser);
+  } else {
+    console.log('Object not found');
+  }
 
   const handleFollow = e => {
     e.preventDefault()
@@ -44,19 +66,6 @@ export default function OtherProfile(props) {
       alert(err)
     })
   }
-
-  useEffect(() => {
-    if (!props.userFollowing) {
-      console.log("no following")
-    }
-    else {
-      console.log("following")
-        setCurrentUserFollowing(props.userFollowing)
-      // props.userFollowing.map((follow) => {
-      // })
-    }
-  })
-
 
   return (
     <>
