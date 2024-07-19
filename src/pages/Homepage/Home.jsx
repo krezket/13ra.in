@@ -19,6 +19,7 @@ export default function Home(props) {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+    
     const [allPages, setAllPages] = useState("")
     // console.log(allPages)
     const [list, setList] = useState("")
