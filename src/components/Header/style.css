@@ -9,13 +9,20 @@ header {
   flex-direction: row;
   height: 100px;
 }
-/* @media only screen
+@media only screen
 and (min-width : 0px)
 and (max-width : 1024px) {
   header {
-    gap: 20px;
+    flex-direction: column;
+    margin-bottom: 30px;
   }
-} */
+  svg {
+    width: 300px;
+  }
+  nav {
+    width: 100%;
+  }
+}
 
 .logo-con {
   display: flex;
