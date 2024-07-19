@@ -10,11 +10,10 @@ export default function OtherProfile(props) {
   const currentUserID = sessionStorage.getItem("userId");
 
   const [currentUserFollowing, setCurrentUserFollowing] = useState([]);
-  // console.log(Array.isArray(currentUserFollowing));
 
-  console.log("Current User is Following:", currentUserFollowing);
   const [user, setUser] = useState("");
-  console.log("foundUser", user)
+
+  const [following, setFollowing] = useState(null);
 
 
   const pathArr = window.location.pathname.split('/');
@@ -22,13 +21,13 @@ export default function OtherProfile(props) {
 
   useEffect(() => {
     API.getProfile(currentUserID)
-    .then((data) => {
-      setCurrentUserFollowing(data.following)
-    })
-    .catch((err) => {
-      console.log("oh noes");
-      console.log(err);
-    });
+      .then((data) => {
+        setCurrentUserFollowing(data.following)
+      })
+      .catch((err) => {
+        console.log("oh noes");
+        console.log(err);
+      });
   }, [currentUserID]);
 
   useEffect(() => {
@@ -37,18 +36,21 @@ export default function OtherProfile(props) {
         setUser(data)
       })
       .catch((err) => {
-        console.log("oh noes"); 
+        console.log("oh noes");
         console.log(err);
       });
   }, [path])
 
-  const foundUser = currentUserFollowing.find(obj => obj.id === user.id)
-
-  if (foundUser) {
-    console.log('Found object:', foundUser);
-  } else {
-    console.log('Object not found');
-  }
+  useEffect(() => {
+    const foundUser = currentUserFollowing.find(obj => obj.id === user.id)
+    if (foundUser) {
+      setFollowing(true)
+      console.log('Found object:', foundUser);
+    } else {
+      setFollowing(false)
+      console.log('Object not found');
+    }
+  }, [currentUserFollowing, user.id])
 
   const handleFollow = e => {
     e.preventDefault()
@@ -59,7 +61,7 @@ export default function OtherProfile(props) {
 
     }).then((data) => {
       console.log(data)
-      // window.location.reload(false);
+      window.location.reload(false);
 
     }).catch(err => {
       console.log(err)
@@ -104,10 +106,12 @@ export default function OtherProfile(props) {
                 :
                 <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
               }
-              {/* {user.username === 
-
-              <button onClick={handleFollow}>Follow</button>
-              } */}
+              {following === false
+                ?
+                <button onClick={handleFollow}>Follow</button>
+                :
+                <button>Unfollow</button>
+              }
             </div>
 
             <article className='profile-bio'>
