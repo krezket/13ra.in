@@ -15,6 +15,8 @@ export default function OtherProfile(props) {
 
   const [following, setFollowing] = useState(null);
 
+  console.log(currentUserID)
+  console.log(user.id)
 
   const pathArr = window.location.pathname.split('/');
   let path = pathArr[1].split('/').pop();
@@ -106,7 +108,11 @@ export default function OtherProfile(props) {
                 :
                 <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
               }
-              {following === false
+              {currentUserID == user.id 
+                ?
+                <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
+                :
+              following === false
                 ?
                 <button onClick={handleFollow}>Follow</button>
                 :

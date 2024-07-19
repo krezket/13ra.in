@@ -63,7 +63,7 @@ export default function Header(props) {
                     <nav>
                         {ID ?
                             <>
-                                <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
+                                <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
                                 <Link onClick={toggleModal}>Log Out</Link>
                             </>
                             :
@@ -126,7 +126,7 @@ export default function Header(props) {
                                 <nav>
                                     {ID ?
                                         <>
-                                            <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
+                                            <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
                                             <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
                                         </> 
                                         :
@@ -149,7 +149,7 @@ export default function Header(props) {
                                 <nav>
                                     {ID ?
                                         <>
-                                            <Link id='profile-link' to={"/&/" + props.username}>{props.username}</Link>
+                                            <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
                                             <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
                                         </>
                                         :

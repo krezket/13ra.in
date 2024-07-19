@@ -150,10 +150,13 @@ function App() {
         {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
         <Route key={username} path={"/:username"} element={
           <OtherProfile 
-          type='otherProfile'
+          type='profile'
           userId={userId}
-          username={username}
           token={token}
+          username={username}
+          fullName={fullName}
+          bio={bio}
+          email={email}
           userFollowers={userFollowers}
           userFollowing={userFollowing}
           setUserId={setUserId}

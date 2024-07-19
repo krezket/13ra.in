@@ -75,128 +75,50 @@ function Profile(props) {
 
   return (
     <>
-      {props.type === "profile" ?
-        <>
-          <Header
-            type={props.type}
-            username={props.username}
-            userId={props.userId}
-            setUserId={props.setUserId}
-            setEmail={props.setEmail}
-            setUsername={props.setUsername}
-            setToken={props.setToken}
-          />
+      <Header
+        type={props.type}
+        username={props.username}
+        userId={props.userId}
+        setUserId={props.setUserId}
+        setEmail={props.setEmail}
+        setUsername={props.setUsername}
+        setToken={props.setToken}
+      />
+      <div className='edit-main-con'>
+        <main className='pr-main'>
+          <div className='h1-ar'>
+            <form onSubmit={submitHandlerUsername}>
+              {props.bio === "" ?
+                <>
+                  <h2>Write a bio</h2>
+                  <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
+                </>
+                :
+                <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
+              }
+              <button>Submit</button>
+            </form>
 
-          <div className="main-con-profile">
-            <main className='pr-main'>
-              <div className='h1-ar'>
+            {!user ?
 
-                <div className='usr-fri'>
+              <img src={loading} alt='loading'></img>
+              :
 
-                  <h1 className='profile-username'>{user.username}</h1>
-
-                  {!user.followers && !user.following ?
-                    <>
-                      <h3 className='profile-pages'>Followers: 0</h3>
-                      <h3 className='profile-pages'>Following: 0</h3>
-                    </>
-                    :
-                    <>
-                      <h3 className='profile-pages'>Followers: {user.followers.length}</h3>
-                      <h3 className='profile-pages'>Following: {user.following.length}</h3>
-                    </>
-                  }
-                  {!user.pages ?
-                    <h3 className='profile-pages'>No Pages Yet</h3>
-                    :
-                    <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
-                  }
-
-                  <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
-                </div>
-
-                <article className='profile-bio'>
-                  {user.bio === "" ?
-                    <p>no bio yet</p>
-                    :
-                    <p>{user.bio}</p>
-                  }
-                </article>
-
-                {!user ?
-
-                  <img src={loading} alt='loading'></img>
-                  :
-
-                  <section className='fp-section'>
-                    {user.pages.map(({ id, title }) => (
-                      <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>
-                        <div className='card' key={title}>
-                          {title}
-                        </div>
-                      </Link>
-                    ))
-                    }
-                  </section>
+              <section className='pr-section'>
+                {user.pages.map(({ id, title }) => (
+                  <div className='card' key={title}>
+                    <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>{title}</Link>
+                    <img src={trash1} alt='trash-can' name={id} onClick={handleDelete}></img>
+                  </div>
+                ))
                 }
-
-                <Link id='create-link' to={"/create"}>Create a Page</Link>
-              </div>
-
-            </main>
+              </section>
+            }
           </div>
-          <Footer />
+        </main>
+      </div>
 
-        </>
-
-        :
-        <>
-          <Header
-            type={props.type}
-            username={props.username}
-            userId={props.userId}
-            setUserId={props.setUserId}
-            setEmail={props.setEmail}
-            setUsername={props.setUsername}
-            setToken={props.setToken}
-          />
-          <div className='edit-main-con'>
-            <main className='pr-main'>
-              <div className='h1-ar'>
-                <form onSubmit={submitHandlerUsername}>
-                  {props.bio === "" ?
-                    <>
-                      <h2>Write a bio</h2>
-                      <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
-                    </>
-                    :
-                    <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
-                  }
-                  <button>Submit</button>
-                </form>
-
-                {!user ?
-
-                  <img src={loading} alt='loading'></img>
-                  :
-
-                  <section className='pr-section'>
-                    {user.pages.map(({ id, title }) => (
-                      <div className='card' key={title}>
-                        <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>{title}</Link>
-                        <img src={trash1} alt='trash-can' name={id} onClick={handleDelete}></img>
-                      </div>
-                    ))
-                    }
-                  </section>
-                }
-              </div>
-            </main>
-          </div>
-
-          <Footer />
-        </>
-      }
+      <Footer />
     </>
   );
 };
