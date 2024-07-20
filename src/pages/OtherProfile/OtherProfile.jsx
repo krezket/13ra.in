@@ -71,6 +71,23 @@ export default function OtherProfile(props) {
     })
   }
 
+  const handleUnfollow = e => {
+    e.preventDefault()
+
+    API.removeFollow({
+      id: props.userId,
+      follow_id: user.id,
+
+    }).then((data) => {
+      console.log(data)
+      window.location.reload(false);
+
+    }).catch(err => {
+      console.log(err)
+      alert(err)
+    })
+  }
+
   return (
     <>
       <Header
@@ -116,7 +133,7 @@ export default function OtherProfile(props) {
                 ?
                 <button onClick={handleFollow}>Follow</button>
                 :
-                <button>Unfollow</button>
+                <button onClick={handleUnfollow}>Unfollow</button>
               }
             </div>
 

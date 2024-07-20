@@ -180,6 +180,25 @@ const API = {
             console.log(error);
         }
     },
+    // Remove Follow
+    removeFollow: async (x) => {
+        try {
+            const response = await fetch(`${URL_PREFIX}/users/removefriend/${x.id}`, {
+                method: 'PUT',
+                body: JSON.stringify(x),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (response.ok) {
+                return response.json();
+            } else {
+                alert('Unable to fetch');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    },
     // Create A Page
     createPage: async (userObj) => {
         try {
