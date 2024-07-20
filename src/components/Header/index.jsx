@@ -7,7 +7,7 @@ import './style.css';
 
 
 export default function Header(props) {
-    // console.log("header props:", props)
+    console.log("header props:", props)
     const navigate = useNavigate()
     const [modal, setModal] = useState(false)
 
@@ -49,7 +49,8 @@ export default function Header(props) {
         window.location.reload(false);
     };
 
-    let ID = window.sessionStorage.getItem("userId");
+    const ID = window.sessionStorage.getItem("userId");
+    console.log("ID:", ID)
 
     return (
         <>
@@ -63,8 +64,14 @@ export default function Header(props) {
                     <nav>
                         {ID ?
                             <>
-                                <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
-                                <Link onClick={toggleModal}>Log Out</Link>
+                                {props.userId == ID ?
+                                    <Link onClick={toggleModal}>Log Out</Link>
+                                    :
+                                    <>
+                                    <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                                    <Link onClick={toggleModal}>Log Out</Link>
+                                    </>
+                                }
                             </>
                             :
                             <>
@@ -76,7 +83,7 @@ export default function Header(props) {
                     <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                 </header>
 
-                : props.type === "profile" ?
+                : props.type === "edit" ?
                     <header>
                         <div className='logo-con'>
                             <Link to='/st0rm'>
@@ -96,7 +103,7 @@ export default function Header(props) {
                         <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                     </header>
 
-                    : props.type === "edit" ?
+                    : props.type === "post" ?
                         <header>
                             <div className='logo-con'>
                                 <Link to='/st0rm'>
@@ -105,7 +112,10 @@ export default function Header(props) {
                             </div>
                             <nav>
                                 {ID ?
-                                    <Link onClick={toggleModal}>Log Out</Link>
+                                    <>
+                                        <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                                        <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                                    </>
                                     :
                                     <>
                                         <Link to='/signup'>Sign Up</Link>
@@ -116,51 +126,28 @@ export default function Header(props) {
                             <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
                         </header>
 
-                        : props.type === "post" ?
-                            <header>
-                                <div className='logo-con'>
-                                    <Link to='/st0rm'>
-                                        <BlueLogo />
-                                    </Link>
-                                </div>
-                                <nav>
-                                    {ID ?
-                                        <>
-                                            <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
-                                            <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                                        </> 
-                                        :
-                                        <>
-                                            <Link to='/signup'>Sign Up</Link>
-                                            <Link to='/login'>Log In</Link>
-                                        </>
-                                    }
-                                </nav>
-                                <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                            </header>
-
-                            :
-                            <header>
-                                <div className='logo-con'>
-                                    <Link to='/st0rm'>
-                                        <BlueLogo />
-                                    </Link>
-                                </div>
-                                <nav>
-                                    {ID ?
-                                        <>
-                                            <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
-                                            <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
-                                        </>
-                                        :
-                                        <>
-                                            <Link to='/signup'>Sign Up</Link>
-                                            <Link to='/login'>Log In</Link>
-                                        </>
-                                    }
-                                </nav>
-                                <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
-                            </header>
+                        :
+                        <header>
+                            <div className='logo-con'>
+                                <Link to='/st0rm'>
+                                    <BlueLogo />
+                                </Link>
+                            </div>
+                            <nav>
+                                {ID ?
+                                    <>
+                                        <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                                        <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to='/signup'>Sign Up</Link>
+                                        <Link to='/login'>Log In</Link>
+                                    </>
+                                }
+                            </nav>
+                            <Modal modal={modal} logout={logout} toggleModal={toggleModal} />
+                        </header>
 
             }
         </>

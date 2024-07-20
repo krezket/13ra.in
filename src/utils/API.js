@@ -180,6 +180,7 @@ const API = {
             console.log(error);
         }
     },
+    
     // Remove Follow
     removeFollow: async (x) => {
         try {
@@ -199,6 +200,7 @@ const API = {
             console.log(error);
         }
     },
+
     // Create A Page
     createPage: async (userObj) => {
         try {
