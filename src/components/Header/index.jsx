@@ -11,25 +11,30 @@ export default function Header(props) {
     const navigate = useNavigate()
     const [modal, setModal] = useState(false)
 
-    const [input, setInput] = useState("")
+    // const [input, setInput] = useState("")
 
-    const handleChange = e => {
-        if (e.target.name === "input") {
-            setInput(e.target.value)
-        }
-    }
+    // const handleChange = e => {
+    //     if (e.target.name === "input") {
+    //         setInput(e.target.value)
+    //     }
+    // }
 
-    const submitHandler = e => {
-        e.preventDefault()
+    // const submitHandler = e => {
+    //     e.preventDefault()
 
-        API.getProfileByName(input)
-            .then((data) => {
-                navigate("/" + data.username)
-            })
-            .catch((err) => {
-                console.log("oh noes");
-                console.log(err);
-            });
+    //     API.getProfileByName(input)
+    //         .then((data) => {
+    //             navigate("/" + data.username)
+    //         })
+    //         .catch((err) => {
+    //             console.log("oh noes");
+    //             console.log(err);
+    //         });
+    // }
+
+    const toProfile = () => {
+        window.location.reload(true);
+        navigate("/" + props.username)
     }
 
     const toggleModal = () => {
@@ -54,7 +59,7 @@ export default function Header(props) {
 
     return (
         <>
-            {props.type === "otherProfile" ?
+            {props.type === "profile" ?
                 <header>
                     <div className='logo-con'>
                         <Link to='/st0rm'>
@@ -64,14 +69,8 @@ export default function Header(props) {
                     <nav>
                         {ID ?
                             <>
-                                {props.userId == ID ?
-                                    <Link onClick={toggleModal}>Log Out</Link>
-                                    :
-                                    <>
-                                    <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
-                                    <Link onClick={toggleModal}>Log Out</Link>
-                                    </>
-                                }
+                                <Link id='profile-link' onClick={toProfile}>{props.username}</Link>
+                                <Link onClick={toggleModal}>Log Out</Link>
                             </>
                             :
                             <>

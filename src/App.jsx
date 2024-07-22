@@ -105,26 +105,6 @@ function App() {
           />}
         />
 
-        {/* PROFILE PROFILE PROFILE PROFILE */}
-        <Route path={"/&/" + username} element={
-          <Profile
-            type='profile'
-            userId={userId}
-            token={token}
-            username={username}
-            fullName={fullName}
-            bio={bio}
-            email={email}
-            userFollowers={userFollowers}
-            userFollowing={userFollowing}
-            setUserId={setUserId}
-            setUsername={setUsername}
-            setToken={setToken}
-            setEmail={setEmail}
-            setBio={setBio}
-          />}
-        />
-
         {/* PROFILE EDIT PROFILE EDIT PROFILE EDIT */}
         <Route path={"/edit"} element={
           <Profile
