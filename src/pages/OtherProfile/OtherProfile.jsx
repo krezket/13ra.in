@@ -22,6 +22,8 @@ const pathArr = window.location.pathname.split('/');
 let path = pathArr[1].split('/').pop();
 
 const [following, setFollowing] = useState(null);
+
+// GET PROFILE BY USERNAME
   useEffect(() => {
     if (!currentUserID) {
       API.getProfileByName(path)
@@ -45,24 +47,31 @@ const [following, setFollowing] = useState(null);
       });
     }
   }, [currentUserID, path]);
-  
+
+// FOLLOW
   const handleFollow = e => {
     e.preventDefault()
+    if (user.id && props.userId === null) {
+      alert('Sign in to follow')
+    }
+    else (
+      API.addFollow({
+        id: props.userId,
+        follow_id: user.id,
+        
+      }).then((data) => {
+        console.log(data)
+        window.location.reload(false);
+        
+      }).catch(err => {
+        console.log(err)
+        alert(err)
+      })
+    )
     
-    API.addFollow({
-      id: props.userId,
-      follow_id: user.id,
-      
-    }).then((data) => {
-      console.log(data)
-      window.location.reload(false);
-      
-    }).catch(err => {
-      console.log(err)
-      alert(err)
-    })
   }
   
+  // UNFOLLOW
   const handleUnfollow = e => {
     e.preventDefault()
     
@@ -80,6 +89,7 @@ const [following, setFollowing] = useState(null);
     })
   }
   
+  // CHECK IF FOLLOWING
   useEffect(() => {
     const foundUser = currentUserFollowing.find(obj => obj.id == currentUserID)
     console.log('Found:', foundUser);
