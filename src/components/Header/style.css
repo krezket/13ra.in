@@ -1,27 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 
 header {
-  /* background: radial-gradient(circle at left, #dcdcdc, #a9a9a9, #343434);     */
+  /* background: radial-gradient(circle at left, #dcdcdc, #a9a9a9, #343434); */
   /* box-shadow: 0px 0px 40px 10px rgba(128, 128, 128, 0.8); */
+  border: 1px dashed black;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   height: 100px;
-}
-@media only screen
-and (min-width : 0px)
-and (max-width : 1024px) {
-  header {
-    flex-direction: column;
-    margin-bottom: 30px;
-  }
-  svg {
-    width: 300px;
-  }
-  nav {
-    width: 100%;
-  }
 }
 
 .logo-con {
@@ -39,14 +26,24 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border: 1px dashed black;
 }
 nav a {
   text-decoration: none;
   color: black;
 }
-/*   */
-/* .header {
-  background-color: darkred;  
-  position: fixed;
-  width: 100%;
-} */
+@media only screen
+and (min-width : 0px)
+and (max-width : 1024px) {
+  header {
+    flex-direction: column;
+    margin-bottom: 70px;
+    height: 150px;
+  }
+  svg {
+    width: 300px;
+  }
+  nav {
+    width: 50%;
+  }
+}

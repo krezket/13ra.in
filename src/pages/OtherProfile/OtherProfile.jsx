@@ -10,6 +10,7 @@ export default function OtherProfile(props) {
   const currentUserID = sessionStorage.getItem("userId");
 
   const [currentUserFollowing, setCurrentUserFollowing] = useState([]);
+  console.log(Array.isArray(currentUserFollowing))
 
   const [user, setUser] = useState("");
 
