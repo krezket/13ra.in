@@ -6,35 +6,25 @@ import loading from '../../assets/banana.gif'
 import API from '../../utils/API';
 
 export default function OtherProfile(props) {
-  // console.log("Other Profile:", props)
+  // console.log("Other Profile:", props);
+  
   const currentUserID = sessionStorage.getItem("userId");
-
-  const [currentUserFollowing, setCurrentUserFollowing] = useState([]);
-  console.log(Array.isArray(currentUserFollowing))
-
+  // console.log(currentUserID);
+  
   const [user, setUser] = useState("");
+4  
 
-  const [following, setFollowing] = useState(null);
+const [currentUserFollowing, setCurrentUserFollowing] = useState([]);
+console.log("who are his follwers?",currentUserFollowing)
+// console.log(Array.isArray(currentUserFollowing))
 
-  console.log(currentUserID)
-  console.log(user.id)
+const pathArr = window.location.pathname.split('/');
+let path = pathArr[1].split('/').pop();
 
-  const pathArr = window.location.pathname.split('/');
-  let path = pathArr[1].split('/').pop();
-
+const [following, setFollowing] = useState(null);
   useEffect(() => {
-    API.getProfile(currentUserID)
-      .then((data) => {
-        setCurrentUserFollowing(data.following)
-      })
-      .catch((err) => {
-        console.log("oh noes");
-        console.log(err);
-      });
-  }, [currentUserID]);
-
-  useEffect(() => {
-    API.getProfileByName(path)
+    if (!currentUserID) {
+      API.getProfileByName(path)
       .then((data) => {
         setUser(data)
       })
@@ -42,10 +32,57 @@ export default function OtherProfile(props) {
         console.log("oh noes");
         console.log(err);
       });
-  }, [path])
-
+    }
+    else {
+      API.getProfileByName(path)
+      .then((data) => {
+        setUser(data)
+        setCurrentUserFollowing(data.followers)
+      })
+      .catch((err) => {
+        console.log("oh noes");
+        console.log(err);
+      });
+    }
+  }, [currentUserID, path]);
+  
+  const handleFollow = e => {
+    e.preventDefault()
+    
+    API.addFollow({
+      id: props.userId,
+      follow_id: user.id,
+      
+    }).then((data) => {
+      console.log(data)
+      window.location.reload(false);
+      
+    }).catch(err => {
+      console.log(err)
+      alert(err)
+    })
+  }
+  
+  const handleUnfollow = e => {
+    e.preventDefault()
+    
+    API.removeFollow({
+      id: props.userId,
+      follow_id: user.id,
+      
+    }).then((data) => {
+      console.log(data)
+      window.location.reload(false);
+      
+    }).catch(err => {
+      console.log(err)
+      alert(err)
+    })
+  }
+  
   useEffect(() => {
-    const foundUser = currentUserFollowing.find(obj => obj.id === user.id)
+    const foundUser = currentUserFollowing.find(obj => obj.id == currentUserID)
+    console.log('Found:', foundUser);
     if (foundUser) {
       setFollowing(true)
       console.log('Found object:', foundUser);
@@ -54,41 +91,7 @@ export default function OtherProfile(props) {
       console.log('Object not found');
     }
   }, [currentUserFollowing, user.id])
-
-  const handleFollow = e => {
-    e.preventDefault()
-
-    API.addFollow({
-      id: props.userId,
-      follow_id: user.id,
-
-    }).then((data) => {
-      console.log(data)
-      window.location.reload(false);
-
-    }).catch(err => {
-      console.log(err)
-      alert(err)
-    })
-  }
-
-  const handleUnfollow = e => {
-    e.preventDefault()
-
-    API.removeFollow({
-      id: props.userId,
-      follow_id: user.id,
-
-    }).then((data) => {
-      console.log(data)
-      window.location.reload(false);
-
-    }).catch(err => {
-      console.log(err)
-      alert(err)
-    })
-  }
-
+  
   return (
     <>
       <Header

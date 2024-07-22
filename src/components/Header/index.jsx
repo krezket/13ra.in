@@ -50,7 +50,7 @@ export default function Header(props) {
     };
 
     const ID = window.sessionStorage.getItem("userId");
-    console.log("ID:", ID)
+    // console.log("ID:", ID)
 
     return (
         <>
