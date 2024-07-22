@@ -44,25 +44,22 @@ export default function UserPage(props) {
     const submitHandler = e => {
         e.preventDefault()
         props.token === '' ?
-        alert('Must be signed in to comment!')
-        :
-        API.postComment({
-            text: text,
-            owner_id: props.userId,
-            page_id: path
-        })
-            .then((data) => {
-                console.log("Comment:", data)
+            alert('Must be signed in to comment!')
+            :
+            API.postComment({
+                text: text,
+                owner_id: props.userId,
+                page_id: path
             })
-            .catch((err) => {
-                console.log("oh noes");
-                console.log(err);
-            });
+                .then((data) => {
+                    console.log("Comment:", data)
+                })
+                .catch((err) => {
+                    console.log("oh noes");
+                    console.log(err);
+                });
+        window.location.reload(false)
     }
-
-    const bruh = 0
-    const bru2 = bruh + 1
-    console.log(bru2)
 
     return (
         <>
@@ -116,7 +113,7 @@ export default function UserPage(props) {
                         ))
                     }
                     <form onSubmit={submitHandler}>
-                        <textarea cols="50" name='text' placeholder='Write a comment' value={text} onChange={handleChange}></textarea>
+                        <textarea cols="50" name='text' placeholder='Add a comment' value={text} onChange={handleChange}></textarea>
                         <button>Comment</button>
                     </form>
                 </div>
