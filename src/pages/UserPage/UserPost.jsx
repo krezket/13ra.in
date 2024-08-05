@@ -78,8 +78,6 @@ export default function UserPage(props) {
                 <main className='page-main'>
                     <div className='title-div'>
                         <h1 className='page-title'>{newPage.title}</h1>
-                    </div>
-                    <div className='username-div'>
                         <h3 className='page-username'>
                             <Link to={"/" + username} id='user-link'>{username}</Link>
                         </h3>

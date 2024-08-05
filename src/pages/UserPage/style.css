@@ -10,11 +10,13 @@
 }
 .page-main {
     border: 1px dashed black;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 150px 77px 0 77px;
+    justify-content: space-between;
+    height: 30rem;
+    margin: 7rem 2rem 0 2rem;
     padding-left: 77.7px;
     padding-right: 77.7px;
 }
@@ -43,18 +45,13 @@ and (max-width : 1024px) {
 
 .title-div {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     width: 100%;
 }
 .page-title {
     color: var(--text-white);
     border-bottom: 1px dashed white;
-}
-
-.username-div {
-    display: flex;
-    justify-content: center;
-    width: 100%;
 }
 .page-username {
     color: var(--text-white);
@@ -86,6 +83,8 @@ and (max-width : 1024px) {
 
 .comment-div {
     border: 1px dashed black;
+    border-radius: 10px;
     color: var(--text-white);
     padding: 0 77.7px 0 77.7px;
+    margin: 0px 2rem 0 2rem;
 }
