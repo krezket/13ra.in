@@ -70,6 +70,7 @@ export default function Header(props) {
                         {ID ?
                             <>
                                 <Link id='profile-link' onClick={toProfile}>{props.username}</Link>
+                                <Link to={'/create'}>Create a Post</Link>
                                 <Link onClick={toggleModal}>Log Out</Link>
                             </>
                             :
@@ -113,6 +114,7 @@ export default function Header(props) {
                                 {ID ?
                                     <>
                                         <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                                <Link to={'/create'}>Create a Post</Link>
                                         <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
                                     </>
                                     :
@@ -136,6 +138,7 @@ export default function Header(props) {
                                 {ID ?
                                     <>
                                         <Link id='profile-link' to={"/" + props.username}>{props.username}</Link>
+                                <Link to={'/create'}>Create a Post</Link>
                                         <Link id='logout-link' onClick={toggleModal}>Log Out</Link>
                                     </>
                                     :

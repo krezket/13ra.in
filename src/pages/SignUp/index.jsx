@@ -53,7 +53,7 @@ function SignUp(props) {
         window.sessionStorage.setItem("token", data.token)
         window.sessionStorage.setItem("userId", data.user.id);
 
-        navigate("/&/" + username)
+        navigate("/" + username)
       }).catch(err => {
         console.log(err)
         localStorage.removeItem("token")
