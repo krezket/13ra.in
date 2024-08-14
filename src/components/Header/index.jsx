@@ -62,7 +62,7 @@ export default function Header(props) {
             {props.type === "profile" ?
                 <header>
                     <div className='logo-con'>
-                        <Link to='/st0rm'>
+                        <Link to='/home'>
                             <BlueLogo />
                         </Link>
                     </div>
@@ -86,7 +86,7 @@ export default function Header(props) {
                 : props.type === "edit" ?
                     <header>
                         <div className='logo-con'>
-                            <Link to='/st0rm'>
+                            <Link to='/home'>
                                 <BlueLogo />
                             </Link>
                         </div>
@@ -106,7 +106,7 @@ export default function Header(props) {
                     : props.type === "post" ?
                         <header>
                             <div className='logo-con'>
-                                <Link to='/st0rm'>
+                                <Link to='/home'>
                                     <BlueLogo />
                                 </Link>
                             </div>
@@ -130,7 +130,7 @@ export default function Header(props) {
                         :
                         <header>
                             <div className='logo-con'>
-                                <Link to='/st0rm'>
+                                <Link to='/home'>
                                     <BlueLogo />
                                 </Link>
                             </div>

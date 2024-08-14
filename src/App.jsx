@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, createBrowserRouter, createRout
 import API from "./utils/API.js";
 import Enter from './pages/Enter/theGate.jsx';
 import Home from './pages/Homepage/Home.jsx';
+import Blog from './pages/Blog/Blog.jsx';
 import LogIn from './pages/LogIn/index.jsx';
 import SignUp from './pages/SignUp/index.jsx';
 import Profile from './pages/Profile/Profile.jsx';
@@ -63,8 +64,22 @@ function App() {
         <Route path='/' element={<Enter />}/>
 
         {/* HOME HOME HOME HOME */}
-        <Route path="/st0rm" element={
+        <Route path="/home" element={
           <Home
+            userId={userId}
+            username={username}
+            token={token}
+            setUserId={setUserId}
+            setEmail={setEmail}
+            setUsername={setUsername}
+            setToken={setToken}
+            setPageId={setPageId}
+          />}
+        
+        />
+
+        <Route path="/blog" element={
+          <Blog
             userId={userId}
             username={username}
             token={token}
