@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import dayjs from 'dayjs';
 import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import Loading from '../../components/Loading/Loading';
 import thumbup from '../../assets/wizbiz/thumbup.gif'
 import thumbdown from '../../assets/wizbiz/thumbdown.gif'
@@ -12,7 +11,6 @@ import API from "../../utils/API";
 export default function UserPage(props) {
 
     const [newPage, setNewPage] = useState({});
-    console.log("UserPage:", newPage);
     const [username, setUsername] = useState("");
     const [postDate, setPostDate] = useState([{}]);
     const date = dayjs(postDate).format('M/D/YYYY h:mm a');
@@ -74,12 +72,13 @@ export default function UserPage(props) {
                 setToken={props.setToken}
             />
 
-                <div className="post-con">
-            {newPage === {} ?
+            {!username ?
 
                 <Loading />
 
                 :
+                <div className="post-con">
+
                     <main className='page-main'>
                         <div className='title-div'>
                             <h1 className='page-title'>{newPage.title}</h1>
@@ -92,7 +91,7 @@ export default function UserPage(props) {
                             <p className='dayjs'>{date}</p>
                         </div>
                     </main>
-                }
+                    
                     <div className="like-con">
                         <h3>{newPage.likes}</h3>
                         <button><img src={thumbup} alt="Like" /></button>
@@ -121,6 +120,7 @@ export default function UserPage(props) {
                         </form>
                     </div>
                 </div>
+            }
         </>
     )
 }

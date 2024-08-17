@@ -64,7 +64,7 @@ export default function Home(props) {
                     <Loading />
                     :
 
-                    <section className="fp-container">
+                    <section className="fp-container" id="fp-con-grid">
                         <div>
                             <button onClick={handleList}>List</button>
                             <button onClick={handleGrid}>Grid</button>

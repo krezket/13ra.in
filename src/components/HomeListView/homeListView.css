@@ -1,9 +1,9 @@
 .fp-table {
     border: 1px dashed black;
     border-radius: 1px;
-    padding: 20px;
+    padding: 10px;
     text-align: start;
-    width: 100%;
+    width: 80%;
 }
 .fp-title {
     text-align: start;
@@ -19,14 +19,9 @@
     border-bottom: 1px dashed red;
     /* border: 1px solid darkred; */
  }
-
- /* @media only screen
-and (min-width : 0px)
-and (max-width : 684px) {
-  .dragon {
-    width: 100px;
+#fp-link {
+    color: black;
 }
-} */
 @media only screen
 and (min-width : 0px)
 and (max-width : 684px) {
