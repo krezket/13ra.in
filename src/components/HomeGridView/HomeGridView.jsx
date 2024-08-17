@@ -7,20 +7,13 @@ export default function HomeGridView(props) {
     const allPages = props
 
     return (
-        <div className='fp-section'>
+        <div className='fp-grid'>
             {allPages.data.map(({ id, title, users, createdAt }) => (
-                <Link id='fp-link' key={title} onClick={() => props.setPageId(allPages)} to={"/" + users.username + "/" + id}>
-                    <div className='card' key={title}>
-                        <h1>
-                            {title}
-                        </h1>
-                        <div>
-                            {users.username}
-                        </div>
-                        <div>
-                            <p>{dayjs(createdAt).format('M/D/YYYY')}</p>
-                        </div>
-                    </div>
+
+                <Link className='fp-grid-link' key={title} onClick={() => props.setPageId(allPages)} to={"/" + users.username + "/" + id}>
+                    <h1>{title}</h1>
+                    <p>{users.username}</p>
+                    <p>{dayjs(createdAt).format('M/D/YYYY')}</p>
                 </Link>
             ))
             }
