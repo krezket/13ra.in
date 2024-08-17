@@ -65,11 +65,13 @@ export default function Home(props) {
                 setToken={props.setToken}
             />
 
-            <main className="main">
+            <main className="main-blog">
 
                 {!allPages ?
-
-                    <img src={random} alt='loading'></img>
+                    <div className='loading'>
+                        <h1>LOADING...</h1>
+                        <img src={random} alt='loading'></img>
+                    </div>
                     :
 
                     <section className="fp-container">

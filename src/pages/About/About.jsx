@@ -6,7 +6,7 @@ import './style.css'
 
 export default function About() {
   return (
-    <main>
+    <main className='main-about'>
       <Header></Header>
       <nav className='empty-nav'></nav>
 

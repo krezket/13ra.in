@@ -20,37 +20,45 @@ export default function Home(props) {
 
             <main className="main">
                 <Link to="/blog" className="grid-item">
-                    <img src={Book} alt='Blog'/>
+                    <img className="icon" src={Book} alt='Blog'/>
                     <p>Blog</p>
                 </Link>
 
                 <Link to="https://krezket.net" className="grid-item">
-                    <img src={Portfolio} alt='Portfolio'/>
+                    <img className="icon" src={Portfolio} alt='Portfolio'/>
                     <p>Portfolio</p>
                 </Link>
 
                 <Link to="" className="grid-item">
+                    <p>Coming soon...</p>
                 </Link>
 
                 <Link to="" className="grid-item">
+                    <p>Coming soon...</p>
                 </Link>
 
                 <Link to="" className="grid-item">
+                    <p>Coming soon...</p>
                 </Link>
 
                 <Link to="" className="grid-item">
+                    <p>Coming soon...</p>
                 </Link>
 
                 <Link to="" className="grid-item">
+                    <p>Coming soon...</p>
                 </Link>
 
                 <Link to="" className="grid-item">
+                    <p>Coming soon...</p>
                 </Link>
 
                 <Link to="" className="grid-item">
+                    <p>Coming soon...</p>
                 </Link>
 
                 <Link to="" className="grid-item">
+                    <p>Coming soon...</p>
                 </Link>
 
             </main>
