@@ -29,8 +29,8 @@ export default function Home(props) {
                     <p>Portfolio</p>
                 </Link>
 
-                <Link to="" className="grid-item">
-                    <p>Coming soon...</p>
+                <Link to="https://krezket.github.io/crazy-cat-weather/" className="grid-item">
+                    <p>Crazy Cat Weather</p>
                 </Link>
 
                 <Link to="" className="grid-item">

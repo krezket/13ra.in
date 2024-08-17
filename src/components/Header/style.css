@@ -47,6 +47,7 @@ and (max-width : 1024px) {
         width: 300px;
     }
     nav {
+        gap: 2rem;
         width: 50%;
     }
 }
