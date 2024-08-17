@@ -3,15 +3,10 @@ import Header from "../../components/Header";
 import Footer from '../../components/Footer/';
 import HomeListView from '../../components/HomeListView/HomeListView';
 import HomeGridView from '../../components/HomeGridView/HomeGridView';
+import Loading from '../../components/Loading/Loading';
 import './Blog.css';
 
 import API from "../../utils/API";
-import loading from '../../assets/wizbiz/reaplf.gif'
-import loading1 from '../../assets/wizbiz/baraduur.gif'
-import loading2 from '../../assets/wizbiz/death-demon.gif'
-import loading3 from '../../assets/wizbiz/plasmaball.gif'
-import loading4 from '../../assets/red/redlightbar.gif'
-import loading5 from '../../assets/red/fly-red.gif'
 
 export default function Home(props) {
     // CONSOLE LOG //
@@ -25,8 +20,6 @@ export default function Home(props) {
     const [list, setList] = useState("")
     const [grid, setGrid] = useState("")
 
-    let loadingArray = [loading, loading1, loading2, loading3, loading4, loading5]
-    const random = loadingArray[Math.floor(Math.random() * loadingArray.length)]
 
 // DISPLAY ALL PAGES
     useEffect(() => {
@@ -68,10 +61,7 @@ export default function Home(props) {
             <main className="main-blog">
 
                 {!allPages ?
-                    <div className='loading'>
-                        <h1>LOADING...</h1>
-                        <img src={random} alt='loading'></img>
-                    </div>
+                    <Loading />
                     :
 
                     <section className="fp-container">

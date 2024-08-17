@@ -24,11 +24,6 @@ export default function Home(props) {
                     <p>Blog</p>
                 </Link>
 
-                <Link to="https://krezket.net" className="grid-item">
-                    <img className="icon" src={Portfolio} alt='Portfolio'/>
-                    <p>Portfolio</p>
-                </Link>
-
                 <Link to="https://krezket.github.io/crazy-cat-weather/" className="grid-item">
                     <p>Crazy Cat Weather</p>
                 </Link>
@@ -59,6 +54,11 @@ export default function Home(props) {
 
                 <Link to="" className="grid-item">
                     <p>Coming soon...</p>
+                </Link>
+
+                <Link to="https://krezket.net" className="grid-item">
+                    <img className="icon" src={Portfolio} alt='Portfolio'/>
+                    <p>Portfolio</p>
                 </Link>
 
             </main>

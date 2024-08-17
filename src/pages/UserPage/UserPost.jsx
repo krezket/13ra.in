@@ -3,27 +3,28 @@ import { Link } from 'react-router-dom'
 import dayjs from 'dayjs';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Loading from '../../components/Loading/Loading';
 import thumbup from '../../assets/wizbiz/thumbup.gif'
 import thumbdown from '../../assets/wizbiz/thumbdown.gif'
 import './style.css'
 import API from "../../utils/API";
 
 export default function UserPage(props) {
-    console.log("UserPage Props:", props);
 
-    const [newPage, setNewPage] = useState({})
-    const [username, setUsername] = useState("")
-    const [postDate, setPostDate] = useState([{}])
-    const date = dayjs(postDate).format('M/D/YYYY h:mm a')
-    const [commentData, setCommentData] = useState([{}])
+    const [newPage, setNewPage] = useState({});
+    console.log("UserPage:", newPage);
+    const [username, setUsername] = useState("");
+    const [postDate, setPostDate] = useState([{}]);
+    const date = dayjs(postDate).format('M/D/YYYY h:mm a');
+    const [commentData, setCommentData] = useState([{}]);
 
     const pathArr = window.location.pathname.split('/');
-    let path = pathArr[2].split('/').pop()
+    let path = pathArr[2].split('/').pop();
 
-    const [text, setText] = useState("")
+    const [text, setText] = useState("");
     const handleChange = e => {
         if (e.target.name === "text") {
-            setText(e.target.value)
+            setText(e.target.value);
         }
     }
 
@@ -51,13 +52,13 @@ export default function UserPage(props) {
                 owner_id: props.userId,
                 page_id: path
             })
-                .then((data) => {
-                    console.log("Comment:", data)
-                })
-                .catch((err) => {
-                    console.log("oh noes");
-                    console.log(err);
-                });
+            .then((data) => {
+                console.log("Comment:", data)
+            })
+            .catch((err) => {
+                console.log("oh noes");
+                console.log(err);
+            });
         window.location.reload(false)
     }
 
@@ -73,49 +74,53 @@ export default function UserPage(props) {
                 setToken={props.setToken}
             />
 
-            <div className="post-con">
+                <div className="post-con">
+            {newPage === {} ?
 
-                <main className='page-main'>
-                    <div className='title-div'>
-                        <h1 className='page-title'>{newPage.title}</h1>
-                        <h3 className='page-username'>
-                            <Link to={"/" + username} id='user-link'>{username}</Link>
-                        </h3>
+                <Loading />
+
+                :
+                    <main className='page-main'>
+                        <div className='title-div'>
+                            <h1 className='page-title'>{newPage.title}</h1>
+                            <h3 className='page-username'>
+                                <Link to={"/" + username} id='user-link'>{username}</Link>
+                            </h3>
+                        </div>
+                        <p className='page-text'>{newPage.text}</p>
+                        <div className='date-div'>
+                            <p className='dayjs'>{date}</p>
+                        </div>
+                    </main>
+                }
+                    <div className="like-con">
+                        <h3>{newPage.likes}</h3>
+                        <button><img src={thumbup} alt="Like" /></button>
+                        <h3>{newPage.dislikes}</h3>
+                        <button><img src={thumbdown} alt="Dislike" /></button>
                     </div>
-                    <p className='page-text'>{newPage.text}</p>
-                    <div className='date-div'>
-                        <p className='dayjs'>{date}</p>
+
+                    <div className='comment-div'>
+                        <h2>Comments</h2>
+                        {commentData == '' ?
+                            <p>No Comments Yet</p>
+                            :
+                            commentData.map(({ id, text, users, createdAt }) => (
+                                <div key={id}>
+                                    <Link to={users && '/' + users.username}>
+                                        <h3 className='page-username'>{users && users.username}</h3>
+                                    </Link>
+                                    <p>{text}</p>
+                                    <p>{dayjs(createdAt).format('M/D/YYYY h:mm a')}</p>
+                                </div>
+                            ))
+                        }
+                        <form onSubmit={submitHandler}>
+                            <textarea cols="50" name='text' placeholder='Add a comment' value={text} onChange={handleChange}></textarea>
+                            <button>Comment</button>
+                        </form>
                     </div>
-                </main>
-
-                <div className="like-con">
-                    <h3>{newPage.likes}</h3>
-                    <button><img src={thumbup} alt="Like" /></button>
-                    <h3>{newPage.dislikes}</h3>
-                    <button><img src={thumbdown} alt="Dislike" /></button>
                 </div>
-
-                <div className='comment-div'>
-                    <h2>Comments</h2>
-                    {commentData == '' ?
-                        <p>No Comments Yet</p>
-                        :
-                        commentData.map(({ id, text, users, createdAt }) => (
-                            <div key={id}>
-                                <Link to={users && '/' + users.username}>
-                                    <h3 className='page-username'>{users && users.username}</h3>
-                                </Link>
-                                <p>{text}</p>
-                                <p>{dayjs(createdAt).format('M/D/YYYY h:mm a')}</p>
-                            </div>
-                        ))
-                    }
-                    <form onSubmit={submitHandler}>
-                        <textarea cols="50" name='text' placeholder='Add a comment' value={text} onChange={handleChange}></textarea>
-                        <button>Comment</button>
-                    </form>
-                </div>
-            </div>
         </>
     )
 }

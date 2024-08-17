@@ -1,16 +1,19 @@
-
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.fp-grid {
+    display: grid;
+    grid-template-columns:20% 20% 20% 20%; 
+    gap: 10px;
+    justify-content: center;
+    aign-items: center;
+}
+.fp-grid-link {
+    color: var(--text-white);
+    text-decoration: none;
     align-items: center;
     border-radius: 20px;
     border: 1px solid red;
-    padding: 7rem 2rem 7rem 2rem;
-    height: 110px;
-    margin: 10px 5px 10px 5px;
 }
 
-.card:hover {
+.fp-grid-link:hover {
     box-shadow: 0 0 7px 2px rgb(75, 1, 1);
+    text-decoration: line;
 }
