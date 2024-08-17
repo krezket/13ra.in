@@ -1,0 +1,35 @@
+.main {
+    /* border: 1px solid red; */
+    display: flex;
+    margin: 0 77px 0 77px;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+}
+
+@media only screen
+and (min-width : 0px)
+and (max-width : 1024px) {
+  .main {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+}
+
+.fp-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.fp-section {
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  width: 70%;
+}
+
+#fp-link {
+  color: var(--text-white);
+  text-decoration: none;
+}
+

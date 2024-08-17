@@ -7,48 +7,47 @@ import API from '../../utils/API';
 
 export default function OtherProfile(props) {
   // console.log("Other Profile:", props);
-  
+
   const currentUserID = sessionStorage.getItem("userId");
   // console.log(currentUserID);
-  
+
   const [user, setUser] = useState("");
-4  
 
-const [currentUserFollowing, setCurrentUserFollowing] = useState([]);
-console.log("who are his follwers?",currentUserFollowing)
-// console.log(Array.isArray(currentUserFollowing))
+  const [currentUserFollowing, setCurrentUserFollowing] = useState([]);
+  console.log("who are his follwers?", currentUserFollowing)
+  // console.log(Array.isArray(currentUserFollowing))
 
-const pathArr = window.location.pathname.split('/');
-let path = pathArr[1].split('/').pop();
+  const pathArr = window.location.pathname.split('/');
+  let path = pathArr[1].split('/').pop();
 
-const [following, setFollowing] = useState(null);
+  const [following, setFollowing] = useState(null);
 
-// GET PROFILE BY USERNAME
+  // GET PROFILE BY USERNAME
   useEffect(() => {
     if (!currentUserID) {
       API.getProfileByName(path)
-      .then((data) => {
-        setUser(data)
-      })
-      .catch((err) => {
-        console.log("oh noes");
-        console.log(err);
-      });
+        .then((data) => {
+          setUser(data)
+        })
+        .catch((err) => {
+          console.log("oh noes");
+          console.log(err);
+        });
     }
     else {
       API.getProfileByName(path)
-      .then((data) => {
-        setUser(data)
-        setCurrentUserFollowing(data.followers)
-      })
-      .catch((err) => {
-        console.log("oh noes");
-        console.log(err);
-      });
+        .then((data) => {
+          setUser(data)
+          setCurrentUserFollowing(data.followers)
+        })
+        .catch((err) => {
+          console.log("oh noes");
+          console.log(err);
+        });
     }
   }, [currentUserID, path]);
 
-// FOLLOW
+  // FOLLOW
   const handleFollow = e => {
     e.preventDefault()
     if (user.id && props.userId === null) {
@@ -58,37 +57,37 @@ const [following, setFollowing] = useState(null);
       API.addFollow({
         id: props.userId,
         follow_id: user.id,
-        
+
       }).then((data) => {
         console.log(data)
         window.location.reload(false);
-        
+
       }).catch(err => {
         console.log(err)
         alert(err)
       })
     )
-    
+
   }
-  
+
   // UNFOLLOW
   const handleUnfollow = e => {
     e.preventDefault()
-    
+
     API.removeFollow({
       id: props.userId,
       follow_id: user.id,
-      
+
     }).then((data) => {
       console.log(data)
       window.location.reload(false);
-      
+
     }).catch(err => {
       console.log(err)
       alert(err)
     })
   }
-  
+
   // CHECK IF FOLLOWING
   useEffect(() => {
     const foundUser = currentUserFollowing.find(obj => obj.id == currentUserID)
@@ -101,7 +100,7 @@ const [following, setFollowing] = useState(null);
       console.log('Object not found');
     }
   }, [currentUserFollowing, user.id])
-  
+
   return (
     <>
       <Header
@@ -135,19 +134,21 @@ const [following, setFollowing] = useState(null);
               }
 
               {!user.pages ?
+              <>
                 <h3 className='profile-pages'>No Posts</h3>
+              </>
                 :
                 <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
               }
-              {currentUserID == user.id 
+              {currentUserID == user.id
                 ?
                 <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
                 :
-              following === false
-                ?
-                <button onClick={handleFollow}>Follow</button>
-                :
-                <button onClick={handleUnfollow}>Unfollow</button>
+                following === false
+                  ?
+                  <button onClick={handleFollow}>Follow</button>
+                  :
+                  <button onClick={handleUnfollow}>Unfollow</button>
               }
             </div>
 

@@ -14,10 +14,6 @@ export default function Header() {
         </p>
 
         <p className='footer-p'>
-          <a className='link-footer' id='footer-sc' href='https://soundcloud.com/krezket' target="_blank" rel="noreferrer">SoundCloud</a>
-        </p>
-
-        <p className='footer-p'>
           <a className='link-footer' id='footer-yt' href='https://youtube.com/@krezket' target="_blank" rel="noreferrer">YouTube</a>
         </p>
 
