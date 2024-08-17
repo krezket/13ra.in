@@ -14,8 +14,6 @@
 }
 .pr-main {
     border: 1px dashed black;
-    border-radius: 20px;
-    display: flex;
     flex-direction: row;
     align-items: center;
     margin: 0 77px 0 77px;
@@ -28,7 +26,6 @@
 
 .h1-ar {
     border: 1px solid red;
-    border-radius: 20px;
     display: flex;
     height: 60vh;
     width: 100%;
