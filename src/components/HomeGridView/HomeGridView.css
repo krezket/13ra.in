@@ -1,10 +1,9 @@
 .fp-grid {
     display: grid;
     grid-template-columns:20% 20% 20% 20%; 
-    justify-content: center;
-    aign-items: center;
     margin-top: 20px;
     gap: 10px;
+    width: 100%;
 }
 .fp-grid-link {
     color: var(--text-white);
