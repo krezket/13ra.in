@@ -50,7 +50,7 @@ function LogIn(props) {
       <main className='main-form-li'>
         <section>
           <h1>Log In</h1>
-          <form onSubmit={submitHandler}>
+          <form className='login-form' onSubmit={submitHandler}>
             <input id='si-user' name='username' placeholder='username' value={username} onChange={handleChange}></input>
             <input id='si-pass' name='password' type='password' placeholder='password' value={password} onChange={handleChange}></input>
             <button id='si-submit'>Log In</button>

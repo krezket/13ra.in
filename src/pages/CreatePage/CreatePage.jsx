@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+    // console.log("home props:", props)
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { useNavigate } from 'react-router-dom';
@@ -55,7 +56,7 @@ function CreatePage(props) {
 
           <h1 className='cp-title'>Create a Page</h1>
 
-          <form onSubmit={submitHandler}>
+          <form className='create-page-form' onSubmit={submitHandler}>
             <input className='title-input' name='title' placeholder='Title' value={title} onChange={handleChange}></input>
             <textarea className='text-area' rows="10" cols="70" name='text' placeholder='Enter Text Here' value={text} onChange={handleChange}></textarea>
             <button className='submit-btn'>Submit</button>

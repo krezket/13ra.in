@@ -9,8 +9,6 @@ import './Blog.css';
 import API from "../../utils/API";
 
 export default function Home(props) {
-    // CONSOLE LOG //
-    // console.log("home props:", props)
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
