@@ -15,3 +15,34 @@ main {
   --text-darkred: darkred;
   --text-white: black;
 }
+@media (prefers-color-scheme: dark) {
+    header, footer, main {
+        background-color: #121212;
+    }
+    nav, .grid-item {
+        border: 1px dashed white;
+    }
+    nav a {
+        color: white;
+    }
+    h1, h2 p, a {
+        color: white;
+    }
+    svg g path {
+        fill: white;
+    }
+    svg g path:hover {
+        fill: black; 
+    }
+    .yo, .ma {
+        fill: black;
+        /* text-shadow: 0px -1px 4px black; */
+        /* background-image: url("../../assets/lightning/storm.gif"); */
+    } 
+    section {
+        background-color: #121212;
+    }
+    .glass-nav a {
+        color: white;
+    }
+}

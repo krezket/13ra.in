@@ -33,25 +33,4 @@ and (max-width : 1024px) {
         grid-template-columns: 45%;
     }
 }
-/* @media (prefers-color-scheme: dark) { */
-/*     header { */
-/*         background-color: #121212; */
-/*         background-image: url('./src/assets/backgrounds/back-2.jpeg'); */
-/*     } */
-/*     footer { */
-/*         background-color: #121212; */
-/*     } */
-/*     h1, h2 { */
-/*         color: white; */
-/*     } */
-/*     p { */
-/*         color: white; */
-/*     } */
-/*     section { */
-/*         background-color: #121212; */
-/*     } */
-/*     .glass-nav a { */
-/*         color: white; */
-/*     } */
-/* } */
 

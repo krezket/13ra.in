@@ -9,7 +9,6 @@ export default function Weather() {
         }
     }
     const handleSubmit = () => {
-    :q
 
     }
     useEffect(() => {
