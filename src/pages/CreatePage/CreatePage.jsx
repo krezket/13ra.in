@@ -41,32 +41,33 @@ function CreatePage(props) {
     })
   }
 
-  return (
-    <>
-      <Header
-        userId={props.userId}
-        username={props.username}
-        setUserId={props.setUserId}
-        setEmail={props.setEmail}
-        setUsername={props.setUsername}
-        setToken={props.setToken} 
-      />
-      <main className='main-herald'>
-        <section className='cp-section'>
+    return (
+        <>
+            <Header
+                userId={props.userId}
+                username={props.username}
+                setUserId={props.setUserId}
+                setEmail={props.setEmail}
+                setUsername={props.setUsername}
+                setToken={props.setToken} 
+            />
 
-          <h1 className='cp-title'>Create a Page</h1>
+            <main className='main-herald'>
+                <section className='cp-section'>
 
-          <form className='create-page-form' onSubmit={submitHandler}>
-            <input className='title-input' name='title' placeholder='Title' value={title} onChange={handleChange}></input>
-            <textarea className='text-area' rows="10" cols="70" name='text' placeholder='Enter Text Here' value={text} onChange={handleChange}></textarea>
-            <button className='submit-btn'>Submit</button>
-          </form>
-          
-        </section>
-      </main>
-      <Footer />
-    </>
-  )
+                    <h1 className='cp-title'>Create a Page</h1>
+
+                    <form className='cp-form' onSubmit={submitHandler}>
+                        <input className='title-input' name='title' placeholder='Enter a title...' value={title} onChange={handleChange}></input>
+                        <textarea className='text-area' rows="10" cols="70" name='text' placeholder='Enter text here' value={text} onChange={handleChange}></textarea>
+                        <button className='submit-btn'>Submit</button>
+                    </form>
+
+                </section>
+            </main>
+            <Footer />
+        </>
+    )
 }
 
 export default CreatePage

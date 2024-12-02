@@ -1,6 +1,6 @@
 .main-herald {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     background: var(--bg-primary);
 }
 
@@ -12,6 +12,11 @@
 
 .cp-title {
     color: var(--text-white);
+}
+
+.cp-form {
+    display: flex;
+    flex-direction: column;
 }
 
 .title-input {

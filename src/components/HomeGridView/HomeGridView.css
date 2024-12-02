@@ -2,18 +2,19 @@
     display: grid;
     grid-template-columns:20% 20% 20% 20%; 
     margin-top: 20px;
-    gap: 10px;
+    gap: 1%;
     width: 100%;
 }
 .fp-grid-link {
     color: var(--text-white);
     text-decoration: none;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 5px;
     border: 1px solid red;
 }
 
 .fp-grid-link:hover {
     box-shadow: 0 0 7px 2px rgb(75, 1, 1);
+    border: 2px dashed red;
     text-decoration: line;
 }

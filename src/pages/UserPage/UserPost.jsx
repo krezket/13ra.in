@@ -119,6 +119,7 @@ export default function UserPage(props) {
                             <button>Comment</button>
                         </form>
                     </div>
+
                 </div>
             }
         </>
