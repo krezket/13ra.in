@@ -23,9 +23,6 @@
 .icon {
     width: 50px;
 }
-.grid-item p {
-    color: black;
-}
 @media only screen
 and (min-width : 0px)
 and (max-width : 1024px) {
