@@ -2,7 +2,11 @@
     /* border: 1px solid red; */
     /* display: grid; */
     display: grid;
-    grid-template-columns:20% 20% 20% 20%; 
+    /* each value is one column */
+    /* grid-template-columns: 20% 20% 20% 20%;  */
+
+    grid-auto-flow: column;
+    grid-template-rows: 20% 20%;  
     justify-content: center;
     align-items: center;
     text-align: center;

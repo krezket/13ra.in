@@ -13,10 +13,13 @@ main {
 :root {
   --text-red: red;
   --text-darkred: darkred;
-  --text-white: black;
+  /* --text-white: black; */
 }
 @media (prefers-color-scheme: dark) {
-    body, header, section, div, footer, main {
+    header, footer, .logo-con, .footerbar {
+        background-color: black;
+    }
+    body, section, div, main {
         background-color: #121212;
     }
     nav, .grid-item {
@@ -25,7 +28,7 @@ main {
     nav a {
         color: white;
     }
-    h1, h2, p, a {
+    h1, h2, p, a, td, .footer-p {
         color: white;
     }
     svg g path {

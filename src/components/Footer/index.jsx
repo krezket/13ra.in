@@ -6,8 +6,6 @@ import './style.css';
 export default function Header() {
   return (
     <footer className='footer'>
-      <h1 className='outro'>&copy;2024</h1>
-
       <div className='footerbar'>
         <p className='footer-p'>
           <a className='link-footer' id='footer-ig' href='https://www.instagram.com/krezket/' target="_blank" rel="noreferrer">Instagram</a>
@@ -20,6 +18,7 @@ export default function Header() {
         <p className='footer-p'>
           <Link className='link-footer' to={'/about'}>About</Link>
         </p>
+                <h1 className='outro'>&copy;2024</h1>
       </div>
     </footer>
   );
