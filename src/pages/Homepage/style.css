@@ -6,7 +6,11 @@
     /* grid-template-columns: 20% 20% 20% 20%;  */
 
     grid-auto-flow: column;
-    grid-template-rows: 20% 20%;  
+    grid-template-rows: 50%;  
+
+    /* grid-template-areas: "a b"; */
+    /* grid-auto-columns: 100px 100px; */
+
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -27,11 +31,11 @@
 .icon {
     width: 50px;
 }
-@media only screen
-and (min-width : 0px)
-and (max-width : 1024px) {
-    .main {
-        grid-template-columns: 45%;
-    }
-}
+/* @media only screen */
+/* and (min-width : 0px) */
+/* and (max-width : 1024px) { */
+/*     .main { */
+/*         grid-template-columns: 45%; */
+/*     } */
+/* } */
 
