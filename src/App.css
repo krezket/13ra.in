@@ -16,10 +16,10 @@ main {
   /* --text-white: black; */
 }
 @media (prefers-color-scheme: dark) {
-    header, footer, .logo-con, .footerbar {
+    body, header, footer, .logo-con, .footerbar {
         background-color: black;
     }
-    body, section, div, main {
+    section, div, main {
         background-color: #121212;
     }
     nav, .grid-item {

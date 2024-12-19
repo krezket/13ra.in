@@ -1,6 +1,5 @@
 .main {
     /* border: 1px solid red; */
-    /* display: grid; */
     display: grid;
     /* each value is one column */
     /* grid-template-columns: 20% 20% 20% 20%;  */
@@ -11,6 +10,7 @@
     /* grid-template-areas: "a b"; */
     /* grid-auto-columns: 100px 100px; */
 
+    margin-top: 150px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -25,6 +25,7 @@
     border: 1px dashed black;
     height: 100%;
     &:hover {
+        width: 200px;
         color: red;
     }
 }

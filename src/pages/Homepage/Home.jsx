@@ -20,44 +20,64 @@ export default function Home(props) {
 
             <main className="main">
                 <Link to="/blog" className="grid-item">
-                    <img className="icon" src={Book} alt='Blog'/>
-                    <p>Blog</p>
+                    <div class="hover">
+                        <img className="icon" src={Book} alt='Blog'/>
+                        <p>Blog</p>
+                    </div>
                 </Link>
 
                 <Link to="https://krezket.github.io/crazy-cat-weather/" className="grid-item">
-                    <p>Crazy Cat Weather</p>
+                    <div class="hover">
+                        <p>Crazy Cat Weather</p>
+                    </div>
                 </Link>
 
                 <Link to="" className="grid-item">
-                    <p>Coming soon...</p>
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
                 </Link>
 
                 <Link to="" className="grid-item">
-                    <p>Coming soon...</p>
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
                 </Link>
 
                 <Link to="" className="grid-item">
-                    <p>Coming soon...</p>
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
                 </Link>
 
                 <Link to="" className="grid-item">
-                    <p>Coming soon...</p>
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
                 </Link>
 
                 <Link to="" className="grid-item">
-                    <p>Coming soon...</p>
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
                 </Link>
 
                 <Link to="" className="grid-item">
-                    <p>Coming soon...</p>
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
                 </Link>
 
                 <Link to="" className="grid-item">
-                    <p>Coming soon...</p>
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
                 </Link>
 
                 <Link to="https://krezket.net" className="grid-item">
-                    <img className="icon" src={Portfolio} alt='Portfolio'/>
+                    <div class="hover">
+                        <img className="icon" src={Portfolio} alt='Portfolio'/>
+                    </div>
                     <p>Portfolio</p>
                 </Link>
 
