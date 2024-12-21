@@ -15,7 +15,6 @@
     align-items: center;
     text-align: center;
     height: 100vh;
-    gap: 5px 5px;
 }
 .grid-item {
     display: flex;
@@ -24,6 +23,7 @@
     justify-content: center;
     border: 1px dashed black;
     height: 100%;
+    margin: 5px 5px;
     &:hover {
         width: 200px;
         color: red;
