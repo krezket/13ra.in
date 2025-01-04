@@ -76,9 +76,9 @@ export default function Home(props) {
 
                 <Link to="https://krezket.net" className="grid-item">
                     <div class="hover">
+                        <p>Portfolio</p>
                         <img className="icon" src={Portfolio} alt='Portfolio'/>
                     </div>
-                    <p>Portfolio</p>
                 </Link>
 
             </main>

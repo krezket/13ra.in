@@ -24,9 +24,15 @@
     justify-content: center;
     border: 1px dashed black;
     height: 100%;
-    &:hover {
-        width: 200px;
-        color: red;
+}
+.hover {
+    opacity: 0;
+}
+.grid-item:hover {
+    width: 200px;
+    color: red;
+    .hover {
+        opacity: 1;
     }
 }
 .icon {
