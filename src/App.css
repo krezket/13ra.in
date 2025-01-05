@@ -28,9 +28,23 @@ main {
     nav a {
         color: white;
     }
-    h1, h2, p, a, td, .footer-p {
+    .page-main, .comment-div {
+        border-color: white;
+    }
+
+    h1, 
+    h2, 
+    p, 
+    a, 
+    td, 
+    .footer-p, 
+    .page-title, 
+    .page-text,
+    .profile-username,
+    .profile-pages {
         color: white;
     }
+
     svg g path {
         fill: white;
     }

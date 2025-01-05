@@ -8,7 +8,7 @@ import './style.css';
 
 export default function Home(props) {
     return (
-        <>
+        <div className='homepage-container'>
             <Header
                 userId={props.userId}
                 username={props.username}
@@ -26,51 +26,53 @@ export default function Home(props) {
                     </div>
                 </Link>
 
+                <Link to="" className="grid-item">
+                    <div class="hover">
+                        <p>KrezTek</p>
+                        <p>Coming soon...</p>
+                    </div>
+                </Link>
+
+                <Link to="" className="grid-item">
+                    <div class="hover">
+                        <p>KrezKash</p>
+                        <p>Coming soon...</p>
+                    </div>
+                </Link>
+
+                <Link to="" className="grid-item">
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
+                </Link>
+
+                <Link to="" className="grid-item">
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
+                </Link>
+
+                <Link to="" className="grid-item">
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
+                </Link>
+
+                <Link to="" className="grid-item">
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
+                </Link>
+
+                <Link to="" className="grid-item">
+                    <div class="hover">
+                        <p>Coming soon...</p>
+                    </div>
+                </Link>
+
                 <Link to="https://krezket.github.io/crazy-cat-weather/" className="grid-item">
                     <div class="hover">
                         <p>Crazy Cat Weather</p>
-                    </div>
-                </Link>
-
-                <Link to="" className="grid-item">
-                    <div class="hover">
-                        <p>Coming soon...</p>
-                    </div>
-                </Link>
-
-                <Link to="" className="grid-item">
-                    <div class="hover">
-                        <p>Coming soon...</p>
-                    </div>
-                </Link>
-
-                <Link to="" className="grid-item">
-                    <div class="hover">
-                        <p>Coming soon...</p>
-                    </div>
-                </Link>
-
-                <Link to="" className="grid-item">
-                    <div class="hover">
-                        <p>Coming soon...</p>
-                    </div>
-                </Link>
-
-                <Link to="" className="grid-item">
-                    <div class="hover">
-                        <p>Coming soon...</p>
-                    </div>
-                </Link>
-
-                <Link to="" className="grid-item">
-                    <div class="hover">
-                        <p>Coming soon...</p>
-                    </div>
-                </Link>
-
-                <Link to="" className="grid-item">
-                    <div class="hover">
-                        <p>Coming soon...</p>
                     </div>
                 </Link>
 
@@ -84,6 +86,6 @@ export default function Home(props) {
             </main>
 
             <Footer />
-        </>
+        </div>
     );
 };
