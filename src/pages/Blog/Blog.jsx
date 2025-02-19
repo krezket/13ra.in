@@ -45,6 +45,7 @@ export default function Home(props) {
     }
 
     const formatValueLs = localStorage.getItem('1')
+    
     return (
         <>
             <Header

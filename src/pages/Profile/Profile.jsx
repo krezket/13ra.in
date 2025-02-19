@@ -1,54 +1,86 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import loading from '../../assets/banana.gif'
 import API from '../../utils/API';
-import loading from '../../assets/wizbiz/plasmaball.gif'
-import trash1 from '../../assets/trash/trash-1-_dragged_.png'
-import trash4 from '../../assets/trash/trash-4-_dragged_.svg'
-import './style.css'
+import "./Profile.css"
 
-function Profile(props) {
-  console.log("PROFILE PROPS:", props)
-  // const [username, setUsername] = useState("");
-  const ID = sessionStorage.getItem("userId");
-  const [ownerId, setOwnerId] = useState("")
-  const [bio, setBio] = useState("");
-  const [user, setUser] = useState("")
-  const navigate = useNavigate();
+export default function Profile(props) {
+  // console.log("Other Profile:", props);
 
+  const currentUserID = sessionStorage.getItem("userId");
+  // console.log(currentUserID);
+
+  const [user, setUser] = useState("");
+
+  const [currentUserFollowing, setCurrentUserFollowing] = useState([]);
+  console.log("who are his follwers?", currentUserFollowing)
+  // console.log(Array.isArray(currentUserFollowing))
+
+  const pathArr = window.location.pathname.split('/');
+  let path = pathArr[1].split('/').pop();
+
+  const [following, setFollowing] = useState(null);
+
+  // GET PROFILE BY USERNAME
   useEffect(() => {
-    API.getProfile(ID)
-      .then((data) => {
-        console.log("Get User:", data)
-        setUser(data)
-      })
-      .catch((err) => {
-        console.log("oh noes");
-        console.log(err);
-      });
-  }, [ID]);
-
-  const handleChange = e => {
-    setOwnerId(ID)
-    if (e.target.name === "bio") {
-      setBio(e.target.value)
+    if (!currentUserID) {
+      API.getProfileByName(path)
+        .then((data) => {
+          setUser(data)
+        })
+        .catch((err) => {
+          console.log("oh noes");
+          console.log(err);
+        });
     }
-    // else if (e.target.name === "username") {
-    //   setUsername(e.target.value)
-    // }
+    else {
+      API.getProfileByName(path)
+        .then((data) => {
+          setUser(data)
+          setCurrentUserFollowing(data.followers)
+        })
+        .catch((err) => {
+          console.log("oh noes");
+          console.log(err);
+        });
+    }
+  }, [currentUserID, path]);
+
+  // FOLLOW
+  const handleFollow = e => {
+    e.preventDefault()
+    if (user.id && props.userId === null) {
+      alert('Sign in to follow')
+    }
+    else (
+      API.addFollow({
+        id: props.userId,
+        follow_id: user.id,
+
+      }).then((data) => {
+        console.log(data)
+        window.location.reload(false);
+
+      }).catch(err => {
+        console.log(err)
+        alert(err)
+      })
+    )
+
   }
 
-  const submitHandlerUsername = e => {
+  // UNFOLLOW
+  const handleUnfollow = e => {
     e.preventDefault()
 
-    API.updateProfile({
-      id: ownerId,
-      // username:username,
-      bio: bio
-    }).then(data => {
+    API.removeFollow({
+      id: props.userId,
+      follow_id: user.id,
+
+    }).then((data) => {
       console.log(data)
-      navigate("/" + props.username);
       window.location.reload(false);
 
     }).catch(err => {
@@ -57,21 +89,18 @@ function Profile(props) {
     })
   }
 
-  const handleDelete = e => {
-    e.preventDefault()
-    console.log(e.target.name)
-
-    API.deleteUserPage(e.target.name)
-      .then(data => {
-        console.log(data)
-        window.location.reload(false);
-        navigate("/" + props.username);
-      })
-      .catch((err) => {
-        console.log("oh noes");
-        console.log(err);
-      });
-  }
+  // CHECK IF FOLLOWING
+  useEffect(() => {
+    const foundUser = currentUserFollowing.find(obj => obj.id == currentUserID)
+    console.log('Found:', foundUser);
+    if (foundUser) {
+      setFollowing(true)
+      console.log('Found object:', foundUser);
+    } else {
+      setFollowing(false)
+      console.log('Object not found');
+    }
+  }, [currentUserFollowing, user.id])
 
   return (
     <>
@@ -84,43 +113,78 @@ function Profile(props) {
         setUsername={props.setUsername}
         setToken={props.setToken}
       />
-      <div className='edit-main-con'>
+
+      <div className="main-con-profile">
         <main className='pr-main'>
           <div className='h1-ar'>
-            <form onSubmit={submitHandlerUsername}>
-              {props.bio === "" ?
+                        
+            <h1 className='profile-username'>{user.username}</h1>
+
+            <div className='usr-fri'>
+              {!user.followers && !user.following ?
                 <>
-                  <h2>Write a bio</h2>
-                  <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
+                  <h3 className='profile-pages'>Followers: 0</h3>
+                  <h3 className='profile-pages'>Following: 0</h3>
                 </>
                 :
-                <textarea className='textarea-bio' name='bio' value={bio} onChange={handleChange}></textarea>
+                <>
+                  <h3 className='profile-pages'>Followers: {user.followers.length}</h3>
+                  <h3 className='profile-pages'>Following: {user.following.length}</h3>
+                </>
               }
-              <button>Submit</button>
-            </form>
 
+              {!user.pages ?
+              <>
+                <h3 className='profile-pages'>No Posts</h3>
+              </>
+                :
+                <h3 className='profile-pages'>Total Pages: {user.pages.length}</h3>
+              }
+
+              {currentUserID == user.id ?
+                <Link id='edit-link' to={"/edit"}>Edit Profile</Link>
+                :
+                following === false
+                  ?
+                  <button onClick={handleFollow}>Follow</button>
+                  :
+                  <button onClick={handleUnfollow}>Unfollow</button>
+              }
+            </div>
+
+            <article className='profile-bio'>
+              {!user.bio ?
+                <p></p>
+                :
+                <p>{user.bio}</p>
+              }
+            </article>
             {!user ?
 
               <img src={loading} alt='loading'></img>
               :
 
-              <section className='pr-section'>
+              <section className='fp-section'>
+
                 {user.pages.map(({ id, title }) => (
-                  <div className='card' key={title}>
-                    <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>{title}</Link>
-                    <img src={trash1} alt='trash-can' name={id} onClick={handleDelete}></img>
-                  </div>
+                  <Link id='fp-link' key={title} to={"/" + user.username + "/" + id}>
+                    <div className='card' key={title}>
+                      {title}
+                    </div>
+                  </Link>
                 ))
                 }
               </section>
             }
           </div>
+
         </main>
+
       </div>
 
-      <Footer />
-    </>
-  );
-};
 
-export default Profile;
+      <Footer />
+
+    </>
+  )
+}

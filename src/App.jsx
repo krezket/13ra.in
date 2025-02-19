@@ -6,11 +6,11 @@ import Home from './pages/Homepage/Home.jsx';
 import Blog from './pages/Blog/Blog.jsx';
 import LogIn from './pages/LogIn/index.jsx';
 import SignUp from './pages/SignUp/index.jsx';
-import Profile from './pages/Profile/Profile.jsx';
+import EditProfile from './pages/EditProfile/EditProfile.jsx';
 import UserPage from './pages/UserPage/UserPost.jsx';
 import CreatePage from './pages/CreatePage/CreatePage.jsx';
 import About from './pages/About/About.jsx';
-import OtherProfile from './pages/OtherProfile/OtherProfile.jsx';
+import Profile from './pages/Profile/Profile.jsx';
 import Weather from './pages/Weather/Weather.jsx';
 import './App.css';
 
@@ -123,7 +123,7 @@ function App() {
 
         {/* PROFILE EDIT PROFILE EDIT PROFILE EDIT */}
         <Route path={"/edit"} element={
-          <Profile
+          <EditProfile
             type="edit"
             userId={userId}
             username={username}
@@ -143,9 +143,9 @@ function App() {
           path={"/:username/:pageId"}
         />
 
-        {/* OTHER PROFILE OTHER PROFILE OTHER PROFILE */}
+        {/* PROFILE PROFILE PROFILE */}
         <Route key={username} path={"/:username"} element={
-          <OtherProfile 
+          <Profile 
           type='profile'
           userId={userId}
           token={token}
