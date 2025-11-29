@@ -28,7 +28,8 @@ function LogIn(props) {
       password: password
     })
       .then(data => {
-        // console.log('login data:',data)
+    if (data && data.user) {
+        console.log('login data:',data)
         props.setUserId(data.user.id)
         props.setEmail(data.user.email)
         props.setFullName(data.user.fullName)
@@ -37,10 +38,14 @@ function LogIn(props) {
         window.sessionStorage.setItem("token", data.token)
         window.sessionStorage.setItem("userId", data.user.id);
         navigate("/home")
+} else {
+    console.error("huh")
+    alert("unable bruh")
+}
         // window.location.reload(false);
       }).catch(err => {
         console.log(err)
-        alert("Unable to Sign Up")
+        alert("Unable to log in")
       })
   }
 
