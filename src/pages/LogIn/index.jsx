@@ -21,15 +21,15 @@ function LogIn(props) {
   }
 
   const submitHandler = e => {
-    e.preventDefault()
+    e.preventDefault();
 
     API.login({
       username: username,
       password: password
     })
       .then(data => {
-    if (data && data.user) {
-        console.log('login data:',data)
+    if (data && data.token && data.user) {
+        // console.log('login data:',data)
         props.setUserId(data.user.id)
         props.setEmail(data.user.email)
         props.setFullName(data.user.fullName)

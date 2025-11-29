@@ -20,7 +20,7 @@ function Profile(props) {
   useEffect(() => {
     API.getProfile(ID)
       .then((data) => {
-        console.log("Get User:", data)
+        // console.log("Get User:", data)
         setUser(data)
       })
       .catch((err) => {
@@ -47,7 +47,7 @@ function Profile(props) {
       // username:username,
       bio: bio
     }).then(data => {
-      console.log(data)
+      // console.log("datadatadata:",data)
       navigate("/" + props.username);
       window.location.reload(false);
 
@@ -63,7 +63,7 @@ function Profile(props) {
 
     API.deleteUserPage(e.target.name)
       .then(data => {
-        console.log(data)
+        // console.log(data)
         window.location.reload(false);
         navigate("/" + props.username);
       })
